@@ -1,0 +1,1836 @@
+{
+  "source": "LowEndTalk Offers + LowEndBox",
+  "generated_at": "2026-10-15T22:08:48+00:00",
+  "count": 23,
+  "by_source": {
+    "let": 18,
+    "leb": 5
+  },
+  "deduped": 0,
+  "records": [
+    {
+      "thread_id": "222117",
+      "source": "let",
+      "provider": "NameBig",
+      "title": "MailBig Halloween Sale - Email Hosting From £3.37/yr - 25% Recurring OFF | LET Exclusive",
+      "url": "https://lowendtalk.com/discussion/222117/mailbig-halloween-sale-email-hosting-from-3-37-yr-25-recurring-off-let-exclusive",
+      "author": "NameBig",
+      "posted": "Thu, 15 Oct 2026 14:25:24 +0000",
+      "age_days": 0,
+      "age_status": "NEW",
+      "availability": "UNVERIFIED",
+      "replies": {
+        "reply_count": 22,
+        "vendor_reply_count": 7,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-15T22:04:42+00:00"
+      },
+      "event_type": "holiday",
+      "discount": {
+        "strength": "循环/永久 · double storage",
+        "percent_max": null,
+        "recurring": true,
+        "codes": [],
+        "extras": [
+          "double storage"
+        ]
+      },
+      "specs": {
+        "vcpu": null,
+        "ram_gb": null,
+        "storage_gb": 15.0,
+        "storage_type": "unspecified",
+        "bandwidth_tb": null
+      },
+      "specs_all": {
+        "vcpu": [],
+        "ram_gb": [],
+        "storage_gb": [
+          15.0
+        ]
+      },
+      "plans": [],
+      "flagship_price": null,
+      "cpu_models": [],
+      "prices": [
+        {
+          "amount": 3.37,
+          "currency": "£",
+          "cycle": "year"
+        },
+        {
+          "amount": 4.49,
+          "currency": "£",
+          "cycle": "year"
+        },
+        {
+          "amount": 4.49,
+          "currency": "$",
+          "cycle": "year"
+        },
+        {
+          "amount": 5.02,
+          "currency": "£",
+          "cycle": "year"
+        }
+      ],
+      "locations": [],
+      "stock_hints": [],
+      "confidence": 0.5,
+      "score": 60,
+      "annual_eur": 3.94
+    },
+    {
+      "thread_id": "222121",
+      "source": "let",
+      "provider": "centrixnodes.net",
+      "title": "[US] Dedicated Servers from $93.50/mo | VPS from $2.04/mo | 10Gbps | Recurring Discounts | Buffalo,",
+      "url": "https://lowendtalk.com/discussion/222121/us-dedicated-servers-from-93-50-mo-vps-from-2-04-mo-10gbps-recurring-discounts-buffalo",
+      "author": "tanek",
+      "posted": "Thu, 15 Oct 2026 17:48:16 +0000",
+      "age_days": 0,
+      "age_status": "NEW",
+      "availability": "UNVERIFIED",
+      "replies": {
+        "reply_count": 4,
+        "vendor_reply_count": 0,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-15T22:04:50+00:00"
+      },
+      "event_type": "sale",
+      "discount": {
+        "strength": "循环/永久 · 最高 20% off · 码 LOWENDTALKDEDI/LOWENDTALKVPS",
+        "percent_max": 20,
+        "recurring": true,
+        "codes": [
+          "LOWENDTALKDEDI",
+          "LOWENDTALKVPS"
+        ],
+        "extras": []
+      },
+      "specs": {
+        "vcpu": 2,
+        "ram_gb": null,
+        "storage_gb": 4096.0,
+        "storage_type": "SATA",
+        "bandwidth_tb": null
+      },
+      "specs_all": {
+        "vcpu": [
+          2,
+          1
+        ],
+        "ram_gb": [],
+        "storage_gb": [
+          4096.0,
+          4096.0,
+          65.0,
+          50.0,
+          40.0,
+          35.0,
+          25.0,
+          10.0
+        ]
+      },
+      "plans": [],
+      "flagship_price": null,
+      "cpu_models": [
+        "Xeon E5-2690"
+      ],
+      "prices": [
+        {
+          "amount": 2.04,
+          "currency": "$",
+          "cycle": "month"
+        },
+        {
+          "amount": 2.55,
+          "currency": "$",
+          "cycle": "month"
+        },
+        {
+          "amount": 3.4,
+          "currency": "$",
+          "cycle": "month"
+        },
+        {
+          "amount": 4.04,
+          "currency": "$",
+          "cycle": "month"
+        }
+      ],
+      "locations": [
+        "Buffalo"
+      ],
+      "stock_hints": [],
+      "confidence": 0.83,
+      "score": 64,
+      "annual_eur": 22.52
+    },
+    {
+      "thread_id": "222110",
+      "source": "let",
+      "provider": "Dallas Dedicated",
+      "title": "Dallas Dedicated — Dual E5-2699v4 | 64GB | $75/mo Recurring",
+      "url": "https://lowendtalk.com/discussion/222110/dallas-dedicated-dual-e5-2699v4-64gb-75-mo-recurring",
+      "author": "Tang_Lichun",
+      "posted": "Thu, 15 Oct 2026 11:30:07 +0000",
+      "age_days": 0,
+      "age_status": "NEW",
+      "availability": "ON_SALE",
+      "replies": {
+        "reply_count": 0,
+        "vendor_reply_count": 0,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-15T22:05:29+00:00"
+      },
+      "event_type": "restock",
+      "discount": {
+        "strength": "循环/永久 · 码 DED7QE7M",
+        "percent_max": null,
+        "recurring": true,
+        "codes": [
+          "DED7QE7M"
+        ],
+        "extras": []
+      },
+      "specs": {
+        "vcpu": null,
+        "ram_gb": null,
+        "storage_gb": 1024.0,
+        "storage_type": "SSD",
+        "bandwidth_tb": null
+      },
+      "specs_all": {
+        "vcpu": [],
+        "ram_gb": [],
+        "storage_gb": [
+          1024.0,
+          500.0
+        ]
+      },
+      "plans": [],
+      "flagship_price": null,
+      "cpu_models": [
+        "Xeon E5-2699v4"
+      ],
+      "prices": [
+        {
+          "amount": 75.0,
+          "currency": "$",
+          "cycle": "month"
+        },
+        {
+          "amount": 89.0,
+          "currency": "$",
+          "cycle": "month"
+        }
+      ],
+      "locations": [
+        "Dallas"
+      ],
+      "stock_hints": [
+        "back in stock",
+        "while stock lasts"
+      ],
+      "confidence": 0.67,
+      "score": 50,
+      "annual_eur": 828.0
+    },
+    {
+      "thread_id": "222107",
+      "source": "let",
+      "provider": "NUXOA",
+      "title": "Frankfurt Dedicated Servers from €95/mo. | Ryzen & Xeon | NUXOA",
+      "url": "https://lowendtalk.com/discussion/222107/frankfurt-dedicated-servers-from-95-mo-ryzen-xeon-nuxoa",
+      "author": "NUXOA",
+      "posted": "Thu, 15 Oct 2026 11:11:31 +0000",
+      "age_days": 0,
+      "age_status": "NEW",
+      "availability": "UNVERIFIED",
+      "replies": {
+        "reply_count": 1,
+        "vendor_reply_count": 0,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-15T22:05:30+00:00"
+      },
+      "event_type": "regular",
+      "discount": {
+        "strength": "循环/永久",
+        "percent_max": null,
+        "recurring": true,
+        "codes": [],
+        "extras": []
+      },
+      "specs": {
+        "vcpu": 16,
+        "ram_gb": 256.0,
+        "storage_gb": 1024.0,
+        "storage_type": "NVMe",
+        "bandwidth_tb": 200.0
+      },
+      "specs_all": {
+        "vcpu": [
+          16,
+          14,
+          10,
+          8
+        ],
+        "ram_gb": [
+          256.0,
+          128.0,
+          64.0
+        ],
+        "storage_gb": [
+          1024.0,
+          1024.0,
+          1024.0,
+          512.0,
+          512.0
+        ]
+      },
+      "plans": [],
+      "flagship_price": null,
+      "cpu_models": [
+        "Ryzen 7 5700X",
+        "Ryzen 7 9700X",
+        "Ryzen 9 5950X",
+        "Xeon E5-2620",
+        "Xeon E5-2640"
+      ],
+      "prices": [
+        {
+          "amount": 95.0,
+          "currency": "€",
+          "cycle": "month"
+        },
+        {
+          "amount": 110.0,
+          "currency": "€",
+          "cycle": "month"
+        },
+        {
+          "amount": 120.0,
+          "currency": "€",
+          "cycle": "month"
+        },
+        {
+          "amount": 150.0,
+          "currency": "€",
+          "cycle": "month"
+        }
+      ],
+      "locations": [
+        "Frankfurt",
+        "Germany"
+      ],
+      "stock_hints": [],
+      "confidence": 1.0,
+      "score": 40,
+      "annual_eur": 1140.0
+    },
+    {
+      "thread_id": "221937",
+      "source": "let",
+      "provider": "ravnix.gg",
+      "title": "RAVNIX is Back! New Atlanta Location, Upgraded Network & VPS Offers Starting at $14/Year!",
+      "url": "https://lowendtalk.com/discussion/221937/ravnix-is-back-new-atlanta-location-upgraded-network-vps-offers-starting-at-14-year",
+      "author": "RAVNIX",
+      "posted": "Sat, 10 Oct 2026 18:35:28 +0000",
+      "age_days": 5,
+      "age_status": "NEW",
+      "availability": "UNVERIFIED",
+      "replies": {
+        "reply_count": 48,
+        "vendor_reply_count": 15,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-15T22:05:41+00:00"
+      },
+      "event_type": "launch",
+      "discount": {
+        "strength": "循环/永久",
+        "percent_max": null,
+        "recurring": true,
+        "codes": [],
+        "extras": []
+      },
+      "specs": {
+        "vcpu": null,
+        "ram_gb": null,
+        "storage_gb": null,
+        "storage_type": null,
+        "bandwidth_tb": null
+      },
+      "specs_all": {
+        "vcpu": [],
+        "ram_gb": [],
+        "storage_gb": []
+      },
+      "plans": [],
+      "flagship_price": null,
+      "cpu_models": [
+        "Xeon E5-2699"
+      ],
+      "prices": [
+        {
+          "amount": 14.0,
+          "currency": "$",
+          "cycle": "year"
+        },
+        {
+          "amount": 24.0,
+          "currency": "$",
+          "cycle": "year"
+        },
+        {
+          "amount": 34.0,
+          "currency": "$",
+          "cycle": "year"
+        },
+        {
+          "amount": 10.0,
+          "currency": "$",
+          "cycle": "month"
+        }
+      ],
+      "locations": [
+        "Atlanta"
+      ],
+      "stock_hints": [],
+      "confidence": 0.5,
+      "score": 45,
+      "annual_eur": 12.88
+    },
+    {
+      "thread_id": "221896",
+      "source": "let",
+      "provider": "**25G Unmetered** 30% lifetime discount",
+      "title": "**25G Unmetered** 30% lifetime discount - Dedicated Servers",
+      "url": "https://lowendtalk.com/discussion/221896/25g-unmetered-30-lifetime-discount-dedicated-servers",
+      "author": "dan_onlyservers",
+      "posted": "Fri, 09 Oct 2026 14:24:18 +0000",
+      "age_days": 6,
+      "age_status": "NEW",
+      "availability": "SOLD_OUT",
+      "replies": {
+        "reply_count": 34,
+        "vendor_reply_count": 2,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-15T22:05:44+00:00"
+      },
+      "event_type": "sale",
+      "discount": {
+        "strength": "循环/永久 · 最高 30% off · 码 LETJHUWQ",
+        "percent_max": 30,
+        "recurring": true,
+        "codes": [
+          "LETJHUWQ"
+        ],
+        "extras": []
+      },
+      "specs": {
+        "vcpu": null,
+        "ram_gb": 384.0,
+        "storage_gb": null,
+        "storage_type": null,
+        "bandwidth_tb": null
+      },
+      "specs_all": {
+        "vcpu": [],
+        "ram_gb": [
+          384.0,
+          96.0
+        ],
+        "storage_gb": []
+      },
+      "plans": [],
+      "flagship_price": null,
+      "cpu_models": [],
+      "prices": [
+        {
+          "amount": 150.5,
+          "currency": "$",
+          "cycle": "month"
+        },
+        {
+          "amount": 296.1,
+          "currency": "$",
+          "cycle": "month"
+        },
+        {
+          "amount": 304.85,
+          "currency": "$",
+          "cycle": "month"
+        },
+        {
+          "amount": 399.0,
+          "currency": "$",
+          "cycle": "month"
+        }
+      ],
+      "locations": [],
+      "stock_hints": [
+        "Limited stock",
+        "sold out"
+      ],
+      "confidence": 0.5,
+      "score": 69,
+      "annual_eur": 1661.52
+    },
+    {
+      "thread_id": "221980",
+      "source": "let",
+      "provider": "INTEL",
+      "title": "[UK] INTEL | SSD | RDNS | Arbor Anti DDOS | IPv4 & IPv6 /64 | UNMETERED BW",
+      "url": "https://lowendtalk.com/discussion/221980/uk-intel-ssd-rdns-arbor-anti-ddos-ipv4-ipv6-64-unmetered-bw",
+      "author": "xHosts",
+      "posted": "Sun, 11 Oct 2026 20:13:52 +0000",
+      "age_days": 4,
+      "age_status": "NEW",
+      "availability": "UNVERIFIED",
+      "replies": {
+        "reply_count": 41,
+        "vendor_reply_count": 13,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-15T22:05:54+00:00"
+      },
+      "event_type": "regular",
+      "discount": {
+        "strength": "",
+        "percent_max": null,
+        "recurring": false,
+        "codes": [],
+        "extras": []
+      },
+      "specs": {
+        "vcpu": 4,
+        "ram_gb": 16.0,
+        "storage_gb": 100.0,
+        "storage_type": "SSD",
+        "bandwidth_tb": null
+      },
+      "specs_all": {
+        "vcpu": [
+          4
+        ],
+        "ram_gb": [
+          16.0
+        ],
+        "storage_gb": [
+          100.0
+        ]
+      },
+      "plans": [],
+      "flagship_price": null,
+      "cpu_models": [],
+      "prices": [],
+      "locations": [],
+      "stock_hints": [
+        "Limited Stock"
+      ],
+      "confidence": 0.5,
+      "score": 5,
+      "annual_eur": null
+    },
+    {
+      "thread_id": "221894",
+      "source": "let",
+      "provider": "K.N Cloud",
+      "title": "[Update] K.N Cloud — LET Cloud VPS Offers in Miami, Frankfurt & Amsterdam | Hourly Billing",
+      "url": "https://lowendtalk.com/discussion/221894/update-k-n-cloud-let-cloud-vps-offers-in-miami-frankfurt-amsterdam-hourly-billing",
+      "author": "koanode",
+      "posted": "Fri, 09 Oct 2026 11:39:56 +0000",
+      "age_days": 6,
+      "age_status": "NEW",
+      "availability": "UNVERIFIED",
+      "replies": {
+        "reply_count": 13,
+        "vendor_reply_count": 5,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-15T22:06:02+00:00"
+      },
+      "event_type": "sale",
+      "discount": {
+        "strength": "",
+        "percent_max": null,
+        "recurring": false,
+        "codes": [],
+        "extras": []
+      },
+      "specs": {
+        "vcpu": 2,
+        "ram_gb": 2.0,
+        "storage_gb": 30.0,
+        "storage_type": "SSD",
+        "bandwidth_tb": null
+      },
+      "specs_all": {
+        "vcpu": [
+          2,
+          1
+        ],
+        "ram_gb": [
+          2.0
+        ],
+        "storage_gb": [
+          30.0,
+          20.0,
+          20.0
+        ]
+      },
+      "plans": [],
+      "flagship_price": null,
+      "cpu_models": [],
+      "prices": [],
+      "locations": [
+        "Miami",
+        "Frankfurt",
+        "Amsterdam"
+      ],
+      "stock_hints": [],
+      "confidence": 0.5,
+      "score": 10,
+      "annual_eur": null
+    },
+    {
+      "thread_id": "222078",
+      "source": "let",
+      "provider": "hostnamaste.com",
+      "title": "Yearly KVM VPS in 🇺🇸 🇫🇷 🇨🇦 | SSD RAID10 | IPv4 + IPv6 | Since 2016 - HostNamaste",
+      "url": "https://lowendtalk.com/discussion/222078/yearly-kvm-vps-in-ssd-raid10-ipv4-ipv6-since-2016-hostnamaste",
+      "author": "hostnamaste",
+      "posted": "Wed, 14 Oct 2026 12:33:00 +0000",
+      "age_days": 1,
+      "age_status": "NEW",
+      "availability": "UNVERIFIED",
+      "replies": {
+        "reply_count": 3,
+        "vendor_reply_count": 0,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-15T22:06:17+00:00"
+      },
+      "event_type": "regular",
+      "discount": {
+        "strength": "",
+        "percent_max": null,
+        "recurring": false,
+        "codes": [],
+        "extras": []
+      },
+      "specs": {
+        "vcpu": 2,
+        "ram_gb": 256.0,
+        "storage_gb": 120.0,
+        "storage_type": "SSD",
+        "bandwidth_tb": null
+      },
+      "specs_all": {
+        "vcpu": [
+          2
+        ],
+        "ram_gb": [
+          256.0,
+          4.0,
+          3.0,
+          2.0
+        ],
+        "storage_gb": [
+          120.0,
+          80.0,
+          50.0
+        ]
+      },
+      "plans": [],
+      "flagship_price": null,
+      "cpu_models": [],
+      "prices": [
+        {
+          "amount": 48.0,
+          "currency": "$",
+          "cycle": "year"
+        },
+        {
+          "amount": 60.0,
+          "currency": "$",
+          "cycle": "year"
+        },
+        {
+          "amount": 72.0,
+          "currency": "$",
+          "cycle": "year"
+        }
+      ],
+      "locations": [
+        "France",
+        "Canada"
+      ],
+      "stock_hints": [],
+      "confidence": 0.67,
+      "score": 7,
+      "annual_eur": 44.16
+    },
+    {
+      "thread_id": "222052",
+      "source": "let",
+      "provider": "Dedicated Performance",
+      "title": "Dedicated Performance | Fast Deployment | Servers starting at $49/mo.",
+      "url": "https://lowendtalk.com/discussion/222052/dedicated-performance-fast-deployment-servers-starting-at-49-mo",
+      "author": "ReliableSiteHosting",
+      "posted": "Tue, 13 Oct 2026 19:56:07 +0000",
+      "age_days": 2,
+      "age_status": "NEW",
+      "availability": "SOLD_OUT",
+      "replies": {
+        "reply_count": 3,
+        "vendor_reply_count": 0,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-15T22:06:28+00:00"
+      },
+      "event_type": "regular",
+      "discount": {
+        "strength": "循环/永久 · 最高 25% off",
+        "percent_max": 25,
+        "recurring": true,
+        "codes": [],
+        "extras": []
+      },
+      "specs": {
+        "vcpu": 6,
+        "ram_gb": null,
+        "storage_gb": 2048.0,
+        "storage_type": "SSD",
+        "bandwidth_tb": null
+      },
+      "specs_all": {
+        "vcpu": [
+          6
+        ],
+        "ram_gb": [],
+        "storage_gb": [
+          2048.0,
+          2048.0,
+          2048.0,
+          2048.0,
+          2048.0,
+          1024.0,
+          1024.0,
+          1024.0
+        ]
+      },
+      "plans": [],
+      "flagship_price": null,
+      "cpu_models": [
+        "EPYC 4545P",
+        "Epyc 4545P",
+        "Threadripper 7995WX"
+      ],
+      "prices": [
+        {
+          "amount": 99.0,
+          "currency": "$",
+          "cycle": "year"
+        },
+        {
+          "amount": 49.0,
+          "currency": "$",
+          "cycle": "month"
+        },
+        {
+          "amount": 99.0,
+          "currency": "$",
+          "cycle": "month"
+        },
+        {
+          "amount": 119.0,
+          "currency": "$",
+          "cycle": "month"
+        }
+      ],
+      "locations": [
+        "Amsterdam",
+        "Los Angeles",
+        "Dallas",
+        "Miami"
+      ],
+      "stock_hints": [
+        "sold out"
+      ],
+      "confidence": 0.83,
+      "score": 58,
+      "annual_eur": 91.08
+    },
+    {
+      "thread_id": "221991",
+      "source": "let",
+      "provider": "KhanWebHost",
+      "title": "KhanWebHost | Canada KVM 2GB $5/mo | Texas KVM $5/mo | 7+ Global Locations | NAT VPS $5.50/year",
+      "url": "https://lowendtalk.com/discussion/221991/khanwebhost-canada-kvm-2gb-5-mo-texas-kvm-5-mo-7-global-locations-nat-vps-5-50-year",
+      "author": "AK_KWH",
+      "posted": "Mon, 12 Oct 2026 07:15:19 +0000",
+      "age_days": 3,
+      "age_status": "NEW",
+      "availability": "ON_SALE",
+      "replies": {
+        "reply_count": 16,
+        "vendor_reply_count": 1,
+        "status": "ON_SALE",
+        "source": "vendor",
+        "evidence": {
+          "status": "ON_SALE",
+          "author": "AK_KWH",
+          "is_vendor": true,
+          "datetime": "2026-10-13T15:09:05+00:00",
+          "match": "Back in stock",
+          "snippet": "xt 12 hours or all of the pending order will be cancelled after 12 Hours 256MB RAM VPS is Back in stock if anyone wants to buy then goahead we have limited stock left",
+          "comment_id": "4884548",
+          "offset": 222
+        },
+        "vendor_signals": [
+          {
+            "status": "ON_SALE",
+            "author": "AK_KWH",
+            "is_vendor": true,
+            "datetime": "2026-10-13T15:09:05+00:00",
+            "match": "Back in stock",
+            "snippet": "xt 12 hours or all of the pending order will be cancelled after 12 Hours 256MB RAM VPS is Back in stock if anyone wants to buy then goahead we have limited stock left",
+            "comment_id": "4884548",
+            "offset": 222
+          }
+        ],
+        "fetched_at": "2026-10-15T22:07:09+00:00"
+      },
+      "event_type": "regular",
+      "discount": {
+        "strength": "",
+        "percent_max": null,
+        "recurring": false,
+        "codes": [],
+        "extras": []
+      },
+      "specs": {
+        "vcpu": 4,
+        "ram_gb": 4.0,
+        "storage_gb": 80.0,
+        "storage_type": "NVME",
+        "bandwidth_tb": 1.0
+      },
+      "specs_all": {
+        "vcpu": [
+          4,
+          2,
+          1
+        ],
+        "ram_gb": [
+          4.0,
+          3.0,
+          2.0,
+          1.0,
+          0.25
+        ],
+        "storage_gb": [
+          80.0,
+          60.0,
+          50.0,
+          40.0,
+          10.0,
+          5.0
+        ]
+      },
+      "plans": [],
+      "flagship_price": null,
+      "cpu_models": [],
+      "prices": [
+        {
+          "amount": 5.5,
+          "currency": "$",
+          "cycle": "year"
+        },
+        {
+          "amount": 7.0,
+          "currency": "$",
+          "cycle": "year"
+        },
+        {
+          "amount": 5.0,
+          "currency": "$",
+          "cycle": "month"
+        },
+        {
+          "amount": 60.0,
+          "currency": "$",
+          "cycle": "year"
+        }
+      ],
+      "locations": [
+        "Canada",
+        "Texas",
+        "Montreal",
+        "France"
+      ],
+      "stock_hints": [
+        "limited Stock"
+      ],
+      "confidence": 0.67,
+      "score": 7,
+      "annual_eur": 5.06
+    },
+    {
+      "thread_id": "221949",
+      "source": "let",
+      "provider": "Meet Arct Cloud",
+      "title": "Meet Arct Cloud | AMD EPYC KVM VPS from $3.89/mo | NVMe, IPv4 & Custom Control Panel",
+      "url": "https://lowendtalk.com/discussion/221949/meet-arct-cloud-amd-epyc-kvm-vps-from-3-89-mo-nvme-ipv4-custom-control-panel",
+      "author": "arctcloud",
+      "posted": "Sat, 10 Oct 2026 22:39:46 +0000",
+      "age_days": 4,
+      "age_status": "NEW",
+      "availability": "UNVERIFIED",
+      "replies": {
+        "reply_count": 5,
+        "vendor_reply_count": 1,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-15T22:07:19+00:00"
+      },
+      "event_type": "regular",
+      "discount": {
+        "strength": "循环/永久 · 最高 10% off",
+        "percent_max": 10,
+        "recurring": true,
+        "codes": [],
+        "extras": []
+      },
+      "specs": {
+        "vcpu": 2,
+        "ram_gb": 4.0,
+        "storage_gb": 40.0,
+        "storage_type": "NVMe",
+        "bandwidth_tb": 5.0
+      },
+      "specs_all": {
+        "vcpu": [
+          2,
+          1
+        ],
+        "ram_gb": [
+          4.0,
+          2.0,
+          1.0
+        ],
+        "storage_gb": [
+          40.0,
+          25.0,
+          25.0,
+          25.0,
+          15.0
+        ]
+      },
+      "plans": [],
+      "flagship_price": null,
+      "cpu_models": [],
+      "prices": [
+        {
+          "amount": 3.89,
+          "currency": "$",
+          "cycle": "month"
+        },
+        {
+          "amount": 7.99,
+          "currency": "$",
+          "cycle": "month"
+        }
+      ],
+      "locations": [
+        "London",
+        "Frankfurt",
+        "Milan"
+      ],
+      "stock_hints": [],
+      "confidence": 0.83,
+      "score": 46,
+      "annual_eur": 42.95
+    },
+    {
+      "thread_id": "221869",
+      "source": "let",
+      "provider": "orangevps.com",
+      "title": "⚡  VPS Promo 10.10 50% OFF - Claim your bonus vCPU, RAM, or Double Transfer Data!",
+      "url": "https://lowendtalk.com/discussion/221869/vps-promo-10-10-50-off-claim-your-bonus-vcpu-ram-or-double-transfer-data",
+      "author": "orangevps",
+      "posted": "Thu, 08 Oct 2026 12:51:18 +0000",
+      "age_days": 7,
+      "age_status": "ACTIVE",
+      "availability": "UNVERIFIED",
+      "replies": {
+        "reply_count": 32,
+        "vendor_reply_count": 3,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-15T22:07:25+00:00"
+      },
+      "event_type": "sale",
+      "discount": {
+        "strength": "循环/永久 · 最高 50% off · 码 FS101026/VALIDITY",
+        "percent_max": 50,
+        "recurring": true,
+        "codes": [
+          "FS101026",
+          "VALIDITY"
+        ],
+        "extras": []
+      },
+      "specs": {
+        "vcpu": 2,
+        "ram_gb": 4.0,
+        "storage_gb": 40.0,
+        "storage_type": "NVMe",
+        "bandwidth_tb": 4.0
+      },
+      "specs_all": {
+        "vcpu": [
+          2,
+          1
+        ],
+        "ram_gb": [
+          4.0,
+          2.0,
+          1.0
+        ],
+        "storage_gb": [
+          40.0,
+          40.0,
+          25.0,
+          25.0
+        ]
+      },
+      "plans": [],
+      "flagship_price": null,
+      "cpu_models": [],
+      "prices": [
+        {
+          "amount": 19.2,
+          "currency": "$",
+          "cycle": "year"
+        },
+        {
+          "amount": 28.8,
+          "currency": "$",
+          "cycle": "year"
+        },
+        {
+          "amount": 38.4,
+          "currency": "$",
+          "cycle": "year"
+        },
+        {
+          "amount": 57.6,
+          "currency": "$",
+          "cycle": "year"
+        }
+      ],
+      "locations": [],
+      "stock_hints": [],
+      "confidence": 0.83,
+      "score": 88,
+      "annual_eur": 17.66
+    },
+    {
+      "thread_id": "222007",
+      "source": "let",
+      "provider": "USA Dedicated Servers",
+      "title": "USA Dedicated Servers –2xE5-2690v4 128GB DDR4 $100.00/mo",
+      "url": "https://lowendtalk.com/discussion/222007/usa-dedicated-servers-2xe5-2690v4-128gb-ddr4-100-00-mo",
+      "author": "HostMayo",
+      "posted": "Mon, 12 Oct 2026 18:36:48 +0000",
+      "age_days": 3,
+      "age_status": "NEW",
+      "availability": "UNVERIFIED",
+      "replies": {
+        "reply_count": 0,
+        "vendor_reply_count": 0,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-15T22:07:31+00:00"
+      },
+      "event_type": "regular",
+      "discount": {
+        "strength": "",
+        "percent_max": null,
+        "recurring": false,
+        "codes": [],
+        "extras": []
+      },
+      "specs": {
+        "vcpu": 40,
+        "ram_gb": 256.0,
+        "storage_gb": 2048.0,
+        "storage_type": "SSD",
+        "bandwidth_tb": null
+      },
+      "specs_all": {
+        "vcpu": [
+          40,
+          28,
+          4
+        ],
+        "ram_gb": [
+          256.0,
+          128.0,
+          32.0
+        ],
+        "storage_gb": [
+          2048.0,
+          2048.0,
+          2048.0,
+          2048.0,
+          2048.0,
+          2048.0,
+          256.0,
+          128.0
+        ]
+      },
+      "plans": [],
+      "flagship_price": null,
+      "cpu_models": [],
+      "prices": [
+        {
+          "amount": 50.0,
+          "currency": "$",
+          "cycle": "month"
+        },
+        {
+          "amount": 100.0,
+          "currency": "$",
+          "cycle": "month"
+        },
+        {
+          "amount": 130.0,
+          "currency": "$",
+          "cycle": "month"
+        },
+        {
+          "amount": 150.0,
+          "currency": "$",
+          "cycle": "month"
+        }
+      ],
+      "locations": [
+        "Kansas",
+        "Utah",
+        "Ohio"
+      ],
+      "stock_hints": [],
+      "confidence": 0.67,
+      "score": 7,
+      "annual_eur": 552.0
+    },
+    {
+      "thread_id": "221924",
+      "source": "let",
+      "provider": "SmokyHosts",
+      "title": "SmokyHosts - 10.10 Deal - 10GB VPS @ $10/month | 10 Locations",
+      "url": "https://lowendtalk.com/discussion/221924/smokyhosts-10-10-deal-10gb-vps-10-month-10-locations",
+      "author": "SmokyHosts",
+      "posted": "Sat, 10 Oct 2026 11:12:47 +0000",
+      "age_days": 5,
+      "age_status": "NEW",
+      "availability": "UNVERIFIED",
+      "replies": {
+        "reply_count": 10,
+        "vendor_reply_count": 2,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-15T22:07:34+00:00"
+      },
+      "event_type": "sale",
+      "discount": {
+        "strength": "循环/永久 · free upgrade",
+        "percent_max": null,
+        "recurring": true,
+        "codes": [],
+        "extras": [
+          "free upgrade"
+        ]
+      },
+      "specs": {
+        "vcpu": 2,
+        "ram_gb": 10.0,
+        "storage_gb": 80.0,
+        "storage_type": "SSD",
+        "bandwidth_tb": 2.0
+      },
+      "specs_all": {
+        "vcpu": [
+          2
+        ],
+        "ram_gb": [
+          10.0,
+          8.0
+        ],
+        "storage_gb": [
+          80.0,
+          80.0,
+          80.0,
+          80.0,
+          80.0,
+          80.0,
+          40.0,
+          40.0
+        ]
+      },
+      "plans": [],
+      "flagship_price": null,
+      "cpu_models": [],
+      "prices": [
+        {
+          "amount": 100.0,
+          "currency": "$",
+          "cycle": "year"
+        },
+        {
+          "amount": 10.0,
+          "currency": "$",
+          "cycle": "month"
+        },
+        {
+          "amount": 10.1,
+          "currency": "$",
+          "cycle": "month"
+        }
+      ],
+      "locations": [
+        "India"
+      ],
+      "stock_hints": [],
+      "confidence": 0.83,
+      "score": 53,
+      "annual_eur": 92.0
+    },
+    {
+      "thread_id": "221977",
+      "source": "let",
+      "provider": "INET.WS",
+      "title": "INET.WS – KVM VPS | 14 locations USA/CA/EU | from $3/mo | 25% off 3 months | Paris NEW",
+      "url": "https://lowendtalk.com/discussion/221977/inet-ws-kvm-vps-14-locations-usa-ca-eu-from-3-mo-25-off-3-months-paris-new",
+      "author": "inet.ws",
+      "posted": "Sun, 11 Oct 2026 19:10:24 +0000",
+      "age_days": 4,
+      "age_status": "NEW",
+      "availability": "UNVERIFIED",
+      "replies": {
+        "reply_count": 3,
+        "vendor_reply_count": 0,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-15T22:07:50+00:00"
+      },
+      "event_type": "sale",
+      "discount": {
+        "strength": "循环/永久 · 最高 25% off · 码 LL7X516MK2",
+        "percent_max": 25,
+        "recurring": true,
+        "codes": [
+          "LL7X516MK2"
+        ],
+        "extras": []
+      },
+      "specs": {
+        "vcpu": 14,
+        "ram_gb": 40.0,
+        "storage_gb": 600.0,
+        "storage_type": "SSD",
+        "bandwidth_tb": 20.0
+      },
+      "specs_all": {
+        "vcpu": [
+          14
+        ],
+        "ram_gb": [
+          40.0
+        ],
+        "storage_gb": [
+          600.0
+        ]
+      },
+      "plans": [],
+      "flagship_price": null,
+      "cpu_models": [
+        "Xeon E5-2695"
+      ],
+      "prices": [
+        {
+          "amount": 1.0,
+          "currency": "$",
+          "cycle": "month"
+        },
+        {
+          "amount": 2.0,
+          "currency": "$",
+          "cycle": "month"
+        },
+        {
+          "amount": 3.0,
+          "currency": "$",
+          "cycle": "month"
+        },
+        {
+          "amount": 4.0,
+          "currency": "$",
+          "cycle": "month"
+        }
+      ],
+      "locations": [
+        "Paris"
+      ],
+      "stock_hints": [],
+      "confidence": 1.0,
+      "score": 70,
+      "annual_eur": 11.04
+    },
+    {
+      "thread_id": "221961",
+      "source": "let",
+      "provider": "VM6",
+      "title": "Only 6: UK Ryzen 5900X 4GB/100GB NVMe £6/mo | 9950X from £6 | Gold 6230 from £1.75 | Win £50 credit!",
+      "url": "https://lowendtalk.com/discussion/221961/only-6-uk-ryzen-5900x-4gb-100gb-nvme-6-mo-9950x-from-6-gold-6230-from-1-75-win-50-credit",
+      "author": "VM6",
+      "posted": "Sun, 11 Oct 2026 08:46:01 +0000",
+      "age_days": 4,
+      "age_status": "NEW",
+      "availability": "UNVERIFIED",
+      "replies": {
+        "reply_count": 7,
+        "vendor_reply_count": 2,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-15T22:07:57+00:00"
+      },
+      "event_type": "regular",
+      "discount": {
+        "strength": "",
+        "percent_max": null,
+        "recurring": false,
+        "codes": [],
+        "extras": []
+      },
+      "specs": {
+        "vcpu": null,
+        "ram_gb": 4.0,
+        "storage_gb": 100.0,
+        "storage_type": "NVMe",
+        "bandwidth_tb": 12.0
+      },
+      "specs_all": {
+        "vcpu": [],
+        "ram_gb": [
+          4.0,
+          2.0,
+          1.0
+        ],
+        "storage_gb": [
+          100.0,
+          100.0,
+          60.0,
+          50.0,
+          40.0,
+          20.0
+        ]
+      },
+      "plans": [],
+      "flagship_price": null,
+      "cpu_models": [
+        "Ryzen 9 9950X"
+      ],
+      "prices": [
+        {
+          "amount": 1.75,
+          "currency": "£",
+          "cycle": "month"
+        },
+        {
+          "amount": 3.5,
+          "currency": "£",
+          "cycle": "month"
+        },
+        {
+          "amount": 6.0,
+          "currency": "£",
+          "cycle": "month"
+        },
+        {
+          "amount": 7.0,
+          "currency": "£",
+          "cycle": "month"
+        }
+      ],
+      "locations": [],
+      "stock_hints": [],
+      "confidence": 0.67,
+      "score": 7,
+      "annual_eur": 24.57
+    },
+    {
+      "thread_id": "221867",
+      "source": "let",
+      "provider": "HostNoc",
+      "title": "Additional 10% Off First Month Promo code: LET10 - Dedicated Servers from $24.95/mo",
+      "url": "https://lowendtalk.com/discussion/221867/additional-10-off-first-month-promo-code-let10-dedicated-servers-from-24-95-mo",
+      "author": "HostNoc",
+      "posted": "Thu, 08 Oct 2026 10:21:23 +0000",
+      "age_days": 7,
+      "age_status": "ACTIVE",
+      "availability": "UNVERIFIED",
+      "replies": {
+        "reply_count": 8,
+        "vendor_reply_count": 3,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-15T22:08:38+00:00"
+      },
+      "event_type": "sale",
+      "discount": {
+        "strength": "循环/永久 · 最高 10% off · 码 LET10",
+        "percent_max": 10,
+        "recurring": true,
+        "codes": [
+          "LET10"
+        ],
+        "extras": []
+      },
+      "specs": {
+        "vcpu": null,
+        "ram_gb": null,
+        "storage_gb": 4096.0,
+        "storage_type": "HDD",
+        "bandwidth_tb": 100.0
+      },
+      "specs_all": {
+        "vcpu": [],
+        "ram_gb": [],
+        "storage_gb": [
+          4096.0,
+          2048.0,
+          1024.0,
+          1024.0,
+          1024.0,
+          512.0,
+          480.0
+        ]
+      },
+      "plans": [],
+      "flagship_price": null,
+      "cpu_models": [
+        "Xeon E5-1650"
+      ],
+      "prices": [
+        {
+          "amount": 24.95,
+          "currency": "$",
+          "cycle": "month"
+        },
+        {
+          "amount": 25.72,
+          "currency": "$",
+          "cycle": "month"
+        },
+        {
+          "amount": 39.95,
+          "currency": "$",
+          "cycle": "month"
+        },
+        {
+          "amount": 54.99,
+          "currency": "$",
+          "cycle": "month"
+        }
+      ],
+      "locations": [
+        "Los Angeles",
+        "Paris",
+        "France"
+      ],
+      "stock_hints": [],
+      "confidence": 0.67,
+      "score": 55,
+      "annual_eur": 275.45
+    },
+    {
+      "thread_id": "leb-more-of-racknerd-adminbolt-heres-50-more-free-vps-10-lifetime-licenses",
+      "source": "leb",
+      "provider": "More of RackNerd & AdminBolt! Here’s 50 ",
+      "title": "More of RackNerd & AdminBolt! Here’s 50 More FREE VPS + 10 Lifetime Licenses!",
+      "url": "https://lowendbox.com/blog/more-of-racknerd-adminbolt-heres-50-more-free-vps-10-lifetime-licenses/",
+      "author": "raindog308",
+      "posted": "Wed, 14 Oct 2026 17:00:47 +0000",
+      "age_days": 1,
+      "age_status": "NEW",
+      "availability": "UNVERIFIED",
+      "replies": null,
+      "event_type": "regular",
+      "discount": {
+        "strength": "循环/永久",
+        "percent_max": null,
+        "recurring": true,
+        "codes": [],
+        "extras": []
+      },
+      "specs": {
+        "vcpu": 3,
+        "ram_gb": 4.0,
+        "storage_gb": 60.0,
+        "storage_type": "SSD",
+        "bandwidth_tb": 7.0
+      },
+      "specs_all": {
+        "vcpu": [
+          3
+        ],
+        "ram_gb": [
+          4.0
+        ],
+        "storage_gb": [
+          60.0
+        ]
+      },
+      "plans": [],
+      "flagship_price": null,
+      "cpu_models": [],
+      "prices": [],
+      "locations": [],
+      "stock_hints": [],
+      "confidence": 0.67,
+      "score": 37,
+      "annual_eur": null
+    },
+    {
+      "thread_id": "leb-velohost-returns-with-even-cheaper-prices-get-a-4gb-vps-for-only-2-60e-month",
+      "source": "leb",
+      "provider": "Velohost",
+      "title": "Velohost Returns With Even Cheaper Prices!  Get a 4GB VPS for Only 2.60€/month!",
+      "url": "https://lowendbox.com/blog/velohost-returns-with-even-cheaper-prices-get-a-4gb-vps-for-only-2-60e-month/",
+      "author": "raindog308",
+      "posted": "Tue, 13 Oct 2026 11:00:04 +0000",
+      "age_days": 2,
+      "age_status": "NEW",
+      "availability": "UNVERIFIED",
+      "replies": null,
+      "event_type": "launch",
+      "discount": {
+        "strength": "最高 35% off · 码 LEB35",
+        "percent_max": 35,
+        "recurring": false,
+        "codes": [
+          "LEB35"
+        ],
+        "extras": []
+      },
+      "specs": {
+        "vcpu": 10,
+        "ram_gb": 512.0,
+        "storage_gb": 4096.0,
+        "storage_type": "NVMe",
+        "bandwidth_tb": 1.0
+      },
+      "specs_all": {
+        "vcpu": [
+          10,
+          6,
+          4,
+          1
+        ],
+        "ram_gb": [
+          512.0,
+          32.0,
+          18.0,
+          12.0,
+          4.0
+        ],
+        "storage_gb": [
+          4096.0,
+          4096.0,
+          4096.0
+        ]
+      },
+      "plans": [],
+      "flagship_price": null,
+      "cpu_models": [
+        "EPYC 7402P"
+      ],
+      "prices": [
+        {
+          "amount": 26.0,
+          "currency": "€",
+          "cycle": "year"
+        },
+        {
+          "amount": 2.6,
+          "currency": "€",
+          "cycle": "month"
+        },
+        {
+          "amount": 3.0,
+          "currency": "€",
+          "cycle": "month"
+        },
+        {
+          "amount": 104.0,
+          "currency": "€",
+          "cycle": "year"
+        }
+      ],
+      "locations": [
+        "Velbert"
+      ],
+      "stock_hints": [],
+      "confidence": 1.0,
+      "score": 53,
+      "annual_eur": 26.0
+    },
+    {
+      "thread_id": "leb-exclusive-lowendbox-pricing-2gb-kvm-vps-for-1-83-month-first-year-godlike-host-is-back",
+      "source": "leb",
+      "provider": "godlike.host",
+      "title": "Exclusive LowEndBox Pricing: 2GB KVM VPS for $1.83/Month First Year!  Godlike.Host is Back!",
+      "url": "https://lowendbox.com/blog/exclusive-lowendbox-pricing-2gb-kvm-vps-for-1-83-month-first-year-godlike-host-is-back/",
+      "author": "raindog308",
+      "posted": "Sat, 10 Oct 2026 11:00:40 +0000",
+      "age_days": 5,
+      "age_status": "NEW",
+      "availability": "UNVERIFIED",
+      "replies": null,
+      "event_type": "launch",
+      "discount": {
+        "strength": "码 LEB50",
+        "percent_max": null,
+        "recurring": false,
+        "codes": [
+          "LEB50"
+        ],
+        "extras": []
+      },
+      "specs": {
+        "vcpu": 2,
+        "ram_gb": 4.0,
+        "storage_gb": 50.0,
+        "storage_type": "NVMe",
+        "bandwidth_tb": null
+      },
+      "specs_all": {
+        "vcpu": [
+          2,
+          1
+        ],
+        "ram_gb": [
+          4.0,
+          2.0
+        ],
+        "storage_gb": [
+          50.0,
+          50.0,
+          30.0,
+          30.0
+        ]
+      },
+      "plans": [],
+      "flagship_price": null,
+      "cpu_models": [
+        "Ryzen 9 9950X3D"
+      ],
+      "prices": [
+        {
+          "amount": 1.83,
+          "currency": "$",
+          "cycle": "month"
+        },
+        {
+          "amount": 26.99,
+          "currency": "$",
+          "cycle": "year"
+        },
+        {
+          "amount": 2.25,
+          "currency": "$",
+          "cycle": "month"
+        },
+        {
+          "amount": 43.49,
+          "currency": "$",
+          "cycle": "year"
+        }
+      ],
+      "locations": [],
+      "stock_hints": [],
+      "confidence": 1.0,
+      "score": 25,
+      "annual_eur": 20.2
+    },
+    {
+      "thread_id": "leb-racknerd-adminbolt-are-giving-away-100-free-vps-for-a-year-20-lifetime-licenses",
+      "source": "leb",
+      "provider": "RackNerd & AdminBolt Are Giving Away 100",
+      "title": "RackNerd & AdminBolt Are Giving Away 100 FREE VPS for a Year + 20 LIFETIME Licenses!",
+      "url": "https://lowendbox.com/blog/racknerd-adminbolt-are-giving-away-100-free-vps-for-a-year-20-lifetime-licenses/",
+      "author": "raindog308",
+      "posted": "Fri, 09 Oct 2026 10:00:29 +0000",
+      "age_days": 6,
+      "age_status": "NEW",
+      "availability": "UNVERIFIED",
+      "replies": null,
+      "event_type": "regular",
+      "discount": {
+        "strength": "循环/永久",
+        "percent_max": null,
+        "recurring": true,
+        "codes": [],
+        "extras": []
+      },
+      "specs": {
+        "vcpu": 3,
+        "ram_gb": 4.0,
+        "storage_gb": 60.0,
+        "storage_type": "SSD",
+        "bandwidth_tb": 7.0
+      },
+      "specs_all": {
+        "vcpu": [
+          3
+        ],
+        "ram_gb": [
+          4.0
+        ],
+        "storage_gb": [
+          60.0
+        ]
+      },
+      "plans": [],
+      "flagship_price": null,
+      "cpu_models": [],
+      "prices": [],
+      "locations": [],
+      "stock_hints": [],
+      "confidence": 0.67,
+      "score": 37,
+      "annual_eur": null
+    },
+    {
+      "thread_id": "leb-high-ram-low-prices-must-be-an-affordablebytes-offer-get-a-6gb-vps-for-only-e3-49-month",
+      "source": "leb",
+      "provider": "High Ram, Low Prices?  Must be an Afford",
+      "title": "High Ram, Low Prices?  Must be an AffordableBytes Offer!  Get a 6GB VPS for Only €3.49 / Month!",
+      "url": "https://lowendbox.com/blog/high-ram-low-prices-must-be-an-affordablebytes-offer-get-a-6gb-vps-for-only-e3-49-month/",
+      "author": "raindog308",
+      "posted": "Thu, 08 Oct 2026 11:00:18 +0000",
+      "age_days": 7,
+      "age_status": "ACTIVE",
+      "availability": "UNVERIFIED",
+      "replies": null,
+      "event_type": "regular",
+      "discount": {
+        "strength": "",
+        "percent_max": null,
+        "recurring": false,
+        "codes": [],
+        "extras": []
+      },
+      "specs": {
+        "vcpu": 8,
+        "ram_gb": 40.0,
+        "storage_gb": null,
+        "storage_type": null,
+        "bandwidth_tb": 25.0
+      },
+      "specs_all": {
+        "vcpu": [
+          8,
+          6,
+          4,
+          1
+        ],
+        "ram_gb": [
+          40.0,
+          22.0,
+          11.0,
+          6.0
+        ],
+        "storage_gb": []
+      },
+      "plans": [],
+      "flagship_price": null,
+      "cpu_models": [],
+      "prices": [
+        {
+          "amount": 3.49,
+          "currency": "€",
+          "cycle": "month"
+        },
+        {
+          "amount": 7.99,
+          "currency": "€",
+          "cycle": "month"
+        },
+        {
+          "amount": 15.99,
+          "currency": "€",
+          "cycle": "month"
+        },
+        {
+          "amount": 24.99,
+          "currency": "€",
+          "cycle": "month"
+        }
+      ],
+      "locations": [
+        "Frankfurt",
+        "Germany"
+      ],
+      "stock_hints": [],
+      "confidence": 0.5,
+      "score": 5,
+      "annual_eur": 41.88
+    }
+  ]
+}

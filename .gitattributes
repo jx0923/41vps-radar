@@ -1,0 +1,33 @@
+# 统一换行符，避免在 Windows 提交后 Linux 上无法执行
+#
+# 关键：shell 脚本若被转成 CRLF，在 Linux/CI 上会因 shebang 后的 \r
+# 报 "bad interpreter: No such file or directory"，直接无法运行。
+# 因此强制脚本用 LF，文本文件在检出时按平台转换。
+
+* text=auto eol=lf
+
+# 脚本必须保持 LF
+*.sh            text eol=lf
+*.bash          text eol=lf
+*.yml           text eol=lf
+*.yaml          text eol=lf
+*.py            text eol=lf
+*.md            text eol=lf
+*.json          text eol=lf
+*.xml           text eol=lf
+*.txt           text eol=lf
+
+# 显式标记为二进制，禁止自动转换
+*.png           binary
+*.jpg           binary
+*.jpeg          binary
+*.gif           binary
+*.ico           binary
+*.woff          binary
+*.woff2         binary
+*.pdf           binary
+*.xlsx          binary
+
+# 让 git 在 diff 时把这些识别为二进制
+*.png           -diff
+*.xlsx          -diff

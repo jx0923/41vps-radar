@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+env/
+ENV/
+
+# 测试与覆盖率
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# 抓取缓存（实时快照，可重建；测试用的是 tests/fixtures/ 下的精简夹具）
+data/feed_*.xml
+data/feed.xml
+data/replies/
+
+# 环境中转文件
+data/*.new.*
+*.tmp
+
+# 密钥与环境
+.env
+*.key
+deploy_key
+
+# 编辑器与系统
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# 注意：site/ 与 data/deals.json **需要提交** ——
+# GitHub Actions 会把更新结果提交回仓库，用于 Pages 发布与版本追溯。

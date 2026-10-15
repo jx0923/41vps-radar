@@ -1,0 +1,983 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns0="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Offers — LowEndTalk</title>
+        <link>https://lowendtalk.com/</link>
+        <pubDate>Thu, 15 Oct 2026 19:39:04 +0000</pubDate>
+        <language>en</language>
+            <description>Offers — LowEndTalk</description>
+    <ns0:link href="https://lowendtalk.com/categories/offers/feed.rss" rel="self" type="application/rss+xml" />
+    <item>
+        <title>BERO HOST 10th Anniversary Deals – EPYC Turin / Ryzen 9950X / IPv6-only VPS</title>
+        <link>https://lowendtalk.com/discussion/221713/bero-host-10th-anniversary-deals-epyc-turin-ryzen-9950x-ipv6-only-vps</link>
+        <pubDate>Sat, 03 Oct 2026 12:19:24 +0000</pubDate>
+        <category>Offers</category>
+        <dc:creator>berohost</dc:creator>
+        <guid isPermaLink="false">221713@/discussions</guid>
+        <description>&lt;p&gt;BERO HOST is celebrating its &lt;strong&gt;10th anniversary&lt;/strong&gt;! 🎉&lt;/p&gt;
+
+&lt;p&gt;To celebrate 10 years of BERO HOST, we are bringing back some of the &lt;strong&gt;best deals from the past 10 years&lt;/strong&gt; — now on modern AMD hardware, &lt;strong&gt;DDR5 RAM&lt;/strong&gt; and fast &lt;strong&gt;NVMe storage&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Even though hardware prices have gone through the roof recently, we are still offering these anniversary packages at very low yearly prices.&lt;/p&gt;
+
+&lt;p&gt;These promo packages are &lt;strong&gt;annual billing only&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Important:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The listed yearly prices are &lt;strong&gt;recurring prices&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;They remain valid for renewals as long as the service stays active&lt;/li&gt;
+&lt;li&gt;Coupon code &lt;strong&gt;LET10&lt;/strong&gt; gives &lt;strong&gt;10% off the first term only&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Use coupon code:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;LET10&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2&gt;EPYC Turin VPS&lt;/h2&gt;
+
+&lt;p&gt;Powered by:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;AMD EPYC Turin 9275F&lt;/li&gt;
+&lt;li&gt;DDR5 RAM&lt;/li&gt;
+&lt;li&gt;Fast NVMe storage&lt;/li&gt;
+&lt;li&gt;KVM virtualization&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Location: Frankfurt, Germany&lt;br /&gt;
+Traffic: 25 TB included per package&lt;br /&gt;
+IPv4: Included&lt;br /&gt;
+IPv6: /64 included&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+  &lt;th&gt;Plan&lt;/th&gt;
+  &lt;th align="right"&gt;CPU&lt;/th&gt;
+  &lt;th align="right"&gt;RAM&lt;/th&gt;
+  &lt;th align="right"&gt;NVMe&lt;/th&gt;
+  &lt;th align="right"&gt;IPv4&lt;/th&gt;
+  &lt;th align="right"&gt;IPv6&lt;/th&gt;
+  &lt;th align="right"&gt;Traffic&lt;/th&gt;
+  &lt;th align="right"&gt;Recurring price/year&lt;/th&gt;
+  &lt;th align="right"&gt;First year with LET10&lt;/th&gt;
+  &lt;th align="right"&gt;Effective first-year monthly&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+  &lt;td&gt;Anniversary S&lt;/td&gt;
+  &lt;td align="right"&gt;2 Cores&lt;/td&gt;
+  &lt;td align="right"&gt;6 GB&lt;/td&gt;
+  &lt;td align="right"&gt;60 GB&lt;/td&gt;
+  &lt;td align="right"&gt;1 IPv4&lt;/td&gt;
+  &lt;td align="right"&gt;/64 IPv6&lt;/td&gt;
+  &lt;td align="right"&gt;25 TB&lt;/td&gt;
+  &lt;td align="right"&gt;€39&lt;/td&gt;
+  &lt;td align="right"&gt;€35.10&lt;/td&gt;
+  &lt;td align="right"&gt;~€2.93/mo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;Anniversary M&lt;/td&gt;
+  &lt;td align="right"&gt;4 Cores&lt;/td&gt;
+  &lt;td align="right"&gt;12 GB&lt;/td&gt;
+  &lt;td align="right"&gt;120 GB&lt;/td&gt;
+  &lt;td align="right"&gt;1 IPv4&lt;/td&gt;
+  &lt;td align="right"&gt;/64 IPv6&lt;/td&gt;
+  &lt;td align="right"&gt;25 TB&lt;/td&gt;
+  &lt;td align="right"&gt;€49&lt;/td&gt;
+  &lt;td align="right"&gt;€44.10&lt;/td&gt;
+  &lt;td align="right"&gt;~€3.68/mo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;Anniversary L&lt;/td&gt;
+  &lt;td align="right"&gt;4 Cores&lt;/td&gt;
+  &lt;td align="right"&gt;20 GB&lt;/td&gt;
+  &lt;td align="right"&gt;200 GB&lt;/td&gt;
+  &lt;td align="right"&gt;1 IPv4&lt;/td&gt;
+  &lt;td align="right"&gt;/64 IPv6&lt;/td&gt;
+  &lt;td align="right"&gt;25 TB&lt;/td&gt;
+  &lt;td align="right"&gt;€69&lt;/td&gt;
+  &lt;td align="right"&gt;€62.10&lt;/td&gt;
+  &lt;td align="right"&gt;~€5.18/mo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;Anniversary XL&lt;/td&gt;
+  &lt;td align="right"&gt;6 Cores&lt;/td&gt;
+  &lt;td align="right"&gt;24 GB&lt;/td&gt;
+  &lt;td align="right"&gt;300 GB&lt;/td&gt;
+  &lt;td align="right"&gt;1 IPv4&lt;/td&gt;
+  &lt;td align="right"&gt;/64 IPv6&lt;/td&gt;
+  &lt;td align="right"&gt;25 TB&lt;/td&gt;
+  &lt;td align="right"&gt;€89&lt;/td&gt;
+  &lt;td align="right"&gt;€80.10&lt;/td&gt;
+  &lt;td align="right"&gt;~€6.68/mo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;Anniversary XXL&lt;/td&gt;
+  &lt;td align="right"&gt;8 Cores&lt;/td&gt;
+  &lt;td align="right"&gt;32 GB&lt;/td&gt;
+  &lt;td align="right"&gt;300 GB&lt;/td&gt;
+  &lt;td align="right"&gt;1 IPv4&lt;/td&gt;
+  &lt;td align="right"&gt;/64 IPv6&lt;/td&gt;
+  &lt;td align="right"&gt;25 TB&lt;/td&gt;
+  &lt;td align="right"&gt;€129&lt;/td&gt;
+  &lt;td align="right"&gt;€116.10&lt;/td&gt;
+  &lt;td align="right"&gt;~€9.68/mo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Order:&lt;br /&gt;
+&lt;a href="https://bero-host.de/kvm-rootserver" rel="nofollow"&gt;https://bero-host.de/kvm-rootserver&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2&gt;Ryzen 9950X VPS&lt;/h2&gt;
+
+&lt;p&gt;Powered by:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;AMD Ryzen 9 9950X&lt;/li&gt;
+&lt;li&gt;DDR5 RAM&lt;/li&gt;
+&lt;li&gt;Fast NVMe storage&lt;/li&gt;
+&lt;li&gt;KVM virtualization&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Location: Frankfurt, Germany&lt;br /&gt;
+Traffic: 25 TB included per package&lt;br /&gt;
+IPv4: Included&lt;br /&gt;
+IPv6: /64 included&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+  &lt;th&gt;Plan&lt;/th&gt;
+  &lt;th align="right"&gt;CPU&lt;/th&gt;
+  &lt;th align="right"&gt;RAM&lt;/th&gt;
+  &lt;th align="right"&gt;NVMe&lt;/th&gt;
+  &lt;th align="right"&gt;IPv4&lt;/th&gt;
+  &lt;th align="right"&gt;IPv6&lt;/th&gt;
+  &lt;th align="right"&gt;Traffic&lt;/th&gt;
+  &lt;th align="right"&gt;Recurring price/year&lt;/th&gt;
+  &lt;th align="right"&gt;First year with LET10&lt;/th&gt;
+  &lt;th align="right"&gt;Effective first-year monthly&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+  &lt;td&gt;Anniversary S&lt;/td&gt;
+  &lt;td align="right"&gt;2 Cores&lt;/td&gt;
+  &lt;td align="right"&gt;6 GB&lt;/td&gt;
+  &lt;td align="right"&gt;60 GB&lt;/td&gt;
+  &lt;td align="right"&gt;1 IPv4&lt;/td&gt;
+  &lt;td align="right"&gt;/64 IPv6&lt;/td&gt;
+  &lt;td align="right"&gt;25 TB&lt;/td&gt;
+  &lt;td align="right"&gt;€39&lt;/td&gt;
+  &lt;td align="right"&gt;€35.10&lt;/td&gt;
+  &lt;td align="right"&gt;~€2.93/mo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;Anniversary M&lt;/td&gt;
+  &lt;td align="right"&gt;3 Cores&lt;/td&gt;
+  &lt;td align="right"&gt;10 GB&lt;/td&gt;
+  &lt;td align="right"&gt;100 GB&lt;/td&gt;
+  &lt;td align="right"&gt;1 IPv4&lt;/td&gt;
+  &lt;td align="right"&gt;/64 IPv6&lt;/td&gt;
+  &lt;td align="right"&gt;25 TB&lt;/td&gt;
+  &lt;td align="right"&gt;€79&lt;/td&gt;
+  &lt;td align="right"&gt;€71.10&lt;/td&gt;
+  &lt;td align="right"&gt;~€5.93/mo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;Anniversary L&lt;/td&gt;
+  &lt;td align="right"&gt;4 Cores&lt;/td&gt;
+  &lt;td align="right"&gt;18 GB&lt;/td&gt;
+  &lt;td align="right"&gt;150 GB&lt;/td&gt;
+  &lt;td align="right"&gt;1 IPv4&lt;/td&gt;
+  &lt;td align="right"&gt;/64 IPv6&lt;/td&gt;
+  &lt;td align="right"&gt;25 TB&lt;/td&gt;
+  &lt;td align="right"&gt;€129&lt;/td&gt;
+  &lt;td align="right"&gt;€116.10&lt;/td&gt;
+  &lt;td align="right"&gt;~€9.68/mo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;Anniversary XL&lt;/td&gt;
+  &lt;td align="right"&gt;6 Cores&lt;/td&gt;
+  &lt;td align="right"&gt;24 GB&lt;/td&gt;
+  &lt;td align="right"&gt;200 GB&lt;/td&gt;
+  &lt;td align="right"&gt;1 IPv4&lt;/td&gt;
+  &lt;td align="right"&gt;/64 IPv6&lt;/td&gt;
+  &lt;td align="right"&gt;25 TB&lt;/td&gt;
+  &lt;td align="right"&gt;€199&lt;/td&gt;
+  &lt;td align="right"&gt;€179.10&lt;/td&gt;
+  &lt;td align="right"&gt;~€14.93/mo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Order:&lt;br /&gt;
+&lt;a href="https://bero-host.de/server/prepaid-ryzen-vserver-mieten" rel="nofollow"&gt;https://bero-host.de/server/prepaid-ryzen-vserver-mieten&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2&gt;IPv6-only EPYC Turin VPS&lt;/h2&gt;
+
+&lt;p&gt;Powered by:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;AMD EPYC Turin 9275F&lt;/li&gt;
+&lt;li&gt;DDR5 RAM&lt;/li&gt;
+&lt;li&gt;Fast NVMe storage&lt;/li&gt;
+&lt;li&gt;KVM virtualization&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Location: Frankfurt, Germany&lt;br /&gt;
+Traffic: 25 TB included per package&lt;br /&gt;
+IPv4: Not included&lt;br /&gt;
+IPv6: /64 included&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+  &lt;th&gt;Plan&lt;/th&gt;
+  &lt;th align="right"&gt;CPU&lt;/th&gt;
+  &lt;th align="right"&gt;RAM&lt;/th&gt;
+  &lt;th align="right"&gt;NVMe&lt;/th&gt;
+  &lt;th align="right"&gt;IPv4&lt;/th&gt;
+  &lt;th align="right"&gt;IPv6&lt;/th&gt;
+  &lt;th align="right"&gt;Traffic&lt;/th&gt;
+  &lt;th align="right"&gt;Recurring price/year&lt;/th&gt;
+  &lt;th align="right"&gt;First year with LET10&lt;/th&gt;
+  &lt;th align="right"&gt;Effective first-year monthly&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+  &lt;td&gt;Anniversary XS&lt;/td&gt;
+  &lt;td align="right"&gt;1 Core&lt;/td&gt;
+  &lt;td align="right"&gt;1 GB&lt;/td&gt;
+  &lt;td align="right"&gt;10 GB&lt;/td&gt;
+  &lt;td align="right"&gt;0 IPv4&lt;/td&gt;
+  &lt;td align="right"&gt;/64 IPv6&lt;/td&gt;
+  &lt;td align="right"&gt;25 TB&lt;/td&gt;
+  &lt;td align="right"&gt;€12&lt;/td&gt;
+  &lt;td align="right"&gt;€10.80&lt;/td&gt;
+  &lt;td align="right"&gt;€0.90/mo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;Anniversary S&lt;/td&gt;
+  &lt;td align="right"&gt;2 Cores&lt;/td&gt;
+  &lt;td align="right"&gt;6 GB&lt;/td&gt;
+  &lt;td align="right"&gt;60 GB&lt;/td&gt;
+  &lt;td align="right"&gt;0 IPv4&lt;/td&gt;
+  &lt;td align="right"&gt;/64 IPv6&lt;/td&gt;
+  &lt;td align="right"&gt;25 TB&lt;/td&gt;
+  &lt;td align="right"&gt;€34&lt;/td&gt;
+  &lt;td align="right"&gt;€30.60&lt;/td&gt;
+  &lt;td align="right"&gt;€2.55/mo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;Anniversary M&lt;/td&gt;
+  &lt;td align="right"&gt;4 Cores&lt;/td&gt;
+  &lt;td align="right"&gt;12 GB&lt;/td&gt;
+  &lt;td align="right"&gt;120 GB&lt;/td&gt;
+  &lt;td align="right"&gt;0 IPv4&lt;/td&gt;
+  &lt;td align="right"&gt;/64 IPv6&lt;/td&gt;
+  &lt;td align="right"&gt;25 TB&lt;/td&gt;
+  &lt;td align="right"&gt;€44&lt;/td&gt;
+  &lt;td align="right"&gt;€39.60&lt;/td&gt;
+  &lt;td align="right"&gt;€3.30/mo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;Anniversary L&lt;/td&gt;
+  &lt;td align="right"&gt;4 Cores&lt;/td&gt;
+  &lt;td align="right"&gt;20 GB&lt;/td&gt;
+  &lt;td align="right"&gt;200 GB&lt;/td&gt;
+  &lt;td align="right"&gt;0 IPv4&lt;/td&gt;
+  &lt;td align="right"&gt;/64 IPv6&lt;/td&gt;
+  &lt;td align="right"&gt;25 TB&lt;/td&gt;
+  &lt;td align="right"&gt;€64&lt;/td&gt;
+  &lt;td align="right"&gt;€57.60&lt;/td&gt;
+  &lt;td align="right"&gt;€4.80/mo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;Anniversary XL&lt;/td&gt;
+  &lt;td align="right"&gt;6 Cores&lt;/td&gt;
+  &lt;td align="right"&gt;24 GB&lt;/td&gt;
+  &lt;td align="right"&gt;300 GB&lt;/td&gt;
+  &lt;td align="right"&gt;0 IPv4&lt;/td&gt;
+  &lt;td align="right"&gt;/64 IPv6&lt;/td&gt;
+  &lt;td align="right"&gt;25 TB&lt;/td&gt;
+  &lt;td align="right"&gt;€84&lt;/td&gt;
+  &lt;td align="right"&gt;€75.60&lt;/td&gt;
+  &lt;td align="right"&gt;€6.30/mo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;Anniversary XXL&lt;/td&gt;
+  &lt;td align="right"&gt;8 Cores&lt;/td&gt;
+  &lt;td align="right"&gt;32 GB&lt;/td&gt;
+  &lt;td align="right"&gt;300 GB&lt;/td&gt;
+  &lt;td align="right"&gt;0 IPv4&lt;/td&gt;
+  &lt;td align="right"&gt;/64 IPv6&lt;/td&gt;
+  &lt;td align="right"&gt;25 TB&lt;/td&gt;
+  &lt;td align="right"&gt;€124&lt;/td&gt;
+  &lt;td align="right"&gt;€111.60&lt;/td&gt;
+  &lt;td align="right"&gt;€9.30/mo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Order:&lt;br /&gt;
+&lt;a href="https://bero-host.de/server/prepaid-ipv6-rootserver-mieten" rel="nofollow"&gt;https://bero-host.de/server/prepaid-ipv6-rootserver-mieten&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2&gt;Included Features&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;KVM virtualization&lt;/li&gt;
+&lt;li&gt;Custom-built control panel&lt;/li&gt;
+&lt;li&gt;Backups included&lt;/li&gt;
+&lt;li&gt;Custom ISOs available&lt;/li&gt;
+&lt;li&gt;IPv6 included with all packages&lt;/li&gt;
+&lt;li&gt;25 TB traffic included per package&lt;/li&gt;
+&lt;li&gt;Frankfurt, Germany location&lt;/li&gt;
+&lt;li&gt;Annual billing only for these promo packages&lt;/li&gt;
+&lt;li&gt;Recurring yearly pricing&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2&gt;Network&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Location: Frankfurt, Germany&lt;/li&gt;
+&lt;li&gt;Looking Glass: &lt;a href="https://lg.fra.bero.host/" rel="nofollow"&gt;https://lg.fra.bero.host/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;25 TB traffic included per package&lt;/li&gt;
+&lt;li&gt;IPv6 included with all packages&lt;/li&gt;
+&lt;li&gt;IPv4 included with EPYC and Ryzen plans&lt;/li&gt;
+&lt;li&gt;IPv6-only plans do</description>
+    </item>
+    <item>
+        <title>DeluxHost.net | VPS Restock | Improved Storage Servers! | Z / T / Q | Highly DDoS Protected | NL</title>
+        <link>https://lowendtalk.com/discussion/221797/deluxhost-net-vps-restock-improved-storage-servers-z-t-q-highly-ddos-protected-nl</link>
+        <pubDate>Tue, 06 Oct 2026 16:15:03 +0000</pubDate>
+        <category>Offers</category>
+        <dc:creator>DeluxHost</dc:creator>
+        <guid isPermaLink="false">221797@/discussions</guid>
+        <description>&lt;p&gt;Hello LET 👋&lt;/p&gt;
+
+&lt;p&gt;We’re back with another regular restock of some of our existing &lt;strong&gt;DeluxHost promotional VPS offers&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Nothing revolutionary, just new availability across our &lt;strong&gt;Z and T Series&lt;/strong&gt;, some selected &lt;strong&gt;Q Series&lt;/strong&gt; stock, and our &lt;strong&gt;Storage VPS&lt;/strong&gt; lineup.&lt;/p&gt;
+
+&lt;p&gt;Since our previous offer threads, however, there are a few things worth highlighting.&lt;/p&gt;
+
+&lt;p&gt;Our network has now been running behind &lt;strong&gt;PletX DDoS protection for several months&lt;/strong&gt;, our Storage infrastructure has received further updates and improvements, and we have also made significant progress with our support response times.&lt;/p&gt;
+
+&lt;p&gt;As usual, these promotional VPS plans are mainly intended for &lt;strong&gt;testing, development, personal projects and normal non-critical workloads&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;For business-critical services, important production environments or irreplaceable data, we always recommend appropriate redundancy and independent backups.&lt;/p&gt;
+
+&lt;p&gt;Thanks again to everyone who continues to use our services, report issues and give us feedback.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1&gt;🛡️ NETWORK &amp;amp; DDoS PROTECTION&lt;/h1&gt;
+
+&lt;p&gt;One of the biggest improvements to our infrastructure over the past months has been the continued use of &lt;strong&gt;PletX DDoS protection&lt;/strong&gt; across the network.&lt;/p&gt;
+
+&lt;p&gt;After the network changes and mitigation work carried out earlier this year, PletX has now been protecting our infrastructure for several months and has become a stable part of the DeluxHost network.&lt;/p&gt;
+
+&lt;p&gt;The current setup has significantly improved our ability to absorb and handle attacks and abnormal traffic events compared with the situation before these changes.&lt;/p&gt;
+
+&lt;p&gt;Of course, no DDoS mitigation solution can guarantee that every possible attack will have absolutely zero impact, but overall the network is now operating from a considerably stronger and more stable foundation.&lt;/p&gt;
+
+&lt;p&gt;We continue to monitor routing, attack patterns and upstream behaviour and will keep making improvements where necessary.&lt;/p&gt;
+
+&lt;p&gt;All VPS infrastructure included in this thread is protected by &lt;strong&gt;PletX&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1&gt;💾 STORAGE INFRASTRUCTURE IMPROVEMENTS&lt;/h1&gt;
+
+&lt;p&gt;We also want to highlight the progress made on our &lt;strong&gt;Storage VPS infrastructure&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Following the latest updates and work carried out on the Storage nodes, we have seen a clear improvement in &lt;strong&gt;day-to-day performance consistency, responsiveness and overall stability&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;We know that Storage performance was one of the points discussed in previous threads, so improving the behaviour of these nodes has been an important focus for us.&lt;/p&gt;
+
+&lt;p&gt;The objective has never been to turn these plans into high-performance NVMe VPSs.&lt;/p&gt;
+
+&lt;p&gt;They remain &lt;strong&gt;capacity-focused services&lt;/strong&gt; designed primarily for:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Backups&lt;/li&gt;
+&lt;li&gt;Archives&lt;/li&gt;
+&lt;li&gt;File storage&lt;/li&gt;
+&lt;li&gt;Large datasets&lt;/li&gt;
+&lt;li&gt;Other storage-oriented workloads&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;What has improved is the overall experience of using the platform for the workloads it is actually designed for.&lt;/p&gt;
+
+&lt;p&gt;The Storage infrastructure is also protected by &lt;strong&gt;PletX DDoS mitigation&lt;/strong&gt;, and we will continue monitoring and tuning the nodes as usage grows.&lt;/p&gt;
+
+&lt;p&gt;💡 Storage VPS are still not recommended for heavy databases, consistently high disk-I/O workloads or CPU-intensive applications.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1&gt;💬 SUPPORT IMPROVEMENTS&lt;/h1&gt;
+
+&lt;p&gt;Another area where we have made significant progress over the last few weeks is &lt;strong&gt;support&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;In previous threads we were very transparent about the delays we were experiencing. Our own customer satisfaction survey also showed very clearly that support was the area where our customers expected the most improvement.&lt;/p&gt;
+
+&lt;p&gt;We took that feedback seriously.&lt;/p&gt;
+
+&lt;p&gt;Over the last few weeks, we have worked on internal workflows, ticket handling and the way support requests are managed.&lt;/p&gt;
+
+&lt;p&gt;The difference today is substantial.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Most tickets are now handled quickly, and first response times in particular have improved significantly.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In many cases, customers now receive an initial response much faster than before, while the overall handling of tickets has also become more consistent.&lt;/p&gt;
+
+&lt;p&gt;We are happy with the progress made so far, but we are still actively looking for additional qualified technicians who can help us further strengthen the support team and maintain fast response times as we continue to grow.&lt;/p&gt;
+
+&lt;p&gt;There is still room for improvement, and we do not consider the work finished, but support is now in a much better position than it was before.&lt;/p&gt;
+
+&lt;p&gt;As always, if you have an issue or believe a ticket requires additional attention, you can also contact us here on &lt;strong&gt;LowEndTalk&lt;/strong&gt; and we will do our best to help.&lt;/p&gt;
+
+&lt;p&gt;Thank you again to everyone who gave us feedback — including the critical feedback. It genuinely helped us understand where we needed to improve.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1&gt;⚡ VPS RESTOCK&lt;/h1&gt;
+
+&lt;p&gt;This is a &lt;strong&gt;regular restock of our existing promotional series&lt;/strong&gt;, not the launch of new product lines.&lt;/p&gt;
+
+&lt;p&gt;Stock remains deliberately limited and is added only when the corresponding nodes can sustainably support additional customers.&lt;/p&gt;
+
+&lt;h2&gt;A quick note about these offers&lt;/h2&gt;
+
+&lt;p&gt;These are low-cost promotional VPS plans mainly intended for:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Personal projects&lt;/li&gt;
+&lt;li&gt;Testing and development&lt;/li&gt;
+&lt;li&gt;Labs and experiments&lt;/li&gt;
+&lt;li&gt;Lightweight services&lt;/li&gt;
+&lt;li&gt;Normal non-critical workloads&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;CPU, storage and network resources are shared.&lt;/p&gt;
+
+&lt;p&gt;They offer strong value for the price, but they should not be treated as dedicated servers or enterprise-grade infrastructure.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Please keep realistic expectations for services at this price point.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1&gt;💾 STORAGE VPS — FIXED MONTHLY PRICING&lt;/h1&gt;
+
+&lt;p&gt;We’re starting this restock with our &lt;strong&gt;Storage VPS lineup&lt;/strong&gt;, especially because this is one of the areas where we’ve made noticeable improvements since our previous offer threads.&lt;/p&gt;
+
+&lt;p&gt;Following the latest infrastructure updates, the Storage platform is now operating with &lt;strong&gt;better performance consistency, improved responsiveness and stronger overall stability&lt;/strong&gt; under normal workloads.&lt;/p&gt;
+
+&lt;p&gt;These are still capacity-focused VPS plans rather than high-performance NVMe products, and they remain primarily designed for backups, archives, file storage and other storage-oriented workloads.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CPU: Intel Xeon E5-2699 v4&lt;/li&gt;
+&lt;li&gt;Primary Storage: HDD&lt;/li&gt;
+&lt;li&gt;Additional Storage: NVMe SSD&lt;/li&gt;
+&lt;li&gt;DDoS protection: PletX&lt;/li&gt;
+&lt;li&gt;Network: IPv4 and IPv6&lt;/li&gt;
+&lt;li&gt;Virtualization: KVM&lt;/li&gt;
+&lt;li&gt;Location: Eygelshoven, Netherlands&lt;/li&gt;
+&lt;li&gt;Datacenter: SkyLink DC&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+  &lt;th&gt;Plan&lt;/th&gt;
+  &lt;th align="right"&gt;vCPU&lt;/th&gt;
+  &lt;th align="right"&gt;RAM&lt;/th&gt;
+  &lt;th align="right"&gt;HDD Storage&lt;/th&gt;
+  &lt;th align="right"&gt;NVMe SSD&lt;/th&gt;
+  &lt;th align="right"&gt;Port&lt;/th&gt;
+  &lt;th align="right"&gt;Price/month&lt;/th&gt;
+  &lt;th&gt;Order&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+  &lt;td&gt;STORAGE-1&lt;/td&gt;
+  &lt;td align="right"&gt;1&lt;/td&gt;
+  &lt;td align="right"&gt;2 GB&lt;/td&gt;
+  &lt;td align="right"&gt;500 GB&lt;/td&gt;
+  &lt;td align="right"&gt;5 GB&lt;/td&gt;
+  &lt;td align="right"&gt;1 Gbps&lt;/td&gt;
+  &lt;td align="right"&gt;€1.49&lt;/td&gt;
+  &lt;td&gt;&lt;a rel="nofollow" href="https://deluxhost.net/en/cart?add=storage-1&amp;amp;cycle=monthly"&gt;ORDER STORAGE-1&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;STORAGE-2&lt;/td&gt;
+  &lt;td align="right"&gt;2&lt;/td&gt;
+  &lt;td align="right"&gt;3 GB&lt;/td&gt;
+  &lt;td align="right"&gt;1 TB&lt;/td&gt;
+  &lt;td align="right"&gt;10 GB&lt;/td&gt;
+  &lt;td align="right"&gt;1 Gbps&lt;/td&gt;
+  &lt;td align="right"&gt;€1.99&lt;/td&gt;
+  &lt;td&gt;&lt;a rel="nofollow" href="https://deluxhost.net/en/cart?add=storage-2&amp;amp;cycle=monthly"&gt;ORDER STORAGE-2&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;STORAGE-3&lt;/td&gt;
+  &lt;td align="right"&gt;2&lt;/td&gt;
+  &lt;td align="right"&gt;4 GB&lt;/td&gt;
+  &lt;td align="right"&gt;2 TB&lt;/td&gt;
+  &lt;td align="right"&gt;20 GB&lt;/td&gt;
+  &lt;td align="right"&gt;1 Gbps&lt;/td&gt;
+  &lt;td align="right"&gt;€3.99&lt;/td&gt;
+  &lt;td&gt;&lt;a rel="nofollow" href="https://deluxhost.net/en/cart?add=storage-3&amp;amp;cycle=monthly"&gt;ORDER STORAGE-3&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;STORAGE-4&lt;/td&gt;
+  &lt;td align="right"&gt;2&lt;/td&gt;
+  &lt;td align="right"&gt;6 GB&lt;/td&gt;
+  &lt;td align="right"&gt;3 TB&lt;/td&gt;
+  &lt;td align="right"&gt;30 GB&lt;/td&gt;
+  &lt;td align="right"&gt;1 Gbps&lt;/td&gt;
+  &lt;td align="right"&gt;€6.99&lt;/td&gt;
+  &lt;td&gt;&lt;a rel="nofollow" href="https://deluxhost.net/en/cart?add=storage-4&amp;amp;cycle=monthly"&gt;ORDER STORAGE-4&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;👉 &lt;strong&gt;Full Storage lineup:&lt;/strong&gt;&lt;br /&gt;
+&lt;a href="https://deluxhost.net/en/storage" rel="nofollow"&gt;https://deluxhost.net/en/storage&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;Storage VPS notes&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Monthly pricing does not increase on renewal.&lt;/li&gt;
+&lt;li&gt;Designed primarily for backups, archives and storage workloads.&lt;/li&gt;
+&lt;li&gt;Recent infrastructure updates have improved consistency and overall behaviour under normal workloads.&lt;/li&gt;
+&lt;li&gt;Not recommended for CPU-intensive applications.&lt;/li&gt;
+&lt;li&gt;Not recommended for </description>
+    </item>
+    <item>
+        <title>$12/Year VPS in Frankfurt + $50 Giveaway – Servitro’s Another LET Post!</title>
+        <link>https://lowendtalk.com/discussion/220866/12-year-vps-in-frankfurt-50-giveaway-servitro-s-another-let-post</link>
+        <pubDate>Sun, 06 Sep 2026 18:58:36 +0000</pubDate>
+        <category>Offers</category>
+        <dc:creator>Servitro</dc:creator>
+        <guid isPermaLink="false">220866@/discussions</guid>
+        <description>&lt;h2&gt;Hello LET users,&lt;/h2&gt;
+
+&lt;h3&gt;We're back with another sale. Just like in our last post, we're hosting another $50 giveaway, which will be divided among 5 lucky winners. To participate, simply comment anything on this post. The results will be announced on 1st October. Good luck!&lt;/h3&gt;
+
+&lt;h2&gt;Frankfurt Virtual Server&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;$1 Server&lt;/strong&gt;&lt;br /&gt;
+1 vCore&lt;br /&gt;
+1 GB DDR4 RAM&lt;br /&gt;
+10 GB SSD&lt;br /&gt;
+1Gbps Port&lt;br /&gt;
+1 TB Traffic*&lt;br /&gt;
+1x IPv4&lt;br /&gt;
+1x IPv6 /64&lt;br /&gt;
+&lt;a href="https://my.servitro.com/store/virtual-servers/usd1-server" rel="nofollow"&gt;https://my.servitro.com/store/virtual-servers/usd1-server&lt;/a&gt;&lt;br /&gt;
+$12/year&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Virtual-1 Ryzen 9 9950X&lt;/strong&gt;&lt;br /&gt;
+1 vCore&lt;br /&gt;
+4 GB DDR5 RAM&lt;br /&gt;
+25 GB SSD&lt;br /&gt;
+10Gbps Port&lt;br /&gt;
+1 TB Traffic*&lt;br /&gt;
+1x IPv4&lt;br /&gt;
+1x IPv6 /64&lt;br /&gt;
+&lt;a href="https://my.servitro.com/store/virtual-servers-ryzen-9-9950x-frankfurt/virtual-1" rel="nofollow"&gt;https://my.servitro.com/store/virtual-servers-ryzen-9-9950x-frankfurt/virtual-1&lt;/a&gt;&lt;br /&gt;
+Use the coupon code BFJH1873LA to get it for $35.2 per year.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Virtual-1 AMD EPYC 7443P&lt;/strong&gt;&lt;br /&gt;
+1 vCore&lt;br /&gt;
+4 GB DDR4 RAM&lt;br /&gt;
+25 GB SSD&lt;br /&gt;
+10Gbps Port&lt;br /&gt;
+1 TB Traffic*&lt;br /&gt;
+1x IPv4&lt;br /&gt;
+1x IPv6 /64&lt;br /&gt;
+&lt;a href="https://my.servitro.com/store/virtual-servers/virtual-1" rel="nofollow"&gt;https://my.servitro.com/store/virtual-servers/virtual-1&lt;/a&gt;&lt;br /&gt;
+Use the coupon code S8KQX51KF6 to get it for $20 per year.&lt;/p&gt;
+
+&lt;h2&gt;After ordering, open a ticket mentioning this ad, and we will double your CPU and disk!&lt;/h2&gt;
+
+&lt;h2&gt;Why Choose Servitro?&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;24/7 Support&lt;/li&gt;
+&lt;li&gt;Flexible Payment Options: PayPal, Stripe or Cryptocurrency&lt;/li&gt;
+&lt;li&gt;7-Day Money-Back Guarantee&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Servitro&lt;/h2&gt;
+
+&lt;p&gt;E-mail: Support@servitro.com&lt;br /&gt;
+Looking Glass: &lt;a href="https://lg-fra.servitro.com/" rel="nofollow"&gt;https://lg-fra.servitro.com/&lt;/a&gt;&lt;br /&gt;
+Status page: &lt;a href="https://status.servitro.com/" rel="nofollow"&gt;https://status.servitro.com/&lt;/a&gt;&lt;/p&gt;
+
+        </description>
+    </item>
+    <item>
+        <title>[US] Dedicated Servers from $93.50/mo | VPS from $2.04/mo | 10Gbps | Recurring Discounts | Buffalo,</title>
+        <link>https://lowendtalk.com/discussion/222121/us-dedicated-servers-from-93-50-mo-vps-from-2-04-mo-10gbps-recurring-discounts-buffalo</link>
+        <pubDate>Thu, 15 Oct 2026 17:48:16 +0000</pubDate>
+        <category>Offers</category>
+        <dc:creator>tanek</dc:creator>
+        <guid isPermaLink="false">222121@/discussions</guid>
+        <description>&lt;p&gt;Hello LowEndTalk,&lt;/p&gt;
+
+&lt;p&gt;CentrixNodes is currently offering 15% off dedicated servers and 20% off VPS hosting, with both discounts applying to recurring monthly billing.&lt;/p&gt;
+
+&lt;p&gt;Dedicated Servers — 15% OFF Recurring&lt;/p&gt;
+
+&lt;p&gt;Promo Code: LOWENDTALKDEDI&lt;/p&gt;
+
+&lt;p&gt;Dual Intel Xeon Gold 6154&lt;/p&gt;
+
+&lt;p&gt;36 Cores / 72 Threads&lt;/p&gt;
+
+&lt;p&gt;Up to 3.70 GHz&lt;/p&gt;
+
+&lt;p&gt;64 GB DDR4 ECC&lt;/p&gt;
+
+&lt;p&gt;1× 4 TB SATA SSD&lt;/p&gt;
+
+&lt;p&gt;10Gbps Unmetered Bandwidth&lt;/p&gt;
+
+&lt;p&gt;/29 IPv4 Allocation Included&lt;/p&gt;
+
+&lt;p&gt;$110.00/mo → $93.50/month recurring&lt;/p&gt;
+
+&lt;p&gt;Order: &lt;a href="https://billing.centrixnodes.net/store/dedicated-servers/2x-duel-xeon-gold-6154-256gb" rel="nofollow"&gt;https://billing.centrixnodes.net/store/dedicated-servers/2x-duel-xeon-gold-6154-256gb&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Dual Intel Xeon E5-2690 v4&lt;/p&gt;
+
+&lt;p&gt;28 Cores / 56 Threads&lt;/p&gt;
+
+&lt;p&gt;Up to 3.50 GHz&lt;/p&gt;
+
+&lt;p&gt;128 GB DDR4 ECC&lt;/p&gt;
+
+&lt;p&gt;1× 4 TB SATA SSD&lt;/p&gt;
+
+&lt;p&gt;10Gbps Unmetered Bandwidth&lt;/p&gt;
+
+&lt;p&gt;/29 IPv4 Allocation Included&lt;/p&gt;
+
+&lt;p&gt;$160.00/mo → $136.00/month recurring&lt;/p&gt;
+
+&lt;p&gt;Order: &lt;a href="https://billing.centrixnodes.net/store/dedicated-servers/dual-intel-xeon-e5-2690-v4-128gb-1" rel="nofollow"&gt;https://billing.centrixnodes.net/store/dedicated-servers/dual-intel-xeon-e5-2690-v4-128gb-1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;All dedicated servers include:&lt;/p&gt;
+
+&lt;p&gt;10Gbps Unmetered Bandwidth&lt;/p&gt;
+
+&lt;p&gt;Enterprise DDoS Protection (GSL + On-Prem)&lt;/p&gt;
+
+&lt;p&gt;/29 IPv4 Allocation&lt;/p&gt;
+
+&lt;p&gt;Additional IPv4 at $1/IP&lt;/p&gt;
+
+&lt;p&gt;Quick Delivery&lt;/p&gt;
+
+&lt;p&gt;Budget Intel VPS — 20% OFF Recurring&lt;/p&gt;
+
+&lt;p&gt;Powered by Intel Xeon E5-2690 v4, DDR4 memory and SSD storage.&lt;/p&gt;
+
+&lt;p&gt;Promo Code: LOWENDTALKVPS&lt;/p&gt;
+
+&lt;p&gt;1 vCPU / 1 GB DDR4 / 10 GB SSD&lt;br /&gt;
+$2.55/mo → $2.04/month recurring&lt;br /&gt;
+Order: &lt;a href="https://centrixnodes.net/vps/189?cycle=monthly" rel="nofollow"&gt;https://centrixnodes.net/vps/189?cycle=monthly&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;1 vCPU / 2 GB DDR4 / 25 GB SSD&lt;br /&gt;
+$4.25/mo → $3.40/month recurring&lt;br /&gt;
+Order: &lt;a href="https://centrixnodes.net/vps/17?cycle=monthly" rel="nofollow"&gt;https://centrixnodes.net/vps/17?cycle=monthly&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;1 vCPU / 4 GB DDR4 / 40 GB SSD&lt;br /&gt;
+$7.20/mo → $5.76/month recurring&lt;br /&gt;
+Order: &lt;a href="https://centrixnodes.net/vps/98?cycle=monthly" rel="nofollow"&gt;https://centrixnodes.net/vps/98?cycle=monthly&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2 vCPU / 8 GB DDR4 / 65 GB SSD&lt;br /&gt;
+$13.95/mo → $11.16/month recurring&lt;br /&gt;
+Order: &lt;a href="https://centrixnodes.net/vps/33?cycle=monthly" rel="nofollow"&gt;https://centrixnodes.net/vps/33?cycle=monthly&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Budget VPS plans include 1Gbps networking by default, upgradeable to 10Gbps.&lt;/p&gt;
+
+&lt;p&gt;Premium Ryzen 7950X VPS — 20% OFF Recurring&lt;/p&gt;
+
+&lt;p&gt;Powered by AMD Ryzen 7950X, DDR5 memory and NVMe storage.&lt;/p&gt;
+
+&lt;p&gt;Promo Code: LOWENDTALKVPS&lt;/p&gt;
+
+&lt;p&gt;1 vCPU / 1 GB DDR5 / 10 GB NVMe&lt;br /&gt;
+$5.05/mo → $4.04/month recurring&lt;br /&gt;
+Order: &lt;a href="https://centrixnodes.net/vps/191?cycle=monthly" rel="nofollow"&gt;https://centrixnodes.net/vps/191?cycle=monthly&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;1 vCPU / 2 GB DDR5 / 35 GB NVMe&lt;br /&gt;
+$7.55/mo → $6.04/month recurring&lt;br /&gt;
+Order: &lt;a href="https://centrixnodes.net/vps/59?cycle=monthly" rel="nofollow"&gt;https://centrixnodes.net/vps/59?cycle=monthly&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2 vCPU / 4 GB DDR5 / 50 GB NVMe&lt;br /&gt;
+$14.50/mo → $11.60/month recurring&lt;br /&gt;
+Order: &lt;a href="https://centrixnodes.net/vps/60?cycle=monthly" rel="nofollow"&gt;https://centrixnodes.net/vps/60?cycle=monthly&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Premium VPS plans include 10Gbps unmetered networking by default, with no bandwidth caps or rate limits.&lt;/p&gt;
+
+&lt;p&gt;VPS Features&lt;/p&gt;
+
+&lt;p&gt;DDoS Protection&lt;/p&gt;
+
+&lt;p&gt;Dedicated IPv4&lt;/p&gt;
+
+&lt;p&gt;Linux &amp;amp; Windows&lt;/p&gt;
+
+&lt;p&gt;Full Root/Admin Access&lt;/p&gt;
+
+&lt;p&gt;Automatic Provisioning&lt;/p&gt;
+
+&lt;p&gt;No Setup Fees&lt;/p&gt;
+
+&lt;p&gt;Network Information&lt;/p&gt;
+
+&lt;p&gt;Location: Buffalo, New York, USA&lt;br /&gt;
+Test IP: 107.172.136.124&lt;/p&gt;
+
+&lt;p&gt;Promotional Codes&lt;/p&gt;
+
+&lt;p&gt;Dedicated Servers: LOWENDTALKDEDI — 15% OFF Recurring&lt;/p&gt;
+
+&lt;p&gt;VPS Hosting: LOWENDTALKVPS — 20% OFF Recurring&lt;/p&gt;
+
+&lt;p&gt;Both promotional discounts apply to recurring monthly billing, not just the first month.&lt;/p&gt;
+
+&lt;p&gt;Website: &lt;a href="https://centrixnodes.net" rel="nofollow"&gt;https://centrixnodes.net&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For questions or custom configurations, feel free to contact us.&lt;/p&gt;
+
+&lt;p&gt;Thanks for looking!&lt;/p&gt;
+
+        </description>
+    </item>
+    <item>
+        <title>A NEW DAWN HAS ARRIVED &gt;&gt; The i9 Dream™ &lt;&lt; ONLY FROM DediRock!</title>
+        <link>https://lowendtalk.com/discussion/218942/a-new-dawn-has-arrived-the-i9-dream</link>
+        <pubDate>Tue, 07 Jul 2026 20:28:08 +0000</pubDate>
+        <category>Offers</category>
+        <dc:creator>DediRock</dc:creator>
+        <guid isPermaLink="false">218942@/discussions</guid>
+        <description>&lt;p&gt;&lt;img src="https://i.imgur.com/z2A3yBe.png" alt="DediRock Image" /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;THE DREAM CONTINUES&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;DediRock continues to grow, and we're excited to introduce the next generation of our VPS lineup.&lt;/p&gt;
+
+&lt;p&gt;Our brand-new &lt;strong&gt;Intel i9 VPS lineup&lt;/strong&gt; has officially arrived. &lt;strong&gt;The i9 Dream™&lt;/strong&gt; delivers exceptional single-core performance for gaming, development, production workloads, and everything in between.&lt;/p&gt;
+
+&lt;p&gt;Storage Wars also continues! Our Storage VPS lineup remains one of the best values in the industry and now runs on &lt;strong&gt;RAID 5 and RAID 6&lt;/strong&gt;, providing even greater redundancy and reliability.&lt;/p&gt;
+
+&lt;p&gt;And we're not stopping there... &lt;strong&gt;AMD Ryzen VPS plans are coming soon.&lt;/strong&gt; Stay tuned as we continue expanding our infrastructure and bringing even more performance to the DediRock family.&lt;/p&gt;
+
+&lt;p&gt;Of course, our community favorites aren't going anywhere. Our popular &lt;strong&gt;$8.88 New York VPS&lt;/strong&gt; and &lt;strong&gt;$9.88 Los Angeles VPS&lt;/strong&gt; continue to deliver incredible value for everyday hosting.&lt;/p&gt;
+
+&lt;p&gt;Whether you're looking for blazing-fast compute, affordable storage, or dependable VPS hosting, DediRock has a solution built for you.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Join DediRock &amp;amp; Live The Dream™&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2&gt;&lt;strong&gt;The i9 Dream™&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Core&lt;/strong&gt;&lt;br /&gt;
+– 2 GB DDR5 RAM&lt;br /&gt;
+– 1x vCore CPU&lt;br /&gt;
+– 30 GB NVMe SSD&lt;br /&gt;
+– 2 TB Bandwidth&lt;br /&gt;
+– 1 Gbps Network Port&lt;br /&gt;
+– 1 IPv4 Address&lt;br /&gt;
+&lt;strong&gt;– Promotional Price: $24.88/Year&lt;/strong&gt;&lt;br /&gt;
+– &lt;a rel="nofollow" href="https://billing.dedirock.com/index.php/store/promo-performance/promo-performance-vps-ny-core"&gt;Order Now&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Plus&lt;/strong&gt;&lt;br /&gt;
+– 3 GB DDR5 RAM&lt;br /&gt;
+– 1x vCore CPU&lt;br /&gt;
+– 40 GB NVMe SSD&lt;br /&gt;
+– 4 TB Bandwidth&lt;br /&gt;
+– 1 Gbps Network Port&lt;br /&gt;
+– 1 IPv4 Address&lt;br /&gt;
+&lt;strong&gt;– Promotional Price: $34.88/Year&lt;/strong&gt;&lt;br /&gt;
+– &lt;a rel="nofollow" href="https://billing.dedirock.com/index.php/store/promo-performance/promo-performance-vps-ny-plus"&gt;Order Now&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Power&lt;/strong&gt;&lt;br /&gt;
+– 4 GB DDR5 RAM&lt;br /&gt;
+– 2x vCore CPU&lt;br /&gt;
+– 60 GB NVMe SSD&lt;br /&gt;
+– 6 TB Bandwidth&lt;br /&gt;
+– 1 Gbps Network Port&lt;br /&gt;
+– 1 IPv4 Address&lt;br /&gt;
+&lt;strong&gt;– Promotional Price: $44.88/Year&lt;/strong&gt;&lt;br /&gt;
+– &lt;a rel="nofollow" href="https://billing.dedirock.com/index.php/store/promo-performance/promo-performance-vps-ny-power"&gt;Order Now&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2&gt;&lt;strong&gt;DediRock Storage Wars™&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Core&lt;/strong&gt;&lt;br /&gt;
+– 1x vCPU Core&lt;br /&gt;
+– 256 GB Storage&lt;br /&gt;
+– 1 GB RAM&lt;br /&gt;
+– 1,000 GB Monthly Bandwidth&lt;br /&gt;
+– 1 Gbps Network Port&lt;br /&gt;
+– Full Root Admin Access&lt;br /&gt;
+– 1 Dedicated IPv4 Address&lt;br /&gt;
+– KVM / Virtualizor&lt;br /&gt;
+&lt;sub&gt;– Optimized for backups &amp;amp; large files. Not for heavy 4K RW.&lt;/sub&gt;&lt;br /&gt;
+&lt;strong&gt;– Promotional Price: $12.88/Year&lt;/strong&gt;&lt;br /&gt;
+– &lt;a rel="nofollow" href="https://billing.dedirock.com/index.php/store/promo-storage-new-york/promo-storage-ny-core"&gt;Order Now&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Plus&lt;/strong&gt;&lt;br /&gt;
+– 1x vCPU Core&lt;br /&gt;
+– 1 TB Storage&lt;br /&gt;
+– 2 GB RAM&lt;br /&gt;
+– 2,000 GB Monthly Bandwidth&lt;br /&gt;
+– 1 Gbps Network Port&lt;br /&gt;
+– Full Root Admin Access&lt;br /&gt;
+– 1 Dedicated IPv4 Address&lt;br /&gt;
+– KVM / Virtualizor&lt;br /&gt;
+&lt;sub&gt;– Optimized for backups &amp;amp; large files. Not for heavy 4K RW.&lt;/sub&gt;&lt;br /&gt;
+&lt;strong&gt;– Promotional Price: $19.88/Year&lt;/strong&gt;&lt;br /&gt;
+– &lt;a rel="nofollow" href="https://billing.dedirock.com/index.php/store/promo-storage-new-york/promo-storage-ny-plus"&gt;Order Now&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Power&lt;/strong&gt;&lt;br /&gt;
+– 1x vCPU Core&lt;br /&gt;
+– 2 TB Storage&lt;br /&gt;
+– 2 GB RAM&lt;br /&gt;
+– 4,000 GB Monthly Bandwidth&lt;br /&gt;
+– 1 Gbps Network Port&lt;br /&gt;
+– Full Root Admin Access&lt;br /&gt;
+– 1 Dedicated IPv4 Address&lt;br /&gt;
+– KVM / Virtualizor&lt;br /&gt;
+&lt;sub&gt;– Optimized for backups &amp;amp; large files. Not for heavy 4K RW.&lt;/sub&gt;&lt;br /&gt;
+&lt;strong&gt;– Promotional Price: $29.88/Year&lt;/strong&gt;&lt;br /&gt;
+– &lt;a rel="nofollow" href="https://billing.dedirock.com/index.php/store/promo-storage-new-york/promo-storage-ny-power"&gt;Order Now&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2&gt;&lt;strong&gt;LET Favorites™&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;New York&lt;/strong&gt;&lt;br /&gt;
+– 2 GB RAM&lt;br /&gt;
+– 1x vCore CPU&lt;br /&gt;
+– 30 GB SSD&lt;br /&gt;
+– 2 TB Bandwidth&lt;br /&gt;
+– 1 Gbps Network Port&lt;br /&gt;
+– 1 IPv4&lt;br /&gt;
+&lt;strong&gt;– Promotional Price: $8.88/Year&lt;/strong&gt;&lt;br /&gt;
+– &lt;a rel="nofollow" href="https://billing.dedirock.com/index.php/store/promo-vp/promo-let-favorites-ny"&gt;Order Now&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Los Angeles&lt;/strong&gt;&lt;br /&gt;
+– 2 GB RAM&lt;br /&gt;
+– 1x vCore CPU&lt;br /&gt;
+– 30 GB SSD&lt;br /&gt;
+– 2 TB Bandwidth&lt;br /&gt;
+– 1 Gbps Network Port&lt;br /&gt;
+– 1 IPv4&lt;br /&gt;
+&lt;strong&gt;– Promotional Price: $9.88/Year&lt;/strong&gt;&lt;br /&gt;
+– &lt;a rel="nofollow" href="https://billing.dedirock.com/index.php/store/promo-vps-los-angeles/promo-let-favorites-la"&gt;Order Now&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2&gt;&lt;strong&gt;The DediRock Lineup&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;✔ &lt;strong&gt;The i9 Dream™&lt;/strong&gt; — High-performance Intel i9 VPS powered by DDR5 memory and blazing-fast NVMe storage.&lt;/p&gt;
+
+&lt;p&gt;✔ &lt;strong&gt;DediRock Storage Wars™&lt;/strong&gt; — Affordable RAID 5 &amp;amp; RAID 6 Storage VPS plans built for backups, archives, and large files.&lt;/p&gt;
+
+&lt;p&gt;✔ &lt;strong&gt;LET Favorites™&lt;/strong&gt; — Our legendary $8.88 New York &amp;amp; $9.88 Los Angeles VPS offers.&lt;/p&gt;
+
+&lt;p&gt;✔ &lt;strong&gt;The Ryzen Experience&lt;/strong&gt; — Coming Soon&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Why Choose DediRock?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Performance:&lt;/strong&gt; From Intel Xeon to our new Intel i9 lineup, we're continually expanding our infrastructure to deliver exceptional performance at unbeatable prices.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Storage:&lt;/strong&gt; DediRock Storage Wars™ continues! Our Storage VPS lineup now runs on RAID 5 and RAID 6 for greater redundancy and reliability.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flexibility:&lt;/strong&gt; KVM virtualization with full root access gives you complete control over your server environment.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Security:&lt;/strong&gt; Enterprise-grade DDoS protection helps keep your services online and secure.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Support:&lt;/strong&gt; Our dedicated support team is available 24/7 whenever you need assistance.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Crazy Expansion:&lt;/strong&gt; With over &lt;strong&gt;2000% year-over-year growth&lt;/strong&gt;, discover why more customers are choosing DediRock.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Explore Our Network:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;New York Test IP:&lt;/strong&gt; 199.188.100.133 | &lt;a rel="nofollow" href="https://buf1.lg.dedirock.com/" title="Looking Glass"&gt;Looking Glass&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Los Angeles Test IP:&lt;/strong&gt; 107.174.123.100 | &lt;a rel="nofollow" href="https://la1.lg.dedirock.com/" title="Looking Glass"&gt;Looking Glass&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Learn more about our data centers &lt;a rel="nofollow" href="https://dedirock.com/data-centers" title="HERE"&gt;HERE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Stay updated with our network status on our &lt;a rel="nofollow" href="https://status.dedirock.com/" title="STATUS PAGE"&gt;STATUS PAGE&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2&gt;&lt;strong&gt;Need More?&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;Already a DediRock customer?&lt;/p&gt;
+
+&lt;p&gt;Simply reply to this thread with your &lt;strong&gt;invoice number&lt;/strong&gt;, and we'll &lt;strong&gt;double your bandwidth&lt;/strong&gt; and &lt;strong&gt;add IPv6&lt;/strong&gt; (where available).&lt;/p&gt;
+
+&lt;p&gt;Need more power and resources?&lt;/p&gt;
+
+&lt;p&gt;Request &lt;strong&gt;The DediRock Double Stack™&lt;/strong&gt; and we'll &lt;strong&gt;double your CPU, RAM, storage, and bandwidth&lt;/strong&gt; for &lt;strong&gt;2x the price&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Simply place your order, &lt;strong&gt;don't pay the invoice yet&lt;/strong&gt;, then reply to this thread with your &lt;strong&gt;invoice number&lt;/strong&gt; requesting &lt;strong&gt;The DediRock Double Stack™&lt;/strong&gt;. We'll update your invoice first, and once payment has been received, we'll manually upgrade your VPS with &lt;strong&gt;2x the resources&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;sub&gt;– We do apologize; however, The DediRock Double Stack™ is not currently available on LET Favorites™ plans.&lt;/sub&gt;&lt;/p&gt;
+
+&lt;p&gt;No ticket needed—just reply here and &lt;strong&gt;DediRock Hooks It Up™.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;For inquiries or assistance, don't hesitate to &lt;a rel="nofollow" href="https://billing.dedirock.com/submitticket.php" title="CONTACT US"&gt;CONTACT US&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;Explore our offerings at &lt;strong&gt;DediRock.com&lt;/strong&gt; and experience the perfect combination of &lt;strong&gt;performance, value, and reliability.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;The DediRock Team&lt;/strong&gt;&lt;/p&gt;
+
+        </description>
+    </item>
+    </channel>
+</rss>

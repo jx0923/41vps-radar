@@ -1,0 +1,116 @@
+name: Update deals
+
+# 定时抓取 → 生成站点 → 提交回仓库 →（可选）推送到自有服务器
+#
+# 为什么用 GitHub Actions 抓取而不是自有服务器：
+#   Actions 每次运行都是**不同的云 IP**，可避开 Cloudflare 对固定 IP 的拦截；
+#   而站点仍可发布到自己的域名与服务器。
+
+on:
+  schedule:
+    # 每 6 小时一次（UTC）。GitHub 的 cron 在高负载时可能延后几分钟，属正常。
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      with_replies:
+        description: '抓取回帖（库存更准，耗时更长）'
+        type: boolean
+        default: true
+      recent_days:
+        description: '只保留最近 N 天（0=全部）'
+        type: string
+        default: '90'
+
+permissions:
+  contents: write
+
+# 避免上一次未跑完时重复触发
+concurrency:
+  group: update-deals
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install test dependency
+        run: python -m pip install --upgrade pip pytest
+
+      - name: Run tests
+        run: python -m pytest tests -q
+
+      - name: Fetch, extract and build site
+        env:
+          # 站点与域名配置（在仓库 Settings → Variables 中设置）
+          LDR_SITE_TITLE: ${{ vars.LDR_SITE_TITLE }}
+          LDR_SITE_URL: ${{ vars.LDR_SITE_URL }}
+          LDR_SITE_DESC: ${{ vars.LDR_SITE_DESC }}
+          LDR_SITE_FOOTER: ${{ vars.LDR_SITE_FOOTER }}
+          # 抓取参数：手动触发时用输入值，定时触发时用默认值
+          WITH_REPLIES: ${{ github.event.inputs.with_replies || '1' }}
+          RECENT_DAYS: ${{ github.event.inputs.recent_days || '90' }}
+          PYTHON: python
+        run: bash deploy/run_pipeline.sh
+
+      - name: Verify output is non-empty
+        # 安全网：抓取失败或全部被过滤时，拒绝提交，保留上次线上数据
+        run: |
+          COUNT=$(python -c "import json;print(json.load(open('data/deals.json'))['count'])")
+          echo "记录数: $COUNT"
+          if [ "$COUNT" -lt 1 ]; then
+            echo "::error::记录数为 0，拒绝提交（保留上次数据）"
+            exit 1
+          fi
+
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-${{ github.run_number }}
+          path: site/
+          retention-days: 7
+          if-no-files-found: error
+
+      - name: Commit refreshed data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/deals.json data/deals.md site/
+          if git diff --staged --quiet; then
+            echo "无变化，跳过提交"
+          else
+            git commit -m "chore: refresh deals [skip ci]"
+            git push
+          fi
+
+      # 可选：推送到自有服务器（配置 LDR_DEPLOY_HOST 后自动启用）
+      - name: Deploy to own server
+        if: ${{ vars.LDR_DEPLOY_HOST != '' }}
+        env:
+          SSH_KEY: ${{ secrets.LDR_DEPLOY_SSH_KEY }}
+          HOST: ${{ vars.LDR_DEPLOY_HOST }}
+          USER: ${{ vars.LDR_DEPLOY_USER }}
+          TARGET: ${{ vars.LDR_DEPLOY_PATH }}
+          PORT: ${{ vars.LDR_DEPLOY_PORT || '22' }}
+        run: |
+          if [ -z "$SSH_KEY" ]; then
+            echo "::warning::未配置 LDR_DEPLOY_SSH_KEY，跳过部署"
+            exit 0
+          fi
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          # 首次连接自动接受主机指纹；更高安全性可改为预置 known_hosts
+          ssh-keyscan -p "$PORT" -H "$HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
+          rsync -avz --delete -e "ssh -i ~/.ssh/deploy_key -p $PORT" \
+            site/ "$USER@$HOST:$TARGET/"
+          echo "已推送到 $USER@$HOST:$TARGET"
