@@ -244,6 +244,100 @@ def test_worthy_accepts_recurring_discount():
 
 
 # --------------------------------------------------------------------------
+# 厂商名质量门槛
+# --------------------------------------------------------------------------
+
+def test_provider_ok_accepts_domain():
+    assert forum._provider_ok("centrixnodes.net")[0]
+    assert forum._provider_ok("bero-host.de")[0]
+
+
+def test_provider_ok_accepts_brand_names():
+    """没有域名但确实是商家的品牌名应当通过。"""
+    for name in ("Velohost", "NUXOA", "NameBig", "DartNode", "HostBrr"):
+        assert forum._provider_ok(name)[0], "%s 应通过" % name
+
+
+def test_provider_ok_rejects_location_phrases():
+    """实测问题：'Dallas Dedicated' 是机房名+描述，不是商家名。"""
+    assert not forum._provider_ok("Dallas Dedicated")[0]
+    assert not forum._provider_ok("Dedicated Performance")[0]
+
+
+def test_provider_ok_rejects_truncated_title():
+    """实测问题：标题被截断后当成厂商名。"""
+    assert not forum._provider_ok(
+        "More of RackNerd & AdminBolt! Here\u2019s 50")[0]
+
+
+def test_provider_ok_rejects_punctuation_and_length():
+    assert not forum._provider_ok("Some Host!")[0]
+    assert not forum._provider_ok("A" * 40)[0]
+    assert not forum._provider_ok("")[0]
+    assert not forum._provider_ok("UNKNOWN")[0]
+
+
+def test_worthy_rejects_bad_provider():
+    """厂商名不可靠时，即使折扣很大也不搬运。"""
+    ok, why = forum.is_worthy(
+        _rec(provider="Dallas Dedicated", event_type="black_friday"))
+    assert not ok
+    assert "厂商名" in why
+
+
+# --------------------------------------------------------------------------
+# 规格可信度（防串味）
+# --------------------------------------------------------------------------
+
+def test_plausible_rejects_huge_ram_at_tiny_price():
+    """实测串味样本：192G 内存卖 $7、512G 卖 €2.6。"""
+    r = _rec(specs={"vcpu": 6, "ram_gb": 192.0, "storage_gb": 2048.0},
+             prices=[{"amount": 7.0, "currency": "$", "cycle": "month"}])
+    assert not forum._plausible_specs(r)[0]
+
+    r2 = _rec(specs={"vcpu": 10, "ram_gb": 512.0, "storage_gb": 4096.0},
+              prices=[{"amount": 2.6, "currency": "€", "cycle": "month"}])
+    assert not forum._plausible_specs(r2)[0]
+
+
+def test_plausible_rejects_big_storage_at_tiny_price():
+    """实测串味样本：4096G 存储配 $2.04（那是 VPS 的价格）。"""
+    r = _rec(specs={"vcpu": 2, "ram_gb": None, "storage_gb": 4096.0},
+             prices=[{"amount": 2.04, "currency": "$", "cycle": "month"}])
+    assert not forum._plausible_specs(r)[0]
+
+
+def test_plausible_allows_storage_vps():
+    """存储型 VPS 天然「小内存 + 大存储」，但价格与存储量相称，不能拦。
+
+    实测样本：SmokyHosts 5120G HDD @ $19.95、DediRock 2048G @ $8.88。
+    """
+    r = _rec(specs={"vcpu": 2, "ram_gb": 8.0, "storage_gb": 5120.0},
+             prices=[{"amount": 19.95, "currency": "$", "cycle": "month"}])
+    assert forum._plausible_specs(r)[0]
+
+    r2 = _rec(specs={"vcpu": 2, "ram_gb": 4.0, "storage_gb": 2048.0},
+              prices=[{"amount": 8.88, "currency": "$", "cycle": "month"}])
+    assert forum._plausible_specs(r2)[0]
+
+
+def test_plausible_allows_normal_vps():
+    r = _rec(specs={"vcpu": 4, "ram_gb": 8.0, "storage_gb": 80.0},
+             prices=[{"amount": 29.0, "currency": "$", "cycle": "year"}])
+    assert forum._plausible_specs(r)[0]
+
+
+def test_implausible_specs_omitted_from_post():
+    """规格不可信时，标题与正文都不显示配置，但给出说明。"""
+    r = _rec(specs={"vcpu": 6, "ram_gb": 192.0, "storage_gb": 2048.0},
+             prices=[{"amount": 7.0, "currency": "$", "cycle": "month"}])
+    title, body = forum.build_post(r)
+    assert "192G" not in title
+    assert "192G" not in body
+    assert "不列出" in body, "应说明为何省略配置"
+
+
+# --------------------------------------------------------------------------
 # 正文生成
 # --------------------------------------------------------------------------
 

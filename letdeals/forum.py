@@ -92,8 +92,8 @@ AVAIL_CN = {
 SERVICE_KINDS = (
     ("email", ("email hosting", "mail hosting", "邮件托管", "邮箱托管",
                "mailbig", "email service")),
-    ("storage", ("storage vps", "storage server", "对象存储", "s3 ",
-                 "backup storage")),
+    ("storage", ("storage vps", "storage server", "storage box",
+                 "对象存储", "s3 ", "backup storage")),
     ("dedicated", ("dedicated server", "dedicated servers", "独服",
                    "bare metal", "裸金属")),
     ("cdn", ("cdn", "content delivery")),
@@ -139,6 +139,50 @@ def _money(price: dict) -> str:
     return "%s%s%s" % (price.get("currency", ""), _num(amount), cycle)
 
 
+def _plausible_specs(rec: dict) -> tuple[bool, str]:
+    """判断 specs 与价格是否自洽。
+
+    背景：原帖常同时列「VPS」与「独立服务器」等多条产品线，
+    抽取时可能把 A 产品的规格与 B 产品的价格拼在一起。
+
+    判据不是「存储比」而是**价格是否与规格相称**：
+
+    - 存储型 VPS 天然「小内存 + 大存储」，但**价格与存储量相称**
+      （如 5TB HDD 卖 $19.95/月）—— 这是正常优惠，不能拦。
+    - 串味的组合则**对不上任何一项**：192G 内存卖 $7、4TB 卖 €1。
+
+    因此只拦「明显不可能」的组合：大内存卖极低价、大存储卖极低价。
+    在发帖层做保守处理：可疑时不显示规格，也不给误导性配置。
+
+    返回 (是否可信, 原因)。
+    """
+    s = rec.get("specs") or {}
+    vcpu = s.get("vcpu")
+    ram = s.get("ram_gb")
+    storage = s.get("storage_gb")
+
+    if not any([vcpu, ram, storage]):
+        return True, "无规格"
+
+    prices = rec.get("prices") or []
+    if not prices:
+        return True, "无价格可对照"
+
+    cheapest = min((p.get("amount") or 0) for p in prices)
+
+    # 内存是硬成本：128G 以上不可能卖到 50 以内（任何币种）。
+    # 实测串味样本：192G @ $7、512G @ €2.6、250G @ $9.99。
+    if ram and ram >= 128 and cheapest < 50:
+        return False, "大内存配极低价（疑似混入其他产品线）"
+
+    # 大容量存储卖到 5 以内也不合理（实测 4096G @ $2.04、@ €1）。
+    # 注意阈值取 5 而非 10：存储型 VPS 卖 $8.88/$19.95 是正常的。
+    if storage and storage >= 1000 and cheapest < 5:
+        return False, "大容量配极低价（疑似混入其他产品线）"
+
+    return True, "可信"
+
+
 def _specs(rec: dict) -> str:
     s = rec.get("specs") or {}
     bits = []
@@ -162,6 +206,10 @@ def build_post(rec: dict) -> tuple[str, str]:
     avail = AVAIL_CN.get(rec.get("availability"), "")
     discount = rec.get("discount") or {}
 
+    # 规格可信度：原帖常同时列多条产品线，抽取可能串味。
+    # 不可信时**不在标题和正文里显示规格** —— 给错配置比不给更糟。
+    specs_ok, specs_why = _plausible_specs(rec)
+
     # ---- 标题 ----
     kind = detect_kind(rec)
     parts = []
@@ -171,7 +219,7 @@ def build_post(rec: dict) -> tuple[str, str]:
     if kind != "vps":
         parts.append("[%s]" % SERVICE_CN.get(kind, kind))
     parts.append(provider)
-    specs = _specs(rec)
+    specs = _specs(rec) if specs_ok else ""
     if specs:
         parts.append(specs)
     title = " ".join(parts)
@@ -206,6 +254,10 @@ def build_post(rec: dict) -> tuple[str, str]:
 
     if specs:
         lines.append("**配置**：%s" % specs)
+    elif not specs_ok:
+        # 说明为什么没给配置，而不是让用户以为漏了
+        lines.append("**配置**：原帖含多条产品线，自动解析的规格可能串味，"
+                     "为避免误导此处不列出，请见原帖")
 
     cpus = rec.get("cpu_models") or []
     if cpus:
@@ -268,14 +320,80 @@ def build_post(rec: dict) -> tuple[str, str]:
 # 筛选：只搬运「够格」的帖子
 # --------------------------------------------------------------------------
 
+# 不像商家名的词：描述卖点、机房位置、活动用语等。
+# 这类「厂商名」其实是标题片段被误抽取（如 "Dallas Dedicated"），
+# 发出去会让帖子显得不专业 —— 用户看不出到底是谁家的。
+NOT_A_BRAND = {
+    # 卖点 / 描述
+    "dedicated", "performance", "unmetered", "storage", "premium", "budget",
+    "cheap", "fast", "reliable", "managed", "unmanaged", "cloud", "server",
+    "servers", "hosting", "host", "vps", "kvm", "ssd", "nvme", "network",
+    "memory", "bandwidth", "traffic",
+    # 活动用语
+    "black", "friday", "sale", "deal", "deals", "offer", "offers", "promo",
+    "giveaway", "restock", "launch", "new", "welcome", "special", "flash",
+    "more", "free", "lifetime",
+    # 常见机房 / 地名（单独出现时不是商家名）
+    "dallas", "chicago", "angeles", "york", "seattle", "miami", "london",
+    "frankfurt", "amsterdam", "tokyo", "singapore", "sydney", "paris",
+    "germany", "netherlands", "usa", "canada", "france", "zealand",
+    # 虚词
+    "of", "the", "and", "with", "for", "from", "here", "now",
+}
+
+
+def _provider_ok(provider: str) -> tuple[bool, str]:
+    """判断厂商名是否像个真实商家名。
+
+    不能简单要求「必须是域名」—— NUXOA、Velohost、NameBig 都是合法
+    品牌名（没有域名但确实是商家）。因此判断「像不像品牌」：
+
+    - 域名形态（含点且无空格）→ 通过
+    - 单个词、长度合理、不在描述词黑名单 → 通过（如 Velohost）
+    - 多词且全为描述词/地名 → 拒绝（如 "Dallas Dedicated"）
+    - 含标点、过长、截断痕迹 → 拒绝
+    """
+    p = (provider or "").strip()
+    if not p or p.upper() == "UNKNOWN":
+        return False, "缺失"
+
+    # 域名形态：含点且无空格
+    if "." in p and " " not in p:
+        return True, "域名"
+
+    if len(p) > 30:
+        return False, "过长，疑似标题片段"
+    if re.search(r"[!?！？,，;；:：]", p):
+        return False, "含标点，疑似标题片段"
+    if p.endswith(("'", "\u2019", "(", "（", "&", "-", "|")):
+        return False, "结尾异常，疑似截断"
+
+    words = [w.strip(".,'\u2019") for w in re.split(r"[\s&]+", p.lower()) if w]
+    if not words:
+        return False, "空"
+
+    if all(w in NOT_A_BRAND for w in words):
+        return False, "全为描述词或地名"
+    if len(words) == 1 and words[0] in NOT_A_BRAND:
+        return False, "描述词"
+    if len(words) >= 3:
+        return False, "词数过多，疑似标题片段"
+
+    return True, "品牌名"
+
+
 def is_worthy(rec: dict) -> tuple[bool, str]:
     """判断是否值得搬运。返回 (是否搬运, 原因)。
 
     目的是**避免刷屏** —— 全量搬运会把论坛首页淹掉。
-    门槛：有明确折扣或属于重点活动，且信息量足够。
+    门槛：厂商名可靠 + 有明确折扣或属于重点活动。
     """
     if not rec.get("url"):
         return False, "缺少原帖链接"
+
+    ok, why = _provider_ok(rec.get("provider") or "")
+    if not ok:
+        return False, "厂商名不可靠（%s）" % why
 
     event = rec.get("event_type")
     pct = (rec.get("discount") or {}).get("percent_max") or 0
