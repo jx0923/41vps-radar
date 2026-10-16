@@ -1,9 +1,9 @@
 | 来源 | 厂商 | 活动性质 | 力度 | 配置/CPU | 旗舰价 | 状态 | 置信度 |
 |---|---|---|---|---|---|---|---|
+| LET | fiberstate.com | 上新/回归 | free upgrade · 码 BEASTMODE7950XSLC/BEASTMODE9950X/BEASTMODE9950XNYC | 40C/256G/4096GNVMe / Ryzen 7 5700G, Ryzen 9 7950X | $69.95/月 | 待确认(较旧) | 1.00 |
 | LET | bero-host.de | 周年庆 | 循环/永久 · 最高 10% off · 码 LET10 | 8C/32G/300G / Ryzen 9 9950X | €129/年 | 活动结束 | 1.00 |
 | LET | NameBig | 节日促销 | 循环/永久 · double storage | 15G | £3.37/年 | 待确认 | 0.50 |
 | LET | D4 Networks | 常规帖 | — | 2C/4G/120GNVMe / EPYC 7543P | $49/年 | 待确认 | 0.83 |
-| LET | fiberstate.com | 上新/回归 | free upgrade · 码 BEASTMODE7950XSLC/BEASTMODE9950X/BEASTMODE9950XNYC | 40C/256G/4096GNVMe / Ryzen 7 5700G, Ryzen 9 7950X | $69.95/月 | 待确认(较旧) | 1.00 |
 | LET | servitro.com | 常规促销 | 码 BFJH1873LA | 1C/4G/25GSSD / EPYC 7443P, Ryzen 9 9950X | $12/年 | 待确认(较旧) | 1.00 |
 | LET | servers_guru | 常规促销 | 循环/永久 · 最高 30% off · 12 months for the price of 10+2 months free · 码 WORKS | 16C/4G/40GNVMe | €38/年 | 待确认 | 0.83 |
 | LET | aspirehosting.net | 节日促销 | 最高 55% off · 1 month free+2 months free | 8C/32G/300GSSD / EPYC 7662 | $2/月 | 疑似售罄 | 1.00 |
