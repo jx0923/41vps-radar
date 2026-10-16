@@ -78,9 +78,13 @@ def spec_text(rec: dict) -> str:
         if st.lower() == "unspecified":
             st = ""
         bits.append("%dG%s" % (int(s["storage_gb"]), st))
-    head = "/".join(bits) if bits else "—"
+    head = "/".join(bits)
     cpu = ", ".join((rec.get("cpu_models") or [])[:2])
-    return "%s | %s" % (head, cpu) if cpu else head
+    # 规格与 CPU 各自可能缺失：缺一个就只显示另一个，
+    # 两个都缺才用占位符，避免「— | Xeon」这种残缺拼接。
+    if head and cpu:
+        return "%s | %s" % (head, cpu)
+    return head or cpu or "—"
 
 
 def to_markdown(rows: list[dict]) -> str:
@@ -342,9 +346,14 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;line-height:1.9}
       var t=(s.storage_type||'').toLowerCase()==='unspecified'?'':(s.storage_type||'');
       b.push(Math.round(s.storage_gb)+'G'+t);
     }
-    var head=b.length?b.join('/'):'—';
     var cpu=(r.cpu_models||[]).slice(0,2).join(', ');
-    return cpu?head+' | '+cpu:head;
+    var head=b.join('/');
+    // 规格与 CPU 各自可能缺失：缺一个就只显示另一个，
+    // 两个都缺才用占位符，避免出现「— | Xeon」这种残缺拼接。
+    if(head&&cpu) return head+' | '+cpu;
+    if(head) return head;
+    if(cpu) return cpu;
+    return '—';
   }
   function priceText(r){
     var p=r.flagship_price||((r.prices||[])[0]);
@@ -470,7 +479,10 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;line-height:1.9}
       if(rp.vendor_signals&&rp.vendor_signals.length){
         h+='<div style="font-size:12px;color:var(--muted);line-height:1.9">';
         rp.vendor_signals.forEach(function(s){
-          h+='<div><span class="tag">'+esc(s.status)+'</span> '+
+          // 状态码翻成中文；后面的日期与引文保留原文 ——
+          // 那是商家回帖的原始证据，翻译会使其失去证据效力。
+          h+='<div><span class="tag">'+
+             esc(AVAIL_CN[s.status]||s.status)+'</span> '+
              esc(String(s.datetime||'').slice(0,10))+' — '+
              esc((s.snippet||'').slice(0,110))+'</div>';
         });

@@ -103,6 +103,31 @@ def test_spec_text_shows_typed_storage():
     assert "NVMe" in render.spec_text(rec)
 
 
+def test_spec_text_cpu_only_has_no_dangling_separator():
+    """只有 CPU、没有规格时，不能输出「— | Xeon」这种残缺拼接。"""
+    out = render.spec_text({"specs": {}, "cpu_models": ["Xeon E5-2699"]})
+    assert out == "Xeon E5-2699"
+    assert "—" not in out and "|" not in out
+
+
+def test_spec_text_specs_only_has_no_dangling_separator():
+    """只有规格、没有 CPU 时同理。"""
+    out = render.spec_text(
+        {"specs": {"vcpu": 4, "ram_gb": 8}, "cpu_models": []})
+    assert out == "4C/8G"
+    assert "|" not in out
+
+
+def test_spec_text_both_missing_uses_placeholder():
+    assert render.spec_text({"specs": {}, "cpu_models": []}) == "—"
+
+
+def test_spec_text_both_present_joined():
+    out = render.spec_text(
+        {"specs": {"vcpu": 8, "ram_gb": 32}, "cpu_models": ["Ryzen 9 9950X"]})
+    assert out == "8C/32G | Ryzen 9 9950X"
+
+
 def test_annual_eur_conversion():
     rec = _sample_payload()["records"][1]     # $21.99/year
     v = render.annual_eur(rec)
@@ -216,6 +241,34 @@ def test_source_info_available_without_badge(tmp_path):
     assert "来源 <b>" in html, "展开明细缺少来源字段"
     # 徽章已按要求移除
     assert 'class="src"' not in html, "来源徽章应已移除"
+
+
+def test_vendor_signal_status_is_translated(tmp_path):
+    """回帖证据里的状态码要翻成中文。
+
+    之前直接输出 ON_SALE 这类内部码；但同一行后面的日期与引文
+    必须保留原文 —— 那是商家回帖的原始证据，翻译会失去证据效力。
+    """
+    payload = _sample_payload()
+    payload["records"][0]["replies"] = {
+        "reply_count": 10, "vendor_reply_count": 2,
+        "status": "ON_SALE", "source": "vendor",
+        "evidence": {"author": "vendor1", "is_vendor": True,
+                     "datetime": "2026-10-13T00:00:00+00:00",
+                     "snippet": "We currently have stock available!"},
+        "vendor_signals": [
+            {"status": "ON_SALE", "datetime": "2026-10-13T00:00:00+00:00",
+             "snippet": "We currently have stock available for both!"},
+            {"status": "RESTOCKING", "datetime": "2026-10-14T00:00:00+00:00",
+             "snippet": "Working on a restock now"},
+        ],
+    }
+    render.build_site(payload, str(tmp_path), verbose=False)
+    html = open(os.path.join(tmp_path, "index.html"), encoding="utf-8").read()
+    # 走 AVAIL_CN 映射，而不是直出内部码
+    assert "AVAIL_CN[s.status]||s.status" in html, "状态码未经过翻译映射"
+    # 引文原文必须保留（英文原样）
+    assert "We currently have stock available for both!" in html
 
 
 def test_age_and_confidence_columns_do_not_wrap(tmp_path):
