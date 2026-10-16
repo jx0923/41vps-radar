@@ -60,6 +60,46 @@ def save_posted(posted: dict, path=None) -> None:
     os.replace(tmp, path)
 
 
+def verify_posted(posted: dict, *, api_key: str, base_url: str,
+                  verbose: bool = True) -> tuple[dict, int]:
+    """核对记录里的帖子在论坛上是否仍存在，剔除已删除的。
+
+    为什么需要：帖子在论坛被删后，记录文件不会自动同步，
+    那些 thread_id 会**永远发不出去**（记录说「已发过」）。
+    实测遇到：删掉 4 条测试帖后，它们对应的活动再也不会被搬运。
+
+    返回 (清理后的记录, 剔除条数)。网络异常时**原样返回**，
+    宁可漏清理也不要把记录清空导致重复发帖。
+    """
+    if not posted:
+        return posted, 0
+
+    keep, dropped = {}, []
+    for tid, info in posted.items():
+        did = info.get("discussion_id")
+        if not did:
+            keep[tid] = info
+            continue
+        try:
+            _request("GET", "/discussions/%s" % did,
+                     api_key=api_key, base_url=base_url, timeout=20)
+            keep[tid] = info
+        except ForumError as e:
+            msg = str(e)
+            # 只有明确的 404/410 才认为帖子没了；
+            # 其它错误（限流、网络抖动）保留记录，避免重复发帖。
+            if "HTTP 404" in msg or "HTTP 410" in msg:
+                dropped.append((tid, did, info.get("title", "")))
+            else:
+                keep[tid] = info
+
+    if dropped and verbose:
+        print("  论坛发帖：清理 %d 条已删除的帖子记录" % len(dropped))
+        for tid, did, title in dropped[:5]:
+            print("    已删 d/%s  %s" % (did, (title or "")[:44]))
+    return keep, len(dropped)
+
+
 # --------------------------------------------------------------------------
 # 正文生成
 # --------------------------------------------------------------------------
@@ -329,6 +369,8 @@ NOT_A_BRAND = {
     "cheap", "fast", "reliable", "managed", "unmanaged", "cloud", "server",
     "servers", "hosting", "host", "vps", "kvm", "ssd", "nvme", "network",
     "memory", "bandwidth", "traffic",
+    # 网络技术术语（单独组合时不是商家名，如 "BGP VPS"）
+    "bgp", "ddos", "ipv4", "ipv6", "cdn", "proxy", "nat", "rdns", "gpu",
     # 活动用语
     "black", "friday", "sale", "deal", "deals", "offer", "offers", "promo",
     "giveaway", "restock", "launch", "new", "welcome", "special", "flash",
@@ -348,7 +390,7 @@ def _provider_ok(provider: str) -> tuple[bool, str]:
     不能简单要求「必须是域名」—— NUXOA、Velohost、NameBig 都是合法
     品牌名（没有域名但确实是商家）。因此判断「像不像品牌」：
 
-    - 域名形态（含点且无空格）→ 通过
+    - 域名形态（含点且无空格）→ 通过，但排除技术主机名与无效 TLD
     - 单个词、长度合理、不在描述词黑名单 → 通过（如 Velohost）
     - 多词且全为描述词/地名 → 拒绝（如 "Dallas Dedicated"）
     - 含标点、过长、截断痕迹 → 拒绝
@@ -359,7 +401,7 @@ def _provider_ok(provider: str) -> tuple[bool, str]:
 
     # 域名形态：含点且无空格
     if "." in p and " " not in p:
-        return True, "域名"
+        return _domain_ok(p)
 
     if len(p) > 30:
         return False, "过长，疑似标题片段"
@@ -382,11 +424,72 @@ def _provider_ok(provider: str) -> tuple[bool, str]:
     return True, "品牌名"
 
 
+# 技术性主机名：looking glass、测速、状态页等，不是厂商官网
+TECH_HOST_PREFIX = {
+    "lg", "speedtest", "test", "status", "panel", "cp", "cpanel", "whm",
+    "ns1", "ns2", "ns3", "dns", "mail", "smtp", "api", "admin", "billing",
+    "client", "clients", "portal", "support", "help", "docs", "wiki",
+    "blog", "forum", "community", "cdn", "static", "mirror", "download",
+    "www", "node", "nodes",
+}
+
+
+def _domain_ok(dom: str) -> tuple[bool, str]:
+    """域名形态的厂商名是否可信。
+
+    只排除两类明确不可信的：
+
+    1. **技术主机名** —— lg.xxx（looking glass）、status.xxx、
+       speedtest.xxx 等是功能子域，不是厂商官网。实测样本：lg.svr。
+    2. **TLD 不合法** —— 必须是纯字母且长度合理。
+
+    刻意**不做 TLD 白名单**：新顶级域（.hosting / .cloud / .host）
+    不断出现，白名单会把真实商家误拦（实测 godlike.host 被误判）。
+    """
+    low = dom.lower()
+    first = low.split(".", 1)[0]
+    tld = low.rsplit(".", 1)[-1]
+
+    if first in TECH_HOST_PREFIX:
+        return False, "技术主机名（%s.）" % first
+
+    if not re.fullmatch(r"[a-z]{2,24}", tld):
+        return False, "TLD 不合法（.%s）" % tld
+
+    return True, "域名"
+
+
+def _informative(rec: dict) -> tuple[bool, str]:
+    """信息量是否足够撑起一个帖子。
+
+    只有厂商名和一句折扣、没有任何可用规格/价格/机房的帖子，
+    发出去等于空帖（用户点进去看不到实质内容）。
+    实测样本：EthernetServers 只有「8TB 流量」一项。
+
+    要求至少 2 项实质信息（规格各项 + 价格 + CPU + 机房）。
+    """
+    s = rec.get("specs") or {}
+    filled = sum([
+        bool(s.get("vcpu")), bool(s.get("ram_gb")),
+        bool(s.get("storage_gb")), bool(s.get("bandwidth_tb")),
+    ])
+    if rec.get("flagship_price") or rec.get("prices"):
+        filled += 1
+    if rec.get("cpu_models"):
+        filled += 1
+    if rec.get("locations"):
+        filled += 1
+
+    if filled < 2:
+        return False, "仅 %d 项实质信息" % filled
+    return True, "%d 项信息" % filled
+
+
 def is_worthy(rec: dict) -> tuple[bool, str]:
     """判断是否值得搬运。返回 (是否搬运, 原因)。
 
     目的是**避免刷屏** —— 全量搬运会把论坛首页淹掉。
-    门槛：厂商名可靠 + 有明确折扣或属于重点活动。
+    门槛：厂商名可靠 + 信息量足够 + 有明确优惠或属于重点活动。
     """
     if not rec.get("url"):
         return False, "缺少原帖链接"
@@ -394,6 +497,10 @@ def is_worthy(rec: dict) -> tuple[bool, str]:
     ok, why = _provider_ok(rec.get("provider") or "")
     if not ok:
         return False, "厂商名不可靠（%s）" % why
+
+    ok, why = _informative(rec)
+    if not ok:
+        return False, "信息量不足（%s）" % why
 
     event = rec.get("event_type")
     pct = (rec.get("discount") or {}).get("percent_max") or 0
@@ -549,7 +656,7 @@ def post_deals(records: list[dict], *, limit: int | None = None,
         "enabled": config.FORUM_ENABLED,
         "dry_run": config.FORUM_DRY_RUN if dry_run is None else dry_run,
         "checked": 0, "skipped": 0, "posted": 0, "failed": 0,
-        "already": 0, "reasons": {}, "posts": [], "errors": [],
+        "already": 0, "purged": 0, "reasons": {}, "posts": [], "errors": [],
     }
 
     # ---- 总开关 ----
@@ -595,6 +702,16 @@ def post_deals(records: list[dict], *, limit: int | None = None,
                                      base_url=base_url, tag_id=tag_id)
 
     posted = load_posted(posted_path)
+
+    # 核对记录里的帖子是否仍在论坛上。帖子被删后记录不会自动同步，
+    # 那些活动会永远发不出去（记录说「已发过」）。仅实际发布时核对，
+    # 演练模式不发起额外请求。
+    if do_post and posted:
+        posted, dropped = verify_posted(
+            posted, api_key=api_key, base_url=base_url, verbose=verbose)
+        if dropped:
+            save_posted(posted, posted_path)
+            stats["purged"] = dropped
 
     if verbose:
         mode = "演练（不提交）" if stats["dry_run"] else "实际发布"

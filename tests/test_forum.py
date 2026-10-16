@@ -270,11 +270,59 @@ def test_provider_ok_rejects_truncated_title():
         "More of RackNerd & AdminBolt! Here\u2019s 50")[0]
 
 
+def test_provider_ok_rejects_technical_hostname():
+    """实测问题：lg.svr 是 looking glass 技术子域，不是厂商官网。"""
+    assert not forum._provider_ok("lg.svr")[0]
+    assert not forum._provider_ok("status.example.com")[0]
+
+
+def test_provider_ok_accepts_new_tlds():
+    """新顶级域不能被误拦 —— 实测 godlike.host 是真实商家。"""
+    assert forum._provider_ok("godlike.host")[0]
+    assert forum._provider_ok("Ava.hosting")[0]
+    assert forum._provider_ok("some.cloud")[0]
+
+
+def test_provider_ok_rejects_tech_abbreviation_combos():
+    """实测问题：'BGP VPS' 是技术术语组合，不是商家名。"""
+    assert not forum._provider_ok("BGP VPS")[0]
+    assert not forum._provider_ok("IPv6 VPS")[0]
+
+
 def test_provider_ok_rejects_punctuation_and_length():
     assert not forum._provider_ok("Some Host!")[0]
     assert not forum._provider_ok("A" * 40)[0]
     assert not forum._provider_ok("")[0]
     assert not forum._provider_ok("UNKNOWN")[0]
+
+
+def test_informative_requires_two_facts():
+    """只有一项信息的帖子发出去等于空帖。"""
+    # 只有流量
+    thin = _rec(specs={"bandwidth_tb": 8.0}, prices=[], flagship_price=None,
+                cpu_models=[], locations=[])
+    ok, why = forum._informative(thin)
+    assert not ok
+    assert "1 项" in why
+
+    # 什么都没有
+    empty = _rec(specs={}, prices=[], flagship_price=None,
+                 cpu_models=[], locations=[])
+    assert not forum._informative(empty)[0]
+
+
+def test_informative_accepts_normal_post():
+    assert forum._informative(_rec())[0]
+
+
+def test_worthy_rejects_thin_post():
+    """信息量不足时不搬运，即使折扣达标。"""
+    thin = _rec(specs={"bandwidth_tb": 8.0}, prices=[], flagship_price=None,
+                cpu_models=[], locations=[],
+                discount={"recurring": True})
+    ok, why = forum.is_worthy(thin)
+    assert not ok
+    assert "信息量" in why
 
 
 def test_worthy_rejects_bad_provider():
@@ -457,3 +505,44 @@ def test_corrupt_log_does_not_crash(tmp_path, fake_client):
     st = forum.post_deals([_rec(thread_id="5")], posted_path=str(p),
                           verbose=False, client=fake_client)
     assert st["posted"] == 1
+
+
+# --------------------------------------------------------------------------
+# 清理已删除帖子的记录
+# --------------------------------------------------------------------------
+
+def test_verify_posted_drops_deleted(monkeypatch):
+    """帖子在论坛被删后，记录应被剔除，否则那些活动永远发不出去。
+
+    实测遇到：删掉 4 条测试帖后，对应活动因记录说「已发过」而不再搬运。
+    """
+    posted = {
+        "1": {"discussion_id": "100", "title": "alive"},
+        "2": {"discussion_id": "200", "title": "deleted"},
+    }
+
+    def fake_request(method, path, payload=None, **kw):
+        if path == "/discussions/200":
+            raise forum.ForumError("HTTP 404: Not Found")
+        return {"data": {"id": "100"}}
+
+    monkeypatch.setattr(forum, "_request", fake_request)
+    kept, dropped = forum.verify_posted(
+        posted, api_key="k", base_url="https://f.test", verbose=False)
+    assert dropped == 1
+    assert "1" in kept
+    assert "2" not in kept
+
+
+def test_verify_posted_keeps_on_network_error(monkeypatch):
+    """网络抖动时不能剔除记录 —— 那会导致重复发帖。"""
+    posted = {"1": {"discussion_id": "100", "title": "x"}}
+
+    def fake_request(method, path, payload=None, **kw):
+        raise forum.ForumError("网络错误：timed out")
+
+    monkeypatch.setattr(forum, "_request", fake_request)
+    kept, dropped = forum.verify_posted(
+        posted, api_key="k", base_url="https://f.test", verbose=False)
+    assert dropped == 0
+    assert "1" in kept
