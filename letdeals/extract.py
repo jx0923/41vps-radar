@@ -258,6 +258,131 @@ def extract_provider(title: str, author: str, body: str,
     return author or "UNKNOWN"
 
 
+# --------------------------------------------------------------------------
+# 厂商官网推断
+# --------------------------------------------------------------------------
+
+# 这些域名出现在帖子里也不代表厂商官网：跑分站、图床、短链、社交、
+# 统计、建站依赖等。宁可少给链接，也不要指向错误的外链。
+VENDOR_SKIP = DOMAIN_SKIP | {
+    "bit.ly", "tinyurl.com", "t.co", "linktr.ee", "gravatar.com",
+    "wordpress.org", "w.org", "gstatic.com", "googleapis.com",
+    "jsdelivr.net", "unpkg.com", "cdnjs.com", "bootstrapcdn.com",
+    "fontawesome.com", "creativecommons.org", "wikipedia.org",
+    "archive.org", "speedtest.net", "whatsmydns.net", "bgp.tools",
+    "bgp.he.net", "ipinfo.io", "ip.sb", "check.place", "hetrixtools.com",
+    "uptimerobot.com", "letsencrypt.org", "nginx.org",
+    "docker.com", "apache.org", "mysql.com", "redis.io", "php.net",
+    "ubuntu.com", "debian.org", "centos.org", "almalinux.org",
+    "rockylinux.org", "windows.com", "microsoft.com", "vmware.com",
+    "proxmox.com", "whmcs.com", "clientexec.com", "blesta.com",
+    "virtfusion.com", "solusvm.com", "virtualizor.com",
+    # 跑分/评测站：帖子里常贴成绩链接，很容易被误判为厂商
+    "geekbench.com", "cpubenchmark.net", "passmark.com", "userbenchmark.com",
+    "browser.geekbench.com", "diskbenchmark.com", "fio.readthedocs.io",
+    # 网络工具站
+    "ping.pe", "check-host.net", "ipip.net", "17ce.com", "boce.com",
+}
+
+# 常见的二级后缀：可注册域要取三段，否则 something.co.uk 会被切成 co.uk
+MULTI_SUFFIX = {
+    "co.uk", "org.uk", "me.uk", "ac.uk", "gov.uk",
+    "com.au", "net.au", "org.au", "co.nz", "net.nz", "org.nz",
+    "co.jp", "ne.jp", "or.jp", "com.cn", "net.cn", "org.cn", "gov.cn",
+    "com.br", "com.mx", "com.ar", "com.co", "com.pe", "com.ve",
+    "com.tw", "com.hk", "com.sg", "com.my", "com.ph", "com.vn",
+    "com.tr", "com.ua", "com.ru", "co.kr", "co.in", "co.id", "co.th",
+    "co.za", "co.il", "com.sa", "com.eg", "com.ng", "com.pk",
+}
+
+# 厂商名本身就是域名时的形态（如 bero-host.de / Royal-Server.Ro）
+RE_IS_DOMAIN = re.compile(r"^[a-z0-9][a-z0-9\-]*(\.[a-z0-9\-]+)+$", re.I)
+
+# 技术性主机名，不是厂商官网：lg=looking glass、speedtest、status 等
+TECH_PREFIX = {
+    "lg", "speedtest", "test", "status", "panel", "cp", "cpanel", "whm",
+    "ns1", "ns2", "ns3", "dns", "mail", "smtp", "imap", "pop",
+    "api", "admin", "billing", "client", "clients", "portal", "support",
+    "help", "docs", "wiki", "blog", "forum", "community", "cdn", "static",
+    "mirror", "download", "downloads", "node", "nodes", "vps", "host",
+}
+
+
+def _key(s: str) -> str:
+    """归一化用于相似度比较：只留小写字母数字。"""
+    return re.sub(r"[^a-z0-9]", "", (s or "").lower())
+
+
+def _registrable(dom: str) -> str:
+    """取可注册域，正确处理 co.uk 这类多段后缀。"""
+    parts = dom.lower().strip(".").split(".")
+    if len(parts) >= 3 and ".".join(parts[-2:]) in MULTI_SUFFIX:
+        return ".".join(parts[-3:])
+    return ".".join(parts[-2:]) if len(parts) > 2 else dom.lower()
+
+
+def _plausible_domain(dom: str) -> bool:
+    """粗筛：形如 label.tld，且 TLD 长度合理。
+
+    注意 TLD 上限不能按老式 6 字符设：.hosting/.solutions/.technology
+    等新顶级域更长，卡 6 会把 Ava.hosting 这类厂商判为非法。
+    """
+    if not re.fullmatch(r"[a-z0-9\-]+(\.[a-z0-9\-]+)+", dom):
+        return False
+    tld = dom.rsplit(".", 1)[-1]
+    if not re.fullmatch(r"[a-z]{2,24}", tld):
+        return False
+    # 明显的技术前缀不作为厂商域（lg.svr、status.xxx 等）
+    first = dom.split(".", 1)[0]
+    if first in TECH_PREFIX and dom.count(".") == 1:
+        return False
+    return True
+
+
+def extract_vendor_url(provider: str, body: str) -> str | None:
+    """尽力推断厂商官网，不确定时返回 None。
+
+    只采用**可信**的两条路径：
+      1) 厂商名本身就是域名           -> https://<provider>
+      2) 正文里的域名与厂商名相匹配   -> 如 DartNode => dartnode.com
+
+    刻意**不做**「取正文第一个域名」这种兜底猜测：实测会把
+    Geekbench 跑分链接、CDN、跳转站当成厂商官网，错链比没有链接更糟。
+    返回 None 时界面只显示文字，不做外链。
+    """
+    p = (provider or "").strip()
+    if not p:
+        return None
+
+    # 1) 厂商名本身就是域名
+    if RE_IS_DOMAIN.match(p) and _plausible_domain(p.lower()):
+        dom = _registrable(p)
+        if _plausible_domain(dom) and dom not in VENDOR_SKIP:
+            return "https://" + dom
+
+    # 2) 正文域名与厂商名相匹配
+    pk = _key(p)
+    if len(pk) < 4:
+        return None
+
+    body = body or ""
+    for m in re.finditer(
+            r"https?://(?:www\.)?([a-z0-9][a-z0-9\-\.]*\.[a-z]{2,24})",
+            body, re.I):
+        dom = _registrable(m.group(1))
+        if not _plausible_domain(dom) or dom in VENDOR_SKIP:
+            continue
+        if dom.endswith((".lowendtalk.com", ".lowendbox.com")):
+            continue
+        dk = _key(dom.rsplit(".", 1)[0])
+        if len(dk) >= 4 and (dk == pk or dk in pk or pk in dk):
+            return "https://" + dom
+
+    return None
+
+
+
+
 def extract_specs(text: str) -> dict:
     vcpu = [int(m) for m in RE_VCPU.findall(text)]
     if not vcpu:
@@ -444,7 +569,8 @@ KEY_FIELDS = ("vcpu", "ram_gb", "storage_gb", "prices", "cpu_models", "discount"
 
 def build_record(item: dict, reply_info: dict | None = None) -> dict:
     """把一个 RSS item 变成结构化记录。"""
-    body = strip_html(item.get("description", ""))
+    raw_body = item.get("description", "") or ""
+    body = strip_html(raw_body)
     text = item.get("title", "") + "\n" + body
 
     specs = extract_specs(text)
@@ -512,14 +638,20 @@ def build_record(item: dict, reply_info: dict | None = None) -> dict:
             "fetched_at": reply_info.get("fetched_at"),
         }
 
+    provider = extract_provider(item.get("title", ""),
+                                item.get("author", ""), body,
+                                item.get("source", "let"))
+
     return {
         "thread_id": str(item.get("thread_id", "")),
         "source": item.get("source", "let"),
-        "provider": extract_provider(item.get("title", ""),
-                                     item.get("author", ""), body,
-                                     item.get("source", "let")),
+        "provider": provider,
         "title": item.get("title", ""),
         "url": item.get("link", ""),
+        # 厂商官网（推断，可能为 None —— 此时界面不做外链）
+        # 必须用**原始 HTML**：strip_html 会把 <a href> 一并剥掉，
+        # 而厂商链接恰恰只存在于 href 里。
+        "vendor_url": extract_vendor_url(provider, raw_body),
         "author": item.get("author", ""),
         "posted": item.get("pubDate", ""),
         "age_days": days,

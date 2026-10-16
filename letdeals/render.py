@@ -179,8 +179,11 @@ tr.row{cursor:pointer}
 tr.row:hover{background:var(--accent-soft)}
 tr.row.open{background:var(--accent-soft)}
 .pv{font-weight:600}
-.tt{color:var(--muted);font-size:12px;margin-top:2px;overflow:hidden;
-  display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical}
+/* 厂商名可点击跳官网：默认与正文同色，只用虚线下划线提示可点，
+   避免整列变蓝影响扫读。无官网链接时渲染为纯文本，样式无差别。 */
+a.pv-link{color:inherit;text-decoration:none;cursor:pointer;
+  border-bottom:1px dotted var(--muted)}
+a.pv-link:hover{color:var(--accent);border-bottom-color:var(--accent)}
 .spec{font-variant-numeric:tabular-nums;white-space:nowrap}
 .price{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
 /* 「发布于」与「置信度」列禁止折行：
@@ -213,9 +216,6 @@ tr.row.open{background:var(--accent-soft)}
 .bar{display:inline-block;width:44px;height:6px;border-radius:3px;
   background:var(--line);vertical-align:middle;margin-right:6px;overflow:hidden}
 .bar i{display:block;height:100%;background:var(--accent)}
-.src{display:inline-block;border:1px solid var(--line);border-radius:5px;
-  padding:0 5px;font-size:10.5px;color:var(--muted);margin-right:5px;
-  vertical-align:1px}
 .det{background:var(--bg)}
 .det>td{padding:0}
 .detin{padding:14px 16px;border-left:3px solid var(--accent)}
@@ -488,9 +488,14 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;line-height:1.9}
     rows.forEach(function(r){
       var open=!!st.open[r.thread_id];
       out+='<tr class="row'+(open?' open':'')+'" data-id="'+esc(r.thread_id)+'">';
-      out+='<td><div class="pv"><span class="src">'+
-           esc((r.source||'').toUpperCase())+'</span>'+esc(r.provider)+'</div>'+
-           '<div class="tt">'+esc(r.title)+'</div></td>';
+      // 厂商名：有推断出官网就做成外链，否则纯文本
+      var pv = esc(r.provider);
+      if(r.vendor_url){
+        pv = '<a class="pv-link" href="'+esc(r.vendor_url)+
+             '" target="_blank" rel="noopener nofollow" '+
+             'title="访问官网 '+esc(r.vendor_url)+'">'+pv+'</a>';
+      }
+      out+='<td><div class="pv">'+pv+'</div></td>';
       out+='<td><span class="badge b-'+esc(r.event_type)+'">'+
            esc(EVENT_CN[r.event_type]||r.event_type)+'</span></td>';
       out+='<td>'+(esc((r.discount||{}).strength)||'<span style="color:var(--muted)">—</span>')+'</td>';
@@ -542,6 +547,8 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;line-height:1.9}
   document.getElementById('hideold').addEventListener('change',function(e){
     st.hideold=e.target.checked; render(); });
   document.getElementById('tb').addEventListener('click',function(e){
+    // 点在厂商官网链接上时，只跳转、不展开该行
+    if(e.target.closest('a')) return;
     var tr=e.target.closest('tr.row'); if(!tr) return;
     var id=tr.getAttribute('data-id');
     st.open[id]=!st.open[id];

@@ -13,6 +13,7 @@ from letdeals.extract import (
     extract_prices,
     extract_provider,
     extract_specs,
+    extract_vendor_url,
 )
 
 
@@ -305,3 +306,100 @@ def test_build_record_table_overrides_specs(bero_plan_lines):
     assert r["specs"]["storage_gb"] == 300
     assert r["flagship_price"]["amount"] == 129
     assert len(r["plans"]) >= 5
+
+
+# --------------------------------------------------------------------------
+# 厂商官网推断 extract_vendor_url
+# --------------------------------------------------------------------------
+
+def test_vendor_url_when_provider_is_domain():
+    assert extract_vendor_url("bero-host.de", "") == "https://bero-host.de"
+    assert extract_vendor_url("Royal-Server.Ro", "") == "https://royal-server.ro"
+    # 子域应归并到可注册域
+    assert extract_vendor_url("www.linveo.com", "") == "https://linveo.com"
+
+
+def test_vendor_url_matches_provider_name_in_body():
+    body = '<a href="https://dartnode.com/warehouse-deals">deals</a>'
+    assert extract_vendor_url("DartNode", body) == "https://dartnode.com"
+
+
+def test_vendor_url_picks_matching_link_not_first():
+    """正文里第一个域名未必是厂商的 —— 必须挑与厂商名匹配的那个。
+
+    DartNode 的帖子里先出现 twitch 链接，再才是官网。
+    """
+    body = ('<a href="https://twitch.tv/DartNodeTV">直播</a>'
+            '<a href="https://snaju.com">partner</a>'
+            '<a href="https://dartnode.com">官网</a>')
+    assert extract_vendor_url("DartNode", body) == "https://dartnode.com"
+
+
+def test_vendor_url_skips_benchmark_and_utility_sites():
+    """跑分站/工具站出现在正文里，不能当成厂商官网。
+
+    实测 Geekbench 成绩链接曾被误判为厂商官网。
+    """
+    body = '<a href="https://browser.geekbench.com/v6/cpu/123">成绩</a>'
+    assert extract_vendor_url("D4 Networks", body) is None
+    body2 = '<a href="https://www.speedtest.net/result/1">测速</a>'
+    assert extract_vendor_url("SomeHost", body2) is None
+
+
+def test_vendor_url_returns_none_when_unknown():
+    """无从判断时返回 None —— 宁可不给链接，也不要错链。"""
+    assert extract_vendor_url("NUXOA", "") is None
+    assert extract_vendor_url("KVM VPS", "no links here") is None
+    # 名称过短不足以可靠匹配
+    assert extract_vendor_url("ab", '<a href="https://ab.com">x</a>') is None
+
+
+def test_vendor_url_handles_multipart_suffix():
+    """something.co.uk 不能被切成 co.uk（co.uk 本身不是域名）。"""
+    body = '<a href="https://host.co.uk">uk host</a>'
+    out = extract_vendor_url("Host", body)
+    assert out is None or out != "https://co.uk"
+    body2 = '<a href="https://myhost.co.uk">x</a>'
+    assert extract_vendor_url("MyHost", body2) == "https://myhost.co.uk"
+
+
+def test_vendor_url_rejects_technical_subdomains():
+    """lg.(looking glass) 之类技术主机名不是厂商官网。"""
+    assert extract_vendor_url("lg.svr", "") is None
+    assert extract_vendor_url("lg.ph", "") is None
+
+
+def test_vendor_url_accepts_long_tld():
+    """新顶级域可长于 6 字符，如 .hosting。"""
+    assert extract_vendor_url("Ava.hosting", "") == "https://ava.hosting"
+
+
+def test_build_record_includes_vendor_url():
+    """build_record 必须带上 vendor_url，且取自原始 HTML。
+
+    strip_html 会把 <a href> 剥掉，若误用清洗后的文本，
+    厂商链接会全部丢失。
+    """
+    item = {
+        "thread_id": "1", "source": "let",
+        "title": "DartNode Black Friday Deals",
+        "link": "https://lowendtalk.com/discussion/1/x",
+        "pubDate": "Fri, 03 Oct 2026 12:00:00 +0000",
+        "author": "dartnode",
+        "description": '<p>Deals!</p><a href="https://dartnode.com">官网</a>',
+    }
+    r = build_record(item)
+    assert r["vendor_url"] == "https://dartnode.com"
+
+
+def test_build_record_vendor_url_none_when_unknown():
+    item = {
+        "thread_id": "2", "source": "let",
+        "title": "Some Random Title",
+        "link": "https://lowendtalk.com/discussion/2/x",
+        "pubDate": "Fri, 03 Oct 2026 12:00:00 +0000",
+        "author": "someone",
+        "description": "<p>no links at all</p>",
+    }
+    r = build_record(item)
+    assert r["vendor_url"] is None

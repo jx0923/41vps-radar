@@ -197,8 +197,11 @@ def test_custom_title_injected(tmp_path, monkeypatch):
     assert "我的 VPS 雷达" in html
 
 
-def test_source_badge_present(tmp_path):
-    """来源徽章由 JS 渲染，因此检查数据与渲染逻辑是否具备来源信息。"""
+def test_source_info_available_without_badge(tmp_path):
+    """厂商名前的来源徽章已移除，但来源信息必须仍可获取。
+
+    来源不能丢：顶部有来源筛选下拉，展开明细里也单独列出「来源」。
+    """
     render.build_site(_sample_payload(), str(tmp_path), verbose=False)
     html = open(os.path.join(tmp_path, "index.html"), encoding="utf-8").read()
     # 数据里必须带 source
@@ -207,9 +210,12 @@ def test_source_badge_present(tmp_path):
         html, re.S)
     data = json.loads(m.group(1))
     assert {r["source"] for r in data["records"]} == {"let", "leb"}
-    # 渲染模板里必须有来源徽章与下拉筛选
-    assert 'class="src"' in html
+    # 来源筛选下拉仍在
     assert 'id="src"' in html
+    # 展开明细里仍展示来源
+    assert "来源 <b>" in html, "展开明细缺少来源字段"
+    # 徽章已按要求移除
+    assert 'class="src"' not in html, "来源徽章应已移除"
 
 
 def test_age_and_confidence_columns_do_not_wrap(tmp_path):
@@ -230,19 +236,39 @@ def test_age_and_confidence_columns_do_not_wrap(tmp_path):
     assert ".hidesm{display:none}" in html
 
 
-def test_deal_title_clamped_to_one_line(tmp_path):
-    """原帖标题(.tt)截断为单行，避免长标题把行高撑高。
+def test_deal_title_line_removed(tmp_path):
+    """厂商名下方不再显示原帖标题（改为最紧凑布局）。
 
-    关键：必须保留 -webkit-box 机制。若图省事改成
-    white-space:nowrap，表格单元格会被最长标题撑到极宽，
-    把「厂商」列拉大并挤压其他列 —— 这是常见改法带来的回归。
+    标题行曾用于补足上下文，但长标题会把行高撑得不整齐，
+    已移除；样式与 DOM 都不应再出现 .tt。
     """
     render.build_site(_sample_payload(), str(tmp_path), verbose=False)
     html = open(os.path.join(tmp_path, "index.html"), encoding="utf-8").read()
-    m = re.search(r"\.tt\{([^}]*)\}", html)
-    assert m, "未找到 .tt 样式规则"
-    rule = m.group(1)
-    assert "-webkit-line-clamp:1" in rule, "标题应截断为 1 行"
-    assert "-webkit-box" in rule, ".tt 须保留 -webkit-box 以便按可用宽度换行"
-    assert "white-space:nowrap" not in rule, \
-        ".tt 不能用 nowrap，否则表格列会被最长标题撑宽"
+    assert ".tt{" not in html, "标题行样式应已移除"
+    assert 'class="tt"' not in html, "标题行 DOM 应已移除"
+
+
+def test_provider_link_rendered_when_vendor_url_present(tmp_path):
+    """有 vendor_url 时厂商名渲染为外链；没有则保持纯文本。"""
+    payload = _sample_payload()
+    payload["records"][0]["vendor_url"] = "https://example-vendor.com"
+    payload["records"][1]["vendor_url"] = None
+    render.build_site(payload, str(tmp_path), verbose=False)
+    html = open(os.path.join(tmp_path, "index.html"), encoding="utf-8").read()
+
+    assert 'class="pv-link"' in html, "缺少厂商官网链接样式"
+    assert "example-vendor.com" in html, "链接地址未被渲染"
+    assert "noopener nofollow" in html, "外链缺少 rel 保护"
+    assert 'target="_blank"' in html, "外链应新窗口打开"
+    # 点链接时不能同时触发行展开
+    assert "if(e.target.closest('a')) return;" in html, \
+        "点击链接会误触发行展开"
+
+
+def test_vendor_url_is_escaped(tmp_path):
+    """vendor_url 来自抓取内容，必须转义，避免注入。"""
+    payload = _sample_payload()
+    payload["records"][0]["vendor_url"] = 'https://x.test/"><script>bad()</script>'
+    render.build_site(payload, str(tmp_path), verbose=False)
+    html = open(os.path.join(tmp_path, "index.html"), encoding="utf-8").read()
+    assert "<script>bad()</script>" not in html, "存在未转义的注入"
