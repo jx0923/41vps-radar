@@ -179,9 +179,8 @@ tr.row{cursor:pointer}
 tr.row:hover{background:var(--accent-soft)}
 tr.row.open{background:var(--accent-soft)}
 .pv{font-weight:600}
-.tt{color:var(--muted);font-size:12px;margin-top:2px;
-  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
-  overflow:hidden}
+.tt{color:var(--muted);font-size:12px;margin-top:2px;overflow:hidden;
+  display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical}
 .spec{font-variant-numeric:tabular-nums;white-space:nowrap}
 .price{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
 /* 「发布于」与「置信度」列禁止折行：

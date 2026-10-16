@@ -228,3 +228,21 @@ def test_age_and_confidence_columns_do_not_wrap(tmp_path):
     assert 'class="cf"' in html, "置信度单元格缺少 cf 类"
     # 「发布于」列仍须在小屏下隐藏
     assert ".hidesm{display:none}" in html
+
+
+def test_deal_title_clamped_to_one_line(tmp_path):
+    """原帖标题(.tt)截断为单行，避免长标题把行高撑高。
+
+    关键：必须保留 -webkit-box 机制。若图省事改成
+    white-space:nowrap，表格单元格会被最长标题撑到极宽，
+    把「厂商」列拉大并挤压其他列 —— 这是常见改法带来的回归。
+    """
+    render.build_site(_sample_payload(), str(tmp_path), verbose=False)
+    html = open(os.path.join(tmp_path, "index.html"), encoding="utf-8").read()
+    m = re.search(r"\.tt\{([^}]*)\}", html)
+    assert m, "未找到 .tt 样式规则"
+    rule = m.group(1)
+    assert "-webkit-line-clamp:1" in rule, "标题应截断为 1 行"
+    assert "-webkit-box" in rule, ".tt 须保留 -webkit-box 以便按可用宽度换行"
+    assert "white-space:nowrap" not in rule, \
+        ".tt 不能用 nowrap，否则表格列会被最长标题撑宽"
