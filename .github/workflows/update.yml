@@ -87,10 +87,23 @@ jobs:
           git add data/deals.json data/deals.md site/
           if git diff --staged --quiet; then
             echo "无变化，跳过提交"
+            exit 0
+          fi
+          git commit -m "chore: refresh deals [skip ci]"
+
+          # 远端可能已被另一次运行推进（手动重跑、cron 延迟等），
+          # 直接 push 会因非快进而被拒。做法：把 HEAD 移到远端最新提交，
+          # 保留我们刚生成的数据（这些是产物，永远以最新一次为准），
+          # 在其之上重新提交，从而始终是快进推送。
+          git fetch origin main
+          git reset --soft origin/main
+          git add data/deals.json data/deals.md site/
+          if git diff --staged --quiet; then
+            echo "与远端一致，无需提交"
           else
             git commit -m "chore: refresh deals [skip ci]"
-            git push
           fi
+          git push
 
       # 可选：推送到自有服务器（配置 LDR_DEPLOY_HOST 后自动启用）
       - name: Deploy to own server
