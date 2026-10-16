@@ -8,6 +8,7 @@ from __future__ import annotations
 from letdeals.textutil import (
     parse_flat_tables,
     strip_html,
+    strip_md_markers,
     strip_quotes_depth_aware,
     to_gb,
     to_tb,
@@ -162,3 +163,58 @@ def test_parse_flat_tables_requires_vcpu_and_size():
     """只有名字没有规格时不应产出套餐。"""
     body = "\n".join(["Just A Name", "Some text here", "More text"])
     assert parse_flat_tables(body) == []
+
+
+# --------------------------------------------------------------------------
+# Markdown 标记清理
+# --------------------------------------------------------------------------
+
+def test_strip_md_markers_bold():
+    """商家把 Markdown 写进标题，标记应被去掉但保留文字。
+
+    实测来自 LowEndTalk 的真实标题：
+    "**25G Unmetered** 30% lifetime discount - Dedicated Servers"
+    """
+    assert strip_md_markers(
+        "**25G Unmetered** 30% lifetime discount"
+    ) == "25G Unmetered 30% lifetime discount"
+
+
+def test_strip_md_markers_unpaired_trailing():
+    """未配对的裸标记也要清掉（如结尾多一个 **）。"""
+    assert strip_md_markers(
+        "**10G FULL UNMETERED ** - 3 Months Half Price!"
+    ) == "10G FULL UNMETERED - 3 Months Half Price!"
+
+
+def test_strip_md_markers_other_forms():
+    assert strip_md_markers("__bold__ text") == "bold text"
+    assert strip_md_markers("~~strike~~ here") == "strike here"
+    assert strip_md_markers("a **b** c __d__ e") == "a b c d e"
+
+
+def test_strip_md_markers_keeps_single_asterisk():
+    """单个 * 可能是正常内容（通配符、乘法），不能动。"""
+    assert strip_md_markers("2 * 4 = 8") == "2 * 4 = 8"
+    assert strip_md_markers("plan*") == "plan*"
+
+
+def test_strip_md_markers_keeps_underscores_in_words():
+    """下划线可能是型号或变量名的一部分，单个不能动。"""
+    assert strip_md_markers("servers_guru deals") == "servers_guru deals"
+    assert strip_md_markers("Xeon_E5_2680") == "Xeon_E5_2680"
+
+
+def test_strip_md_markers_noop_on_plain_text():
+    plain = "Normal Title Without Markers"
+    assert strip_md_markers(plain) == plain
+
+
+def test_strip_md_markers_empty():
+    assert strip_md_markers("") == ""
+    assert strip_md_markers(None) == ""
+
+
+def test_strip_md_markers_collapses_extra_spaces():
+    """去掉标记后不应留下多余空格。"""
+    assert strip_md_markers("**A**  **B**") == "A B"

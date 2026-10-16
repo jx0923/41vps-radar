@@ -18,7 +18,7 @@ import xml.etree.ElementTree as ET
 
 from . import config
 from .http import fetch
-from .textutil import strip_html
+from .textutil import strip_html, strip_md_markers
 
 DC_CREATOR = "{http://purl.org/dc/elements/1.1/}creator"
 CONTENT_ENCODED = "{http://purl.org/rss/1.0/modules/content/}encoded"
@@ -68,7 +68,7 @@ def parse_let_feed(xml_text: str) -> list[dict]:
             "thread_id": thread_id,
             "source": "let",
             "slug": _slug_from_link(link),
-            "title": _text(it, "title").strip(),
+            "title": strip_md_markers(_text(it, "title")).strip(),
             "link": link,
             "pubDate": _text(it, "pubDate").strip(),
             "author": _text(it, DC_CREATOR).strip(),
@@ -132,7 +132,7 @@ def parse_leb_feed(xml_text: str, *, deals_only: bool = True) -> list[dict]:
             "thread_id": f"leb-{slug}",
             "source": "leb",
             "slug": slug,
-            "title": _text(it, "title").strip(),
+            "title": strip_md_markers(_text(it, "title")).strip(),
             "link": link,
             "pubDate": _text(it, "pubDate").strip(),
             "author": _text(it, DC_CREATOR).strip(),

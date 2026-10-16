@@ -67,6 +67,27 @@ def strip_html(s: str, *, drop_quotes: bool = False) -> str:
     return s.strip()
 
 
+# 有些商家直接把 Markdown 写进帖子标题，例如
+# "**25G Unmetered** 30% lifetime discount"。
+RE_MD_PAIRED = re.compile(r"\*\*(.+?)\*\*|__(.+?)__|~~(.+?)~~", re.S)
+RE_MD_LEFTOVER = re.compile(r"\*{2,}|_{2,}|~{2,}")
+
+
+def strip_md_markers(s: str) -> str:
+    """去掉 Markdown 强调标记，保留其中的文字。
+
+    只处理**成对**标记（**x** / __x__ / ~~x~~）以及没有配对的裸标记。
+    刻意不动单个 * 或 _ —— 它们可能是正常内容（型号、下划线、通配符）。
+    """
+    if not s:
+        return ""
+    out = RE_MD_PAIRED.sub(
+        lambda m: m.group(1) or m.group(2) or m.group(3) or "", s)
+    out = RE_MD_LEFTOVER.sub("", out)
+    out = re.sub(r"[ \t]+", " ", out)
+    return out.strip()
+
+
 # --------------------------------------------------------------------------
 # 单位换算
 # --------------------------------------------------------------------------
