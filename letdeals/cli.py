@@ -48,6 +48,15 @@ def build_parser() -> argparse.ArgumentParser:
     ap.add_argument("--json-out", default=None)
     ap.add_argument("--md-out", default=None)
     ap.add_argument("--site-out", default=None)
+
+    # ---- 论坛发帖（旁路功能，默认关闭且默认演练）----
+    ap.add_argument("--post-forum", action="store_true",
+                    help="把优惠帖搬运到论坛（需 LDR_FORUM_ENABLED=true）")
+    ap.add_argument("--forum-dry-run", action="store_true",
+                    help="演练：只打印将要发布的内容，不提交")
+    ap.add_argument("--forum-limit", type=int, default=0,
+                    help="本次最多新发几条（0=用配置值）")
+
     ap.add_argument("-q", "--quiet", action="store_true")
     return ap
 
@@ -126,6 +135,24 @@ def main(argv: list[str] | None = None) -> int:
         if verbose:
             print()
         render.build_site(payload, args.site_out, verbose=verbose)
+
+    # ---- 论坛发帖（旁路：失败不影响站点更新）----
+    if args.post_forum:
+        if verbose:
+            print()
+            print("=" * 72)
+            print("论坛发帖")
+            print("=" * 72)
+        try:
+            from . import forum
+            forum.post_deals(
+                payload["records"],
+                limit=args.forum_limit or None,
+                dry_run=True if args.forum_dry_run else None,
+                verbose=verbose,
+            )
+        except Exception as e:          # 不让发帖失败影响主流程
+            print("  !! 论坛发帖出错（不影响站点更新）：%r" % e)
 
     if verbose:
         print()

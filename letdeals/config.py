@@ -21,6 +21,13 @@ def _env_int(name: str, default: int) -> int:
         return default
 
 
+def _env_bool(name: str, default: bool) -> bool:
+    raw = os.getenv(name, "").strip().lower()
+    if not raw:
+        return default
+    return raw in ("1", "true", "yes", "on")
+
+
 # --------------------------------------------------------------------------
 # 路径
 # --------------------------------------------------------------------------
@@ -91,3 +98,42 @@ FX_TO_EUR = {"€": 1.00, "$": 0.92, "£": 1.17}
 FX_NOTE = "跨币种排序按近似汇率折算（€1.00 / $0.92 / £1.17），仅供参考"
 
 CYCLE_TO_YEAR = {"year": 1.0, "quarter": 4.0, "month": 12.0}
+
+
+# --------------------------------------------------------------------------
+# 论坛发帖（旁路功能）
+# --------------------------------------------------------------------------
+# 设计原则：默认关闭 + 默认演练 + 幂等 + 限流。
+# 任何一项没配好都不会真的发帖。
+
+# 总开关。false 时 post_deals 直接返回，不发任何内容。
+# 想临时停发帖，改这一个值即可，无需碰论坛。
+FORUM_ENABLED = _env_bool("LDR_FORUM_ENABLED", False)
+
+# 论坛地址与 API
+FORUM_BASE_URL = _env("LDR_FORUM_URL", "https://lowseek.ai").rstrip("/")
+FORUM_API_KEY = _env("LDR_FORUM_API_KEY", "")
+
+# 目标标签 ID（「内容转载」）
+FORUM_TAG_ID = _env("LDR_FORUM_TAG_ID", "21")
+
+# 机器人账号 ID（用于日志核对；不参与鉴权）
+FORUM_BOT_USER_ID = _env("LDR_FORUM_BOT_ID", "678")
+
+# 每次运行最多发几条（限流，防止一次灌满论坛）
+FORUM_MAX_PER_RUN = _env_int("LDR_FORUM_MAX_PER_RUN", 3)
+
+# 只发最近 N 天内的帖子；0 表示不限
+FORUM_MAX_AGE_DAYS = _env_int("LDR_FORUM_MAX_AGE_DAYS", 3)
+
+# 已发布记录（幂等：同一 thread_id 永不重复发）
+FORUM_POSTED_LOG = DATA_DIR / "forum_posted.json"
+
+# 是否真的提交。false = 只打印将要发布的内容（演练）。
+# 需要显式设 LDR_FORUM_DRY_RUN=false 才会真发。
+FORUM_DRY_RUN = _env_bool("LDR_FORUM_DRY_RUN", True)
+
+# 筛选门槛：只搬运「够格」的帖子，避免刷屏
+# 折扣百分比达到此值，或属于下列活动性质，才算值得搬
+FORUM_MIN_PERCENT = _env_int("LDR_FORUM_MIN_PERCENT", 30)
+FORUM_EVENT_PRIORITY = ("anniversary", "black_friday", "holiday", "restock")
