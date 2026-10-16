@@ -1,5 +1,6 @@
 | 来源 | 厂商 | 活动性质 | 力度 | 配置/CPU | 旗舰价 | 状态 | 置信度 |
 |---|---|---|---|---|---|---|---|
+| LET | bero-host.de | 周年庆 | 循环/永久 · 最高 10% off · 码 LET10 | 8C/32G/300G / Ryzen 9 9950X | €129/年 | 活动结束 | 1.00 |
 | LET | NameBig | 节日促销 | 循环/永久 · double storage | 15G | £3.37/年 | 待确认 | 0.50 |
 | LET | D4 Networks | 常规帖 | — | 2C/4G/120GNVMe / EPYC 7543P | $49/年 | 待确认 | 0.83 |
 | LET | fiberstate.com | 上新/回归 | free upgrade · 码 BEASTMODE7950XSLC/BEASTMODE9950X/BEASTMODE9950XNYC | 40C/256G/4096GNVMe / Ryzen 7 5700G, Ryzen 9 7950X | $69.95/月 | 待确认(较旧) | 1.00 |
@@ -15,7 +16,6 @@
 | LET | serverpoint.com | 补货 | 最高 36% off · double bandwidth | 6C / EPYC 7513, EPYC 7663 | $3.33/月 | 在售 | 0.67 |
 | LET | Dual Xeon E5 Dedicated | 上新/回归 | 循环/永久 · 最高 10% off · 码 LET10OFFCH | 28C/1024GSSD | €164.61/月 | 待确认 | 0.67 |
 | LET | ServerHost September Savings | 上新/回归 | 码 LET16GBSEPT26/LET2GBSEPT26/LET32GBSEPT26 | 16G/480GNVMe | $16.99/年 | 待确认(较旧) | 0.67 |
-| LET | bero-host.de | 周年庆 | 循环/永久 · 最高 10% off · 码 LET10 | 8C/32G/300G / Ryzen 9 9950X | €129/年 | 活动结束 | 1.00 |
 | LET | Dallas Dedicated | 补货 | 循环/永久 · 码 DED7QE7M | 1024GSSD / Xeon E5-2699v4 | $75/月 | 在售 | 0.67 |
 | LET | NUXOA | 常规帖 | 循环/永久 | 16C/256G/1024GNVMe / Ryzen 7 5700X, Ryzen 7 9700X | €95/月 | 待确认 | 1.00 |
 | LET | SoftShellWeb | 常规帖 | 循环/永久 · double bandwidth | 4C/8G/100GNVMe | $5.95/年 | 待确认 | 0.83 |
