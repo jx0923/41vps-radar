@@ -184,6 +184,10 @@ tr.row.open{background:var(--accent-soft)}
   overflow:hidden}
 .spec{font-variant-numeric:tabular-nums;white-space:nowrap}
 .price{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+/* 「发布于」与「置信度」列禁止折行：
+   前者如 “20 天前” 会在数字与中文之间的空格处断开；
+   后者是「进度条 + 百分比」，窄列时会被拆成两行。 */
+.hidesm,td.cf{white-space:nowrap}
 .badge{display:inline-block;border-radius:6px;padding:2px 7px;font-size:11.5px;
   font-weight:600;white-space:nowrap}
 .b-anniversary,.b-black_friday{background:#fee2e2;color:#b91c1c}
@@ -495,7 +499,7 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;line-height:1.9}
       out+='<td class="price">'+esc(priceText(r))+'</td>';
       out+='<td><span class="av av-'+esc(r.availability)+'">'+
            esc(AVAIL_CN[r.availability]||r.availability)+'</span></td>';
-      out+='<td><span class="bar"><i style="width:'+
+      out+='<td class="cf"><span class="bar"><i style="width:'+
            Math.round((r.confidence||0)*100)+'%"></i></span>'+
            Math.round((r.confidence||0)*100)+'%</td>';
       out+='<td class="hidesm">'+esc(ageText(r))+'</td>';

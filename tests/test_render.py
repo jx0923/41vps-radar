@@ -210,3 +210,21 @@ def test_source_badge_present(tmp_path):
     # 渲染模板里必须有来源徽章与下拉筛选
     assert 'class="src"' in html
     assert 'id="src"' in html
+
+
+def test_age_and_confidence_columns_do_not_wrap(tmp_path):
+    """「发布于」与「置信度」列必须禁止折行。
+
+    - 「20 天前」会在数字与中文之间的空格处断开，变成两行；
+    - 置信度是「进度条 + 百分比」，列变窄时会被拆开。
+
+    这两处依赖 CSS 的 white-space:nowrap，容易在调样式时被误删，
+    因此在此固化。
+    """
+    render.build_site(_sample_payload(), str(tmp_path), verbose=False)
+    html = open(os.path.join(tmp_path, "index.html"), encoding="utf-8").read()
+    assert ".hidesm,td.cf{white-space:nowrap}" in html, "缺少禁止折行规则"
+    # 置信度单元格需带 cf 类，否则上面的选择器匹配不到
+    assert 'class="cf"' in html, "置信度单元格缺少 cf 类"
+    # 「发布于」列仍须在小屏下隐藏
+    assert ".hidesm{display:none}" in html
