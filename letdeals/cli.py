@@ -52,6 +52,8 @@ def build_parser() -> argparse.ArgumentParser:
     # ---- 论坛发帖（旁路功能，默认关闭且默认演练）----
     ap.add_argument("--post-forum", action="store_true",
                     help="把优惠帖搬运到论坛（需 LDR_FORUM_ENABLED=true）")
+    ap.add_argument("--forum-only", action="store_true",
+                    help="只发帖：读现有 data/deals.json，不抓取也不建站")
     ap.add_argument("--forum-dry-run", action="store_true",
                     help="演练：只打印将要发布的内容，不提交")
     ap.add_argument("--forum-limit", type=int, default=0,
@@ -61,12 +63,55 @@ def build_parser() -> argparse.ArgumentParser:
     return ap
 
 
+def _forum_only(args, verbose: bool) -> int:
+    """只发帖：读 data/deals.json，不抓取也不建站。"""
+    import json
+    from . import forum
+
+    path = args.json_out or str(config.DEALS_JSON)
+    if not os.path.exists(path):
+        print("!! 找不到 %s；请先运行一次抓取。" % path)
+        return 1
+
+    with open(path, encoding="utf-8") as f:
+        payload = json.load(f)
+
+    recs = payload.get("records") or []
+    if not recs:
+        print("!! %s 里没有记录。" % path)
+        return 1
+
+    if verbose:
+        print("=" * 72)
+        print("论坛发帖（只发帖模式）")
+        print("=" * 72)
+        print("  数据来源：%s（%d 条）" % (path, len(recs)))
+
+    try:
+        forum.post_deals(
+            recs,
+            limit=args.forum_limit or None,
+            dry_run=True if args.forum_dry_run else None,
+            verbose=verbose,
+        )
+    except Exception as e:              # 不让发帖失败影响整体
+        print("  !! 论坛发帖出错：%r" % e)
+        return 1
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
 
     args = build_parser().parse_args(argv)
     verbose = not args.quiet
+
+    # ---- 只发帖模式：读现有 deals.json，不抓取也不建站 ----
+    # 用于把发帖与抓取解耦：工作流先更新数据并提交，
+    # 再由单独的步骤读同一份 JSON 发帖，避免重复抓取。
+    if args.forum_only:
+        return _forum_only(args, verbose)
 
     sources = tuple(s.strip() for s in args.sources.split(",") if s.strip())
     offline = {}
