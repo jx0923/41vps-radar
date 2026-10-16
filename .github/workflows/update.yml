@@ -104,9 +104,18 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          # 注意：forum_posted.json 必须提交 —— 它是幂等依据，
-          # 丢了会导致同一活动被重复搬运到论坛。
-          git add data/deals.json data/deals.md site/ data/forum_posted.json
+
+          # forum_posted.json 是幂等依据，必须提交；但它只在真正发过帖时
+          # 才存在。文件不存在时若直接 git add 会报
+          # "pathspec did not match"，因此先判断再添加。
+          add_all() {
+            git add data/deals.json data/deals.md site/
+            if [ -f data/forum_posted.json ]; then
+              git add data/forum_posted.json
+            fi
+          }
+
+          add_all
           if git diff --staged --quiet; then
             echo "无变化，跳过提交"
             exit 0
@@ -119,7 +128,7 @@ jobs:
           # 在其之上重新提交，从而始终是快进推送。
           git fetch origin main
           git reset --soft origin/main
-          git add data/deals.json data/deals.md site/ data/forum_posted.json
+          add_all
           if git diff --staged --quiet; then
             echo "与远端一致，无需提交"
           else
