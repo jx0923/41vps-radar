@@ -22,7 +22,7 @@
 | LET | TheRealBudgetVM | 周年庆 | 码 LET10 | 32G/2048GNVMe | $74/月 | 待确认 | 0.67 |
 | LET | CubePath | 常规帖 | 码 EYG37EFYG | 8C/16G/200GNVMe | $5.56/月 | 待确认 | 0.83 |
 | LET | ravnix.gg | 上新/回归 | 循环/永久 | — / Xeon E5-2699 | $14/年 | 待确认 | 0.50 |
-| LET | **25G Unmetered** 30% lifetime discount | 常规促销 | 循环/永久 · 最高 30% off · 码 LETJHUWQ | 384G | $150.5/月 | 售罄 | 0.50 |
+| LET | 25G Unmetered 30% lifetime discount | 常规促销 | 循环/永久 · 最高 30% off · 码 LETJHUWQ | 384G | $150.5/月 | 售罄 | 0.50 |
 | LET | KVM VPS | 补货 | — | 4C/16G/80G | €6.99/年 | 补货中 | 0.67 |
 | LET | INTEL | 常规帖 | — | 4C/16G/100GSSD | — | 待确认 | 0.50 |
 | LET | Royal-Server.Ro | 常规帖 | — | 20C/64G/500GNVMe Gen4 / RYZEN 9 9950X, Ryzen 9 9950X | €5/月 | 在售 | 0.83 |
@@ -73,7 +73,7 @@
 | LEB | Velohost | 上新/回归 | 最高 35% off · 码 LEB35 | 10C/512G/4096GNVMe / EPYC 7402P | €26/年 | 待确认 | 1.00 |
 | LEB | godlike.host | 上新/回归 | 码 LEB50 | 2C/4G/50GNVMe / Ryzen 9 9950X3D | $1.83/月 | 待确认 | 1.00 |
 | LEB | RackNerd & AdminBolt Are Giving Away 100 | 常规帖 | 循环/永久 | 3C/4G/60GSSD | — | 待确认 | 0.67 |
-| LEB | High Ram, Low Prices?  Must be an Afford | 常规帖 | — | 8C/40G | €3.49/月 | 待确认 | 0.50 |
+| LEB | High Ram, Low Prices? Must be an Afforda | 常规帖 | — | 8C/40G | €3.49/月 | 待确认 | 0.50 |
 | LET | cloudblast | 常规帖 | 码 NOT/SIGNED | — | — | 待确认(较旧) | 0.17 |
 | LET | SystemFreaks S3 Object Storage | 常规帖 | 码 LET2026 | — | — | 在售 | 0.17 |
 | LET | NiuProxy | 常规帖 | 最高 10% off · 码 PAY2/PAYMENT | — | — | 待确认(较旧) | 0.17 |
