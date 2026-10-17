@@ -301,6 +301,40 @@ def test_link_rendering_both_cases(tmp_path):
     assert "if(r.forum_url)" in html
 
 
+def test_icons_declared_and_copied(tmp_path):
+    """站点图标：HTML 声明 + 文件复制 + manifest 生成。"""
+    render.build_site(_sample_payload(), str(tmp_path), verbose=False)
+    html = open(os.path.join(tmp_path, "index.html"), encoding="utf-8").read()
+
+    assert 'rel="icon"' in html, "缺少 favicon 声明"
+    assert "apple-touch-icon" in html, "缺少 iOS 主屏图标声明"
+    assert 'rel="manifest"' in html, "缺少 webmanifest 声明"
+
+    # 图标文件应随站点发布
+    for name in ("favicon.ico", "manifest.webmanifest"):
+        assert os.path.exists(os.path.join(tmp_path, name)), f"缺少 {name}"
+
+    # manifest 内容应可解析且含图标
+    m = json.load(open(os.path.join(tmp_path, "manifest.webmanifest"),
+                       encoding="utf-8"))
+    assert m["name"]
+    assert isinstance(m["icons"], list)
+
+
+def test_missing_assets_does_not_break_build(tmp_path, monkeypatch):
+    """图标缺失时只告警，不应导致建站失败。"""
+    import pytest as _pytest
+    mp = _pytest.MonkeyPatch()
+    mp.setattr(render.config, "ASSETS_DIR", "/nonexistent-assets")
+    try:
+        out = render.build_site(_sample_payload(), str(tmp_path), verbose=False)
+    finally:
+        mp.undo()
+    assert os.path.exists(os.path.join(out, "index.html"))
+    # manifest 仍应生成（只是没有图标条目）
+    assert os.path.exists(os.path.join(out, "manifest.webmanifest"))
+
+
 def test_vendor_signal_status_is_translated(tmp_path):
     """回帖证据里的状态码要翻成中文。
 

@@ -10,6 +10,7 @@ from __future__ import annotations
 import html
 import json
 import os
+import shutil
 from datetime import datetime, timezone
 
 from . import config
@@ -160,6 +161,13 @@ SITE_TEMPLATE = r"""<!DOCTYPE html>
 <title>@@TITLE@@</title>
 <meta name="description" content="@@DESC@@">
 @@CANONICAL@@
+<!-- 站点图标：沿用论坛的 LS 品牌图标，保持视觉一致。
+     ico 供浏览器标签页（多尺寸），PNG 供 Android/PWA 与 iOS 主屏。 -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#75ADFB">
 <style>
 :root{
   --bg:#f6f7f9; --card:#fff; --ink:#16181d; --muted:#6b7280; --line:#e5e7eb;
@@ -687,8 +695,59 @@ def build_site(payload: dict, out_dir=None, verbose: bool = True) -> str:
                 f'  <url><loc>{loc}</loc><lastmod>{today}</lastmod></url>\n'
                 '</urlset>\n')
 
+    # 站点图标：从 assets/ 复制到输出目录。
+    # 图标是二进制资源，不适合内联进模板；放 assets/ 便于替换品牌素材。
+    _copy_icons(out_dir, verbose)
+
     if verbose:
         print(f"站点已生成 -> {os.path.abspath(out_dir)}")
         print("  index.html      %8.1f KB" % (os.path.getsize(index_path) / 1024))
         print("  data/deals.json %8.1f KB" % (os.path.getsize(api_path) / 1024))
     return out_dir
+
+
+# 需要随站点发布的图标文件
+ICON_FILES = ("favicon.ico", "icon-192.png", "icon-512.png",
+              "apple-touch-icon.png")
+
+
+def _copy_icons(out_dir: str, verbose: bool = True) -> None:
+    """把 assets/ 下的图标复制到站点目录，并生成 webmanifest。
+
+    缺失图标时只告警不报错 —— 不应因为图标问题导致建站失败。
+    """
+    src_dir = config.ASSETS_DIR
+    copied = 0
+    for name in ICON_FILES:
+        src = os.path.join(str(src_dir), name)
+        if os.path.exists(src):
+            shutil.copyfile(src, os.path.join(out_dir, name))
+            copied += 1
+        elif verbose:
+            print("  [warn] 缺少图标 assets/%s（运行 tools/make_icons.py 生成）"
+                  % name)
+
+    # webmanifest：让 Android/PWA 也能用上图标
+    name = (config.SITE_TITLE or "Deals").strip()
+    short = name[:12]
+    icons = []
+    for fn, size in (("icon-192.png", "192x192"),
+                     ("icon-512.png", "512x512")):
+        if os.path.exists(os.path.join(out_dir, fn)):
+            icons.append({"src": fn, "sizes": size, "type": "image/png",
+                          "purpose": "any"})
+    manifest = {
+        "name": name,
+        "short_name": short,
+        "icons": icons,
+        "theme_color": "#75ADFB",
+        "background_color": "#ffffff",
+        "display": "standalone",
+        "start_url": "./",
+    }
+    with open(os.path.join(out_dir, "manifest.webmanifest"), "w",
+              encoding="utf-8") as f:
+        json.dump(manifest, f, ensure_ascii=False, indent=2)
+
+    if verbose and copied:
+        print("  图标            %d 个" % copied)
