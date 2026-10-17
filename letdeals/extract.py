@@ -9,7 +9,7 @@ import re
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 
-from . import config
+from . import affiliate, config
 from .textutil import parse_flat_tables, strip_html, to_float, to_gb, to_tb
 
 # --------------------------------------------------------------------------
@@ -749,16 +749,20 @@ def build_record(item: dict, reply_info: dict | None = None) -> dict:
                                 item.get("author", ""), body,
                                 item.get("source", "let"))
 
+    # 厂商链接：优先取原帖里的活动/购买页；若该厂商配置了推广链接
+    # （letdeals/affiliate.py），则替换成你的推广链接。
+    vendor_url = extract_vendor_url(provider, raw_body)
+    vendor_url = affiliate.rewrite(vendor_url)
+
     return {
         "thread_id": str(item.get("thread_id", "")),
         "source": item.get("source", "let"),
         "provider": provider,
         "title": item.get("title", ""),
         "url": item.get("link", ""),
-        # 厂商官网（推断，可能为 None —— 此时界面不做外链）
-        # 必须用**原始 HTML**：strip_html 会把 <a href> 一并剥掉，
+        # 必须用**原始 HTML** 抽取：strip_html 会把 <a href> 一并剥掉，
         # 而厂商链接恰恰只存在于 href 里。
-        "vendor_url": extract_vendor_url(provider, raw_body),
+        "vendor_url": vendor_url,
         "author": item.get("author", ""),
         "posted": item.get("pubDate", ""),
         "age_days": days,

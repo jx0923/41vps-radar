@@ -154,6 +154,12 @@ def main(argv: list[str] | None = None) -> int:
         def pct(pred):
             return f"{sum(1 for r in recs if pred(r)) / n * 100:.0f}%"
 
+        # 推广链接：配了就提示一声，能立刻看出是否生效
+        from . import affiliate
+        if affiliate._load():
+            print(f"  推广链接      {affiliate.summary()}")
+            print()
+
         print(f"  vCPU          {pct(lambda r: (r.get('specs') or {}).get('vcpu'))}")
         print(f"  RAM           {pct(lambda r: (r.get('specs') or {}).get('ram_gb'))}")
         print(f"  存储          {pct(lambda r: (r.get('specs') or {}).get('storage_gb'))}")
