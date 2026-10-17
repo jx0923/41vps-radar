@@ -52,7 +52,7 @@ FEED_CACHE = DATA_DIR / "feed.xml"
 SITE_TITLE = _env("LDR_SITE_TITLE", "VPS 活动雷达")
 SITE_DESC = _env(
     "LDR_SITE_DESC",
-    "自动汇总 LowEndTalk / LowEndBox 的 VPS 优惠活动，"
+    "自动汇总公开渠道的 VPS 优惠活动，"
     "标注折扣力度、循环折扣与库存状态。",
 )
 # 例：https://deals.example.com  （末尾不要带 /）

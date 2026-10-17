@@ -289,7 +289,7 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;line-height:1.9}
   <h1>@@TITLE@@</h1>
   <p>@@DESC@@</p>
   <div class="meta">
-    <span>数据源 <a href="https://lowendtalk.com/categories/offers" target="_blank" rel="noopener">LowEndTalk</a> · <a href="https://lowendbox.com/" target="_blank" rel="noopener">LowEndBox</a></span>
+    <span>数据来源 · 公开优惠信息</span>
     <span>共 <b id="m-total">@@COUNT@@</b> 条</span>
     <span>生成于 <b>@@GENERATED@@</b></span>
     <span><a href="data/deals.json">原始 JSON</a></span>
@@ -301,8 +301,8 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;line-height:1.9}
     <input type="search" id="q" placeholder="搜索厂商 / CPU / 优惠码 / 地点…">
     <select id="src">
       <option value="all">全部来源</option>
-      <option value="let">LowEndTalk</option>
-      <option value="leb">LowEndBox</option>
+      <option value="let">LET</option>
+      <option value="leb">LEB</option>
     </select>
     <select id="avail">
       <option value="all">全部状态</option>
@@ -352,7 +352,7 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;line-height:1.9}
 </div>
 
 <footer>
-  <div>数据来自 LowEndTalk / LowEndBox 公开 RSS，仅作信息聚合，<b>不构成购买建议</b>。</div>
+  <div>本站汇总公开渠道的优惠信息，仅作信息聚合，<b>不构成购买建议</b>。</div>
   <div>@@FXNOTE@@</div>
   <div>库存与价格以厂商官网为准；标注「待确认」表示未能自动验证。</div>
   @@FOOTER@@
