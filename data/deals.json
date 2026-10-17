@@ -1,6 +1,6 @@
 {
   "source": "LowEndTalk Offers + LowEndBox",
-  "generated_at": "2026-10-17T15:33:58+00:00",
+  "generated_at": "2026-10-17T15:39:05+00:00",
   "count": 81,
   "by_source": {
     "let": 74,
@@ -8,6 +8,101 @@
   },
   "deduped": 0,
   "records": [
+    {
+      "thread_id": "222164",
+      "source": "let",
+      "provider": "HostDZire",
+      "title": "[Early Black Friday Sale] VPS & Dedicated Server Deals | Starting at Just €18/Year!",
+      "url": "https://lowendtalk.com/discussion/222164/early-black-friday-sale-vps-dedicated-server-deals-starting-at-just-18-year",
+      "vendor_url": "https://hostdzire.com/billing/cart.php?a=add&pid=1261&currency=1&billingcycle=annually",
+      "author": "HostDZire",
+      "posted": "Fri, 16 Oct 2026 18:31:59 +0000",
+      "age_days": 0,
+      "age_status": "NEW",
+      "availability": "UNVERIFIED",
+      "replies": {
+        "reply_count": 36,
+        "vendor_reply_count": 1,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:37:44+00:00"
+      },
+      "event_type": "black_friday",
+      "discount": {
+        "strength": "",
+        "percent_max": null,
+        "recurring": false,
+        "codes": [],
+        "extras": []
+      },
+      "specs": {
+        "vcpu": 12,
+        "ram_gb": 128.0,
+        "storage_gb": 8192.0,
+        "storage_type": "SATA",
+        "bandwidth_tb": 16.0
+      },
+      "specs_all": {
+        "vcpu": [
+          12,
+          8,
+          6,
+          4,
+          2,
+          1
+        ],
+        "ram_gb": [
+          128.0,
+          32.0,
+          24.0,
+          12.0,
+          8.0,
+          6.0,
+          4.0,
+          3.0
+        ],
+        "storage_gb": [
+          8192.0,
+          8192.0,
+          8192.0,
+          6144.0,
+          4096.0,
+          4096.0,
+          4096.0,
+          2048.0
+        ]
+      },
+      "plans": [],
+      "flagship_price": null,
+      "cpu_models": [],
+      "prices": [
+        {
+          "amount": 18.0,
+          "currency": "€",
+          "cycle": "year"
+        },
+        {
+          "amount": 21.0,
+          "currency": "€",
+          "cycle": "year"
+        },
+        {
+          "amount": 29.0,
+          "currency": "€",
+          "cycle": "year"
+        },
+        {
+          "amount": 30.0,
+          "currency": "€",
+          "cycle": "year"
+        }
+      ],
+      "locations": [],
+      "stock_hints": [],
+      "confidence": 0.67
+    },
     {
       "thread_id": "222157",
       "source": "let",
@@ -20,7 +115,15 @@
       "age_days": 1,
       "age_status": "NEW",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 10,
+        "vendor_reply_count": 5,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:37:44+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "循环/永久 · 最高 25% off · 码 LETB25/LETS2026",
@@ -115,8 +218,46 @@
       "posted": "Tue, 04 Aug 2026 09:34:48 +0000",
       "age_days": 74,
       "age_status": "STALE",
-      "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "availability": "SOLD_OUT",
+      "replies": {
+        "reply_count": 26,
+        "vendor_reply_count": 9,
+        "status": "SOLD_OUT",
+        "source": "vendor",
+        "evidence": {
+          "status": "SOLD_OUT",
+          "author": "quickservers",
+          "is_vendor": true,
+          "datetime": "2026-08-05T08:10:22+00:00",
+          "match": " sold out",
+          "snippet": "You guys are crazy! Love you all! We're sold out on our 6 servers under $65 in 24 hours. I will be adding more inventory next week. Please",
+          "comment_id": "4842341",
+          "offset": 39
+        },
+        "vendor_signals": [
+          {
+            "status": "SOLD_OUT",
+            "author": "quickservers",
+            "is_vendor": true,
+            "datetime": "2026-08-04T16:50:41+00:00",
+            "match": " sold out",
+            "snippet": "Sorry these servers sold out fast. The only server I have left from this promo is Dual E5-2690 16 cores / 32 threads 1",
+            "comment_id": "4842018",
+            "offset": 19
+          },
+          {
+            "status": "SOLD_OUT",
+            "author": "quickservers",
+            "is_vendor": true,
+            "datetime": "2026-08-05T08:10:22+00:00",
+            "match": " sold out",
+            "snippet": "You guys are crazy! Love you all! We're sold out on our 6 servers under $65 in 24 hours. I will be adding more inventory next week. Please",
+            "comment_id": "4842341",
+            "offset": 39
+          }
+        ],
+        "fetched_at": "2026-10-17T15:37:45+00:00"
+      },
       "event_type": "regular",
       "discount": {
         "strength": "",
@@ -183,93 +324,6 @@
       "confidence": 0.67
     },
     {
-      "thread_id": "222164",
-      "source": "let",
-      "provider": "HostDZire",
-      "title": "[Early Black Friday Sale] VPS & Dedicated Server Deals | Starting at Just €18/Year!",
-      "url": "https://lowendtalk.com/discussion/222164/early-black-friday-sale-vps-dedicated-server-deals-starting-at-just-18-year",
-      "vendor_url": "https://hostdzire.com/billing/cart.php?a=add&pid=1261&currency=1&billingcycle=annually",
-      "author": "HostDZire",
-      "posted": "Fri, 16 Oct 2026 18:31:59 +0000",
-      "age_days": 0,
-      "age_status": "NEW",
-      "availability": "UNVERIFIED",
-      "replies": null,
-      "event_type": "black_friday",
-      "discount": {
-        "strength": "",
-        "percent_max": null,
-        "recurring": false,
-        "codes": [],
-        "extras": []
-      },
-      "specs": {
-        "vcpu": 12,
-        "ram_gb": 128.0,
-        "storage_gb": 8192.0,
-        "storage_type": "SATA",
-        "bandwidth_tb": 16.0
-      },
-      "specs_all": {
-        "vcpu": [
-          12,
-          8,
-          6,
-          4,
-          2,
-          1
-        ],
-        "ram_gb": [
-          128.0,
-          32.0,
-          24.0,
-          12.0,
-          8.0,
-          6.0,
-          4.0,
-          3.0
-        ],
-        "storage_gb": [
-          8192.0,
-          8192.0,
-          8192.0,
-          6144.0,
-          4096.0,
-          4096.0,
-          4096.0,
-          2048.0
-        ]
-      },
-      "plans": [],
-      "flagship_price": null,
-      "cpu_models": [],
-      "prices": [
-        {
-          "amount": 18.0,
-          "currency": "€",
-          "cycle": "year"
-        },
-        {
-          "amount": 21.0,
-          "currency": "€",
-          "cycle": "year"
-        },
-        {
-          "amount": 29.0,
-          "currency": "€",
-          "cycle": "year"
-        },
-        {
-          "amount": 30.0,
-          "currency": "€",
-          "cycle": "year"
-        }
-      ],
-      "locations": [],
-      "stock_hints": [],
-      "confidence": 0.67
-    },
-    {
       "thread_id": "221937",
       "source": "let",
       "provider": "ravnix.gg",
@@ -281,7 +335,15 @@
       "age_days": 6,
       "age_status": "NEW",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 58,
+        "vendor_reply_count": 18,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:37:46+00:00"
+      },
       "event_type": "launch",
       "discount": {
         "strength": "循环/永久",
@@ -347,7 +409,15 @@
       "age_days": 0,
       "age_status": "NEW",
       "availability": "SOLD_OUT",
-      "replies": null,
+      "replies": {
+        "reply_count": 15,
+        "vendor_reply_count": 5,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:37:47+00:00"
+      },
       "event_type": "regular",
       "discount": {
         "strength": "",
@@ -395,8 +465,36 @@
       "posted": "Mon, 21 Sep 2026 21:49:36 +0000",
       "age_days": 25,
       "age_status": "ACTIVE",
-      "availability": "SOLD_OUT",
-      "replies": null,
+      "availability": "RESTOCKING",
+      "replies": {
+        "reply_count": 38,
+        "vendor_reply_count": 8,
+        "status": "RESTOCKING",
+        "source": "vendor",
+        "evidence": {
+          "status": "RESTOCKING",
+          "author": "VPSLAYER",
+          "is_vendor": true,
+          "datetime": "2026-09-22T05:51:05+00:00",
+          "match": "working on a restock",
+          "snippet": "We are currently working on deployment issues and then working on a restock.",
+          "comment_id": "4868017",
+          "offset": 55
+        },
+        "vendor_signals": [
+          {
+            "status": "RESTOCKING",
+            "author": "VPSLAYER",
+            "is_vendor": true,
+            "datetime": "2026-09-22T05:51:05+00:00",
+            "match": "working on a restock",
+            "snippet": "We are currently working on deployment issues and then working on a restock.",
+            "comment_id": "4868017",
+            "offset": 55
+          }
+        ],
+        "fetched_at": "2026-10-17T15:37:48+00:00"
+      },
       "event_type": "restock",
       "discount": {
         "strength": "",
@@ -537,7 +635,15 @@
       "age_days": 2,
       "age_status": "NEW",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 4,
+        "vendor_reply_count": 1,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:37:48+00:00"
+      },
       "event_type": "regular",
       "discount": {
         "strength": "循环/永久",
@@ -622,8 +728,36 @@
       "posted": "Sat, 03 Oct 2026 10:41:24 +0000",
       "age_days": 14,
       "age_status": "ACTIVE",
-      "availability": "UNVERIFIED",
-      "replies": null,
+      "availability": "ON_SALE",
+      "replies": {
+        "reply_count": 37,
+        "vendor_reply_count": 17,
+        "status": "ON_SALE",
+        "source": "vendor",
+        "evidence": {
+          "status": "ON_SALE",
+          "author": "YassineB",
+          "is_vendor": true,
+          "datetime": "2026-10-06T10:48:26+00:00",
+          "match": "restocked",
+          "snippet": "Good morning guys, I’m happy to announce that we’ve restocked with new, affordable dedicated servers at some of our lowest prices yet. No setup fees an",
+          "comment_id": "4877123",
+          "offset": 52
+        },
+        "vendor_signals": [
+          {
+            "status": "ON_SALE",
+            "author": "YassineB",
+            "is_vendor": true,
+            "datetime": "2026-10-06T10:48:26+00:00",
+            "match": "restocked",
+            "snippet": "Good morning guys, I’m happy to announce that we’ve restocked with new, affordable dedicated servers at some of our lowest prices yet. No setup fees an",
+            "comment_id": "4877123",
+            "offset": 52
+          }
+        ],
+        "fetched_at": "2026-10-17T15:37:49+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "循环/永久",
@@ -692,7 +826,15 @@
       "age_days": 0,
       "age_status": "NEW",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 14,
+        "vendor_reply_count": 0,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:37:50+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "循环/永久 · 码 HAS/OCTRYZI92GB",
@@ -761,7 +903,15 @@
       "age_days": 0,
       "age_status": "NEW",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 14,
+        "vendor_reply_count": 3,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:37:50+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "循环/永久 · 最高 30% off · 码 APPLIES/AUTOMATICALLY/DOES",
@@ -840,7 +990,15 @@
       "age_days": 10,
       "age_status": "ACTIVE",
       "availability": "ON_SALE",
-      "replies": null,
+      "replies": {
+        "reply_count": 31,
+        "vendor_reply_count": 12,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:37:52+00:00"
+      },
       "event_type": "restock",
       "discount": {
         "strength": "",
@@ -899,7 +1057,15 @@
       "age_days": 21,
       "age_status": "ACTIVE",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 43,
+        "vendor_reply_count": 0,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:37:53+00:00"
+      },
       "event_type": "black_friday",
       "discount": {
         "strength": "循环/永久 · 最高 30% off · 12 months free · 码 GOOD",
@@ -968,7 +1134,15 @@
       "age_days": 5,
       "age_status": "NEW",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 42,
+        "vendor_reply_count": 13,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:37:54+00:00"
+      },
       "event_type": "regular",
       "discount": {
         "strength": "",
@@ -1017,7 +1191,15 @@
       "age_days": 7,
       "age_status": "ACTIVE",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 11,
+        "vendor_reply_count": 2,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:37:54+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "循环/永久 · free upgrade",
@@ -1092,7 +1274,15 @@
       "age_days": 1,
       "age_status": "NEW",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 6,
+        "vendor_reply_count": 2,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:37:54+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "循环/永久 · 最高 21% off · 码 WLXOCT88",
@@ -1150,7 +1340,15 @@
       "age_days": 33,
       "age_status": "STALE",
       "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "replies": {
+        "reply_count": 54,
+        "vendor_reply_count": 22,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:37:56+00:00"
+      },
       "event_type": "holiday",
       "discount": {
         "strength": "循环/永久",
@@ -1201,8 +1399,56 @@
       "posted": "Sat, 03 Oct 2026 12:19:24 +0000",
       "age_days": 14,
       "age_status": "ACTIVE",
-      "availability": "UNVERIFIED",
-      "replies": null,
+      "availability": "ON_SALE",
+      "replies": {
+        "reply_count": 32,
+        "vendor_reply_count": 8,
+        "status": "ON_SALE",
+        "source": "vendor",
+        "evidence": {
+          "status": "ON_SALE",
+          "author": "berohost",
+          "is_vendor": true,
+          "datetime": "2026-10-03T12:36:09+00:00",
+          "match": "Already restocked",
+          "snippet": "Already restocked Thanked by 1MJJs",
+          "comment_id": "4875267",
+          "offset": 0
+        },
+        "vendor_signals": [
+          {
+            "status": "SOLD_OUT",
+            "author": "berohost",
+            "is_vendor": true,
+            "datetime": "2026-10-03T12:32:35+00:00",
+            "match": "was already sold out",
+            "snippet": "Anniversary L was already sold out. We've restocked the servers.",
+            "comment_id": "4875264",
+            "offset": 14
+          },
+          {
+            "status": "ON_SALE",
+            "author": "berohost",
+            "is_vendor": true,
+            "datetime": "2026-10-03T12:32:35+00:00",
+            "match": "We've restocked",
+            "snippet": "Anniversary L was already sold out. We've restocked the servers.",
+            "comment_id": "4875264",
+            "offset": 36
+          },
+          {
+            "status": "ON_SALE",
+            "author": "berohost",
+            "is_vendor": true,
+            "datetime": "2026-10-03T12:36:09+00:00",
+            "match": "Already restocked",
+            "snippet": "Already restocked Thanked by 1MJJs",
+            "comment_id": "4875267",
+            "offset": 0
+          }
+        ],
+        "fetched_at": "2026-10-17T15:37:58+00:00"
+      },
       "event_type": "anniversary",
       "discount": {
         "strength": "循环/永久 · 最高 10% off · 码 LET10",
@@ -1480,7 +1726,15 @@
       "age_days": 18,
       "age_status": "ACTIVE",
       "availability": "ON_SALE",
-      "replies": null,
+      "replies": {
+        "reply_count": 39,
+        "vendor_reply_count": 7,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:37:59+00:00"
+      },
       "event_type": "restock",
       "discount": {
         "strength": "最高 36% off · double bandwidth",
@@ -1559,7 +1813,15 @@
       "age_days": 40,
       "age_status": "STALE",
       "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "replies": {
+        "reply_count": 42,
+        "vendor_reply_count": 5,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:01+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "码 BFJH1873LA",
@@ -1632,7 +1894,15 @@
       "age_days": 17,
       "age_status": "ACTIVE",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 39,
+        "vendor_reply_count": 16,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:02+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "",
@@ -1700,7 +1970,15 @@
       "age_days": 1,
       "age_status": "NEW",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 10,
+        "vendor_reply_count": 2,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:02+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "循环/永久 · 最高 20% off · 码 LOWENDTALKDEDI/LOWENDTALKVPS",
@@ -1780,8 +2058,36 @@
       "posted": "Sat, 05 Sep 2026 17:39:43 +0000",
       "age_days": 41,
       "age_status": "STALE",
-      "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "availability": "SOLD_OUT",
+      "replies": {
+        "reply_count": 19,
+        "vendor_reply_count": 9,
+        "status": "SOLD_OUT",
+        "source": "vendor",
+        "evidence": {
+          "status": "SOLD_OUT",
+          "author": "SmokyHosts",
+          "is_vendor": true,
+          "datetime": "2026-09-10T16:46:09+00:00",
+          "match": "is sold out",
+          "snippet": "@jellyjoe Standard storage VPS is sold out. I will extend this offer for the other 3 deals till the end of the upcoming weekend!",
+          "comment_id": "4862426",
+          "offset": 31
+        },
+        "vendor_signals": [
+          {
+            "status": "SOLD_OUT",
+            "author": "SmokyHosts",
+            "is_vendor": true,
+            "datetime": "2026-09-10T16:46:09+00:00",
+            "match": "is sold out",
+            "snippet": "@jellyjoe Standard storage VPS is sold out. I will extend this offer for the other 3 deals till the end of the upcoming weekend!",
+            "comment_id": "4862426",
+            "offset": 31
+          }
+        ],
+        "fetched_at": "2026-10-17T15:38:04+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "循环/永久 · 最高 50% off · 码 PROMO50VPS/STORVPS1",
@@ -1863,7 +2169,15 @@
       "age_days": 44,
       "age_status": "STALE",
       "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "replies": {
+        "reply_count": 36,
+        "vendor_reply_count": 11,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:05+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "",
@@ -1933,7 +2247,15 @@
       "age_days": 18,
       "age_status": "ACTIVE",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 53,
+        "vendor_reply_count": 23,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:06+00:00"
+      },
       "event_type": "regular",
       "discount": {
         "strength": "",
@@ -2001,7 +2323,15 @@
       "age_days": 2,
       "age_status": "NEW",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 29,
+        "vendor_reply_count": 12,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:08+00:00"
+      },
       "event_type": "holiday",
       "discount": {
         "strength": "循环/永久 · double storage",
@@ -2067,7 +2397,15 @@
       "age_days": 9,
       "age_status": "ACTIVE",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 15,
+        "vendor_reply_count": 7,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:08+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "最高 25% off · 码 LET25",
@@ -2137,7 +2475,15 @@
       "age_days": 1,
       "age_status": "NEW",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 6,
+        "vendor_reply_count": 3,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:09+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "循环/永久 · 最高 30% off · 12 months for the price of 10+2 months free · 码 WORKS",
@@ -2217,8 +2563,36 @@
       "posted": "Mon, 12 Oct 2026 07:15:19 +0000",
       "age_days": 5,
       "age_status": "NEW",
-      "availability": "UNVERIFIED",
-      "replies": null,
+      "availability": "ON_SALE",
+      "replies": {
+        "reply_count": 19,
+        "vendor_reply_count": 1,
+        "status": "ON_SALE",
+        "source": "vendor",
+        "evidence": {
+          "status": "ON_SALE",
+          "author": "AK_KWH",
+          "is_vendor": true,
+          "datetime": "2026-10-13T15:09:05+00:00",
+          "match": "Back in stock",
+          "snippet": "xt 12 hours or all of the pending order will be cancelled after 12 Hours 256MB RAM VPS is Back in stock if anyone wants to buy then goahead we have limited stock left",
+          "comment_id": "4884548",
+          "offset": 222
+        },
+        "vendor_signals": [
+          {
+            "status": "ON_SALE",
+            "author": "AK_KWH",
+            "is_vendor": true,
+            "datetime": "2026-10-13T15:09:05+00:00",
+            "match": "Back in stock",
+            "snippet": "xt 12 hours or all of the pending order will be cancelled after 12 Hours 256MB RAM VPS is Back in stock if anyone wants to buy then goahead we have limited stock left",
+            "comment_id": "4884548",
+            "offset": 222
+          }
+        ],
+        "fetched_at": "2026-10-17T15:38:10+00:00"
+      },
       "event_type": "regular",
       "discount": {
         "strength": "",
@@ -2303,8 +2677,25 @@
       "posted": "Wed, 09 Sep 2026 08:57:26 +0000",
       "age_days": 38,
       "age_status": "STALE",
-      "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "availability": "LIKELY_SOLD_OUT",
+      "replies": {
+        "reply_count": 27,
+        "vendor_reply_count": 9,
+        "status": "SOLD_OUT",
+        "source": "user",
+        "evidence": {
+          "status": "SOLD_OUT",
+          "author": "luckypenguin",
+          "is_vendor": false,
+          "datetime": "2026-09-09T09:15:18+00:00",
+          "match": "Out of stock",
+          "snippet": "384GB RAM + 1TB SSD + 10TB HDD for $79/mo? Out of stock in 3,2,1...",
+          "comment_id": "4861712",
+          "offset": 43
+        },
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:10+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "triple the",
@@ -2377,7 +2768,15 @@
       "age_days": 75,
       "age_status": "STALE",
       "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "replies": {
+        "reply_count": 40,
+        "vendor_reply_count": 9,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:11+00:00"
+      },
       "event_type": "launch",
       "discount": {
         "strength": "free upgrade · 码 BEASTMODE7950XSLC/BEASTMODE9950X/BEASTMODE9950XNYC",
@@ -2473,8 +2872,25 @@
       "posted": "Fri, 21 Aug 2026 14:40:17 +0000",
       "age_days": 57,
       "age_status": "STALE",
-      "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "availability": "LIKELY_SOLD_OUT",
+      "replies": {
+        "reply_count": 44,
+        "vendor_reply_count": 10,
+        "status": "SOLD_OUT",
+        "source": "user",
+        "evidence": {
+          "status": "SOLD_OUT",
+          "author": "AndreyGubanov",
+          "is_vendor": false,
+          "datetime": "2026-10-11T18:23:16+00:00",
+          "match": "out of stock",
+          "snippet": "some deals are still available after 2 months since deals was posted? Most hosts here are out of stock in few days after posting their stuff and not even planning to restock",
+          "comment_id": "4881648",
+          "offset": 111
+        },
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:12+00:00"
+      },
       "event_type": "holiday",
       "discount": {
         "strength": "最高 55% off · 1 month free+2 months free",
@@ -2558,7 +2974,15 @@
       "age_days": 76,
       "age_status": "STALE",
       "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "replies": {
+        "reply_count": 44,
+        "vendor_reply_count": 17,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:14+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "最高 20% off · free upgrade",
@@ -2619,7 +3043,15 @@
       "age_days": 12,
       "age_status": "ACTIVE",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 8,
+        "vendor_reply_count": 4,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:15+00:00"
+      },
       "event_type": "launch",
       "discount": {
         "strength": "循环/永久 · 最高 10% off · 码 LET10OFFCH",
@@ -2684,7 +3116,15 @@
       "age_days": 43,
       "age_status": "STALE",
       "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "replies": {
+        "reply_count": 52,
+        "vendor_reply_count": 8,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:19+00:00"
+      },
       "event_type": "launch",
       "discount": {
         "strength": "码 LET16GBSEPT26/LET2GBSEPT26/LET32GBSEPT26",
@@ -2765,7 +3205,15 @@
       "age_days": 2,
       "age_status": "NEW",
       "availability": "ON_SALE",
-      "replies": null,
+      "replies": {
+        "reply_count": 0,
+        "vendor_reply_count": 0,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:19+00:00"
+      },
       "event_type": "restock",
       "discount": {
         "strength": "循环/永久 · 码 DED7QE7M",
@@ -2829,7 +3277,15 @@
       "age_days": 30,
       "age_status": "ACTIVE",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 29,
+        "vendor_reply_count": 13,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:19+00:00"
+      },
       "event_type": "regular",
       "discount": {
         "strength": "循环/永久 · double bandwidth",
@@ -2914,7 +3370,15 @@
       "age_days": 16,
       "age_status": "ACTIVE",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 41,
+        "vendor_reply_count": 1,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:21+00:00"
+      },
       "event_type": "anniversary",
       "discount": {
         "strength": "码 LET10",
@@ -2995,7 +3459,15 @@
       "age_days": 30,
       "age_status": "ACTIVE",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 45,
+        "vendor_reply_count": 17,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:22+00:00"
+      },
       "event_type": "regular",
       "discount": {
         "strength": "码 EYG37EFYG",
@@ -3074,7 +3546,15 @@
       "age_days": 8,
       "age_status": "ACTIVE",
       "availability": "SOLD_OUT",
-      "replies": null,
+      "replies": {
+        "reply_count": 34,
+        "vendor_reply_count": 2,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:23+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "循环/永久 · 最高 30% off · 码 LETJHUWQ",
@@ -3143,8 +3623,36 @@
       "posted": "Tue, 11 Aug 2026 07:41:27 +0000",
       "age_days": 67,
       "age_status": "STALE",
-      "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "availability": "ON_SALE",
+      "replies": {
+        "reply_count": 34,
+        "vendor_reply_count": 8,
+        "status": "ON_SALE",
+        "source": "vendor",
+        "evidence": {
+          "status": "ON_SALE",
+          "author": "nadir20016",
+          "is_vendor": true,
+          "datetime": "2026-08-14T23:53:37+00:00",
+          "match": "Stock is available",
+          "snippet": "ons, databases, game servers, development environments and other CPU-intensive workloads. Stock is available and orders are open. 👉 ORDER RYZEN 9 9950X VPS Questions, benchmark requests and feedback",
+          "comment_id": "4848218",
+          "offset": 803
+        },
+        "vendor_signals": [
+          {
+            "status": "ON_SALE",
+            "author": "nadir20016",
+            "is_vendor": true,
+            "datetime": "2026-08-14T23:53:37+00:00",
+            "match": "Stock is available",
+            "snippet": "ons, databases, game servers, development environments and other CPU-intensive workloads. Stock is available and orders are open. 👉 ORDER RYZEN 9 9950X VPS Questions, benchmark requests and feedback",
+            "comment_id": "4848218",
+            "offset": 803
+          }
+        ],
+        "fetched_at": "2026-10-17T15:38:26+00:00"
+      },
       "event_type": "regular",
       "discount": {
         "strength": "",
@@ -3225,7 +3733,15 @@
       "age_days": 8,
       "age_status": "ACTIVE",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 13,
+        "vendor_reply_count": 5,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:26+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "",
@@ -3279,7 +3795,15 @@
       "age_days": 27,
       "age_status": "ACTIVE",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 21,
+        "vendor_reply_count": 7,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:27+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "free upgrade",
@@ -3348,7 +3872,15 @@
       "age_days": 3,
       "age_status": "NEW",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 3,
+        "vendor_reply_count": 0,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:28+00:00"
+      },
       "event_type": "regular",
       "discount": {
         "strength": "",
@@ -3419,7 +3951,15 @@
       "age_days": 26,
       "age_status": "ACTIVE",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 31,
+        "vendor_reply_count": 10,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:30+00:00"
+      },
       "event_type": "regular",
       "discount": {
         "strength": "",
@@ -3466,7 +4006,15 @@
       "age_days": 34,
       "age_status": "STALE",
       "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "replies": {
+        "reply_count": 33,
+        "vendor_reply_count": 8,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:31+00:00"
+      },
       "event_type": "launch",
       "discount": {
         "strength": "",
@@ -3546,7 +4094,15 @@
       "age_days": 3,
       "age_status": "NEW",
       "availability": "SOLD_OUT",
-      "replies": null,
+      "replies": {
+        "reply_count": 3,
+        "vendor_reply_count": 0,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:31+00:00"
+      },
       "event_type": "regular",
       "discount": {
         "strength": "循环/永久 · 最高 25% off",
@@ -3630,7 +4186,15 @@
       "age_days": 31,
       "age_status": "STALE",
       "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "replies": {
+        "reply_count": 59,
+        "vendor_reply_count": 2,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:33+00:00"
+      },
       "event_type": "launch",
       "discount": {
         "strength": "码 CONNECT",
@@ -3679,8 +4243,46 @@
       "posted": "Tue, 22 Sep 2026 07:13:07 +0000",
       "age_days": 25,
       "age_status": "ACTIVE",
-      "availability": "UNVERIFIED",
-      "replies": null,
+      "availability": "ON_SALE",
+      "replies": {
+        "reply_count": 4,
+        "vendor_reply_count": 3,
+        "status": "ON_SALE",
+        "source": "vendor",
+        "evidence": {
+          "status": "ON_SALE",
+          "author": "wlx",
+          "is_vendor": true,
+          "datetime": "2026-10-14T02:46:32+00:00",
+          "match": "Restocked",
+          "snippet": "🇬🇧 Hong Kong Dedicated Servers Restocked – 2 Units Available! • AMD Ryzen 9 9955HX — 16C/32T | 96GB DDR5 | 2TB NVMe • AMD EPYC 766",
+          "comment_id": "4885283",
+          "offset": 31
+        },
+        "vendor_signals": [
+          {
+            "status": "ON_SALE",
+            "author": "wlx",
+            "is_vendor": true,
+            "datetime": "2026-10-13T08:26:21+00:00",
+            "match": "stock available",
+            "snippet": "We currently have stock available for both 9955HX and 285HX! Additionally, we have 1 idle server ready for instant deployme",
+            "comment_id": "4884271",
+            "offset": 18
+          },
+          {
+            "status": "ON_SALE",
+            "author": "wlx",
+            "is_vendor": true,
+            "datetime": "2026-10-14T02:46:32+00:00",
+            "match": "Restocked",
+            "snippet": "🇬🇧 Hong Kong Dedicated Servers Restocked – 2 Units Available! • AMD Ryzen 9 9955HX — 16C/32T | 96GB DDR5 | 2TB NVMe • AMD EPYC 766",
+            "comment_id": "4885283",
+            "offset": 31
+          }
+        ],
+        "fetched_at": "2026-10-17T15:38:33+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "循环/永久",
@@ -3749,8 +4351,36 @@
       "posted": "Wed, 05 Aug 2026 16:37:44 +0000",
       "age_days": 72,
       "age_status": "STALE",
-      "availability": "ON_SALE",
-      "replies": null,
+      "availability": "RESTOCKING",
+      "replies": {
+        "reply_count": 42,
+        "vendor_reply_count": 4,
+        "status": "RESTOCKING",
+        "source": "vendor",
+        "evidence": {
+          "status": "RESTOCKING",
+          "author": "ColoCrossing",
+          "is_vendor": true,
+          "datetime": "2026-08-13T16:34:48+00:00",
+          "match": "working on restock",
+          "snippet": "We are working on restocking our VPS as soon as possible! Subscribe to our mailing list here for future updates.",
+          "comment_id": "4847551",
+          "offset": 7
+        },
+        "vendor_signals": [
+          {
+            "status": "RESTOCKING",
+            "author": "ColoCrossing",
+            "is_vendor": true,
+            "datetime": "2026-08-13T16:34:48+00:00",
+            "match": "working on restock",
+            "snippet": "We are working on restocking our VPS as soon as possible! Subscribe to our mailing list here for future updates.",
+            "comment_id": "4847551",
+            "offset": 7
+          }
+        ],
+        "fetched_at": "2026-10-17T15:38:34+00:00"
+      },
       "event_type": "restock",
       "discount": {
         "strength": "码 FLASH20OFF/FLASHLAE3/SUMMER20OFF",
@@ -3838,7 +4468,15 @@
       "age_days": 41,
       "age_status": "STALE",
       "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "replies": {
+        "reply_count": 25,
+        "vendor_reply_count": 6,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:35+00:00"
+      },
       "event_type": "launch",
       "discount": {
         "strength": "",
@@ -3902,7 +4540,15 @@
       "age_days": 43,
       "age_status": "STALE",
       "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "replies": {
+        "reply_count": 33,
+        "vendor_reply_count": 2,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:39+00:00"
+      },
       "event_type": "launch",
       "discount": {
         "strength": "循环/永久 · 最高 40% off · 码 ALPHA/ARCTURUS/CLASSIC",
@@ -3981,7 +4627,15 @@
       "age_days": 12,
       "age_status": "ACTIVE",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 17,
+        "vendor_reply_count": 3,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:40+00:00"
+      },
       "event_type": "regular",
       "discount": {
         "strength": "最高 50% off · 码 LEB50",
@@ -4060,7 +4714,15 @@
       "age_days": 23,
       "age_status": "ACTIVE",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 12,
+        "vendor_reply_count": 3,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:41+00:00"
+      },
       "event_type": "launch",
       "discount": {
         "strength": "",
@@ -4127,7 +4789,15 @@
       "age_days": 55,
       "age_status": "STALE",
       "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "replies": {
+        "reply_count": 31,
+        "vendor_reply_count": 9,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:44+00:00"
+      },
       "event_type": "regular",
       "discount": {
         "strength": "",
@@ -4186,7 +4856,15 @@
       "age_days": 30,
       "age_status": "ACTIVE",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 21,
+        "vendor_reply_count": 2,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:44+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "最高 15% off · 码 AVAAPPS",
@@ -4235,7 +4913,15 @@
       "age_days": 6,
       "age_status": "NEW",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 5,
+        "vendor_reply_count": 1,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:44+00:00"
+      },
       "event_type": "regular",
       "discount": {
         "strength": "循环/永久 · 最高 10% off",
@@ -4304,7 +4990,15 @@
       "age_days": 9,
       "age_status": "ACTIVE",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 32,
+        "vendor_reply_count": 3,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:47+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "循环/永久 · 最高 50% off · 码 FS101026/VALIDITY",
@@ -4381,7 +5075,15 @@
       "age_days": 4,
       "age_status": "NEW",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 0,
+        "vendor_reply_count": 0,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:47+00:00"
+      },
       "event_type": "regular",
       "discount": {
         "strength": "",
@@ -4464,7 +5166,15 @@
       "age_days": 13,
       "age_status": "ACTIVE",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 13,
+        "vendor_reply_count": 2,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:47+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "",
@@ -4524,8 +5234,36 @@
       "posted": "Mon, 10 Aug 2026 16:49:35 +0000",
       "age_days": 67,
       "age_status": "STALE",
-      "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "availability": "SOLD_OUT",
+      "replies": {
+        "reply_count": 29,
+        "vendor_reply_count": 14,
+        "status": "SOLD_OUT",
+        "source": "vendor",
+        "evidence": {
+          "status": "SOLD_OUT",
+          "author": "HostAddon",
+          "is_vendor": true,
+          "datetime": "2026-10-06T09:36:20+00:00",
+          "match": "Out of stock",
+          "snippet": "What location? NL, US are Out of stock on Unmetered(No TAT yet), but you can try cheaper : https://www.hostaddon.com/budget-10gb",
+          "comment_id": "4877086",
+          "offset": 27
+        },
+        "vendor_signals": [
+          {
+            "status": "SOLD_OUT",
+            "author": "HostAddon",
+            "is_vendor": true,
+            "datetime": "2026-10-06T09:36:20+00:00",
+            "match": "Out of stock",
+            "snippet": "What location? NL, US are Out of stock on Unmetered(No TAT yet), but you can try cheaper : https://www.hostaddon.com/budget-10gb",
+            "comment_id": "4877086",
+            "offset": 27
+          }
+        ],
+        "fetched_at": "2026-10-17T15:38:47+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "最高 25% off · 码 LET25",
@@ -4597,7 +5335,15 @@
       "age_days": 24,
       "age_status": "ACTIVE",
       "availability": "ON_SALE",
-      "replies": null,
+      "replies": {
+        "reply_count": 36,
+        "vendor_reply_count": 11,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:51+00:00"
+      },
       "event_type": "restock",
       "discount": {
         "strength": "",
@@ -4652,8 +5398,25 @@
       "posted": "Mon, 28 Sep 2026 13:32:51 +0000",
       "age_days": 19,
       "age_status": "ACTIVE",
-      "availability": "UNVERIFIED",
-      "replies": null,
+      "availability": "LIKELY_SOLD_OUT",
+      "replies": {
+        "reply_count": 60,
+        "vendor_reply_count": 20,
+        "status": "SOLD_OUT",
+        "source": "user",
+        "evidence": {
+          "status": "SOLD_OUT",
+          "author": "protae",
+          "is_vendor": false,
+          "datetime": "2026-10-12T06:45:58+00:00",
+          "match": "out of stock",
+          "snippet": "KVM-MINI out of stock //sad",
+          "comment_id": "4882401",
+          "offset": 9
+        },
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:52+00:00"
+      },
       "event_type": "regular",
       "discount": {
         "strength": "循环/永久 · free upgrade",
@@ -4727,7 +5490,15 @@
       "age_days": 5,
       "age_status": "NEW",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 3,
+        "vendor_reply_count": 0,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:54+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "循环/永久 · 最高 25% off · 码 LL7X516MK2",
@@ -4800,8 +5571,46 @@
       "posted": "Thu, 10 Sep 2026 11:45:59 +0000",
       "age_days": 37,
       "age_status": "STALE",
-      "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "availability": "ON_SALE",
+      "replies": {
+        "reply_count": 28,
+        "vendor_reply_count": 15,
+        "status": "ON_SALE",
+        "source": "vendor",
+        "evidence": {
+          "status": "ON_SALE",
+          "author": "NolimitHost",
+          "is_vendor": true,
+          "datetime": "2026-09-20T13:44:38+00:00",
+          "match": "back in stock",
+          "snippet": "Budget VPS back in stock!",
+          "comment_id": "4867131",
+          "offset": 11
+        },
+        "vendor_signals": [
+          {
+            "status": "SOLD_OUT",
+            "author": "NolimitHost",
+            "is_vendor": true,
+            "datetime": "2026-09-18T15:57:25+00:00",
+            "match": " sold out",
+            "snippet": "Hello, We’re currently sold out of all Budget VPS plans, so we’ve enabled preorders for all Budget VPS packages. All new",
+            "comment_id": "4866291",
+            "offset": 22
+          },
+          {
+            "status": "ON_SALE",
+            "author": "NolimitHost",
+            "is_vendor": true,
+            "datetime": "2026-09-20T13:44:38+00:00",
+            "match": "back in stock",
+            "snippet": "Budget VPS back in stock!",
+            "comment_id": "4867131",
+            "offset": 11
+          }
+        ],
+        "fetched_at": "2026-10-17T15:38:54+00:00"
+      },
       "event_type": "launch",
       "discount": {
         "strength": "循环/永久 · 最高 25% off · 码 LETB25/LETS2026",
@@ -4890,7 +5699,24 @@
       "age_days": 14,
       "age_status": "ACTIVE",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 37,
+        "vendor_reply_count": 13,
+        "status": "ON_SALE",
+        "source": "user",
+        "evidence": {
+          "status": "ON_SALE",
+          "author": "Byccc",
+          "is_vendor": false,
+          "datetime": "2026-10-02T22:40:11+00:00",
+          "match": "still available",
+          "snippet": "Is 207.174.22.0/24 (the test IP from the Sept thread) still available for new orders, or are all new VMs on 208.66.111.0/24 now? Can we request a specific rang",
+          "comment_id": "4874986",
+          "offset": 54
+        },
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:56+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "最高 30% off",
@@ -4952,7 +5778,15 @@
       "age_days": 6,
       "age_status": "NEW",
       "availability": "UNVERIFIED",
-      "replies": null,
+      "replies": {
+        "reply_count": 7,
+        "vendor_reply_count": 2,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:56+00:00"
+      },
       "event_type": "regular",
       "discount": {
         "strength": "",
@@ -5027,7 +5861,15 @@
       "age_days": 33,
       "age_status": "STALE",
       "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "replies": {
+        "reply_count": 21,
+        "vendor_reply_count": 7,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:56+00:00"
+      },
       "event_type": "holiday",
       "discount": {
         "strength": "循环/永久",
@@ -5086,7 +5928,15 @@
       "age_days": 35,
       "age_status": "STALE",
       "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "replies": {
+        "reply_count": 26,
+        "vendor_reply_count": 10,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:56+00:00"
+      },
       "event_type": "regular",
       "discount": {
         "strength": "",
@@ -5157,7 +6007,15 @@
       "age_days": 42,
       "age_status": "STALE",
       "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "replies": {
+        "reply_count": 34,
+        "vendor_reply_count": 6,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:39:02+00:00"
+      },
       "event_type": "launch",
       "discount": {
         "strength": "循环/永久 · 最高 50% off · 码 AMD2026/GREEN2026",
@@ -5241,7 +6099,15 @@
       "age_days": 38,
       "age_status": "STALE",
       "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "replies": {
+        "reply_count": 40,
+        "vendor_reply_count": 7,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:39:05+00:00"
+      },
       "event_type": "sale",
       "discount": {
         "strength": "最高 10% off · 码 LET10",
@@ -5811,7 +6677,15 @@
       "age_days": 78,
       "age_status": "STALE",
       "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "replies": {
+        "reply_count": 36,
+        "vendor_reply_count": 10,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:37+00:00"
+      },
       "event_type": "regular",
       "discount": {
         "strength": "码 NOT/SIGNED",
@@ -5854,8 +6728,36 @@
       "posted": "Sun, 30 Aug 2026 12:08:37 +0000",
       "age_days": 48,
       "age_status": "STALE",
-      "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "availability": "ON_SALE",
+      "replies": {
+        "reply_count": 32,
+        "vendor_reply_count": 13,
+        "status": "ON_SALE",
+        "source": "vendor",
+        "evidence": {
+          "status": "ON_SALE",
+          "author": "systemfreaks",
+          "is_vendor": true,
+          "datetime": "2026-08-30T16:21:56+00:00",
+          "match": "back in stock",
+          "snippet": "unmetered is now back in stock in Europe",
+          "comment_id": "4856026",
+          "offset": 17
+        },
+        "vendor_signals": [
+          {
+            "status": "ON_SALE",
+            "author": "systemfreaks",
+            "is_vendor": true,
+            "datetime": "2026-08-30T16:21:56+00:00",
+            "match": "back in stock",
+            "snippet": "unmetered is now back in stock in Europe",
+            "comment_id": "4856026",
+            "offset": 17
+          }
+        ],
+        "fetched_at": "2026-10-17T15:38:49+00:00"
+      },
       "event_type": "regular",
       "discount": {
         "strength": "码 LET2026",
@@ -5901,7 +6803,15 @@
       "age_days": 53,
       "age_status": "STALE",
       "availability": "UNVERIFIED_STALE",
-      "replies": null,
+      "replies": {
+        "reply_count": 53,
+        "vendor_reply_count": 18,
+        "status": null,
+        "source": null,
+        "evidence": null,
+        "vendor_signals": [],
+        "fetched_at": "2026-10-17T15:38:54+00:00"
+      },
       "event_type": "regular",
       "discount": {
         "strength": "最高 10% off · 码 PAY2/PAYMENT",
@@ -5944,8 +6854,36 @@
       "posted": "Fri, 25 Sep 2026 13:00:38 +0000",
       "age_days": 22,
       "age_status": "ACTIVE",
-      "availability": "UNVERIFIED",
-      "replies": null,
+      "availability": "ON_SALE",
+      "replies": {
+        "reply_count": 44,
+        "vendor_reply_count": 16,
+        "status": "ON_SALE",
+        "source": "vendor",
+        "evidence": {
+          "status": "ON_SALE",
+          "author": "Shakib",
+          "is_vendor": true,
+          "datetime": "2026-10-08T15:47:36+00:00",
+          "match": "are in stock",
+          "snippet": "All services are in stock now.",
+          "comment_id": "4878647",
+          "offset": 13
+        },
+        "vendor_signals": [
+          {
+            "status": "ON_SALE",
+            "author": "Shakib",
+            "is_vendor": true,
+            "datetime": "2026-10-08T15:47:36+00:00",
+            "match": "are in stock",
+            "snippet": "All services are in stock now.",
+            "comment_id": "4878647",
+            "offset": 13
+          }
+        ],
+        "fetched_at": "2026-10-17T15:39:04+00:00"
+      },
       "event_type": "regular",
       "discount": {
         "strength": "",
