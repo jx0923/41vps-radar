@@ -42,9 +42,10 @@ letdeals/            主包
   replies.py         回帖抓取 + 商家表态识别
   sources.py         数据源（LET / LEB）
   pipeline.py        编排 + 跨源去重
+  forum.py           搬运到自己的 Flarum 论坛（旁路功能）
   render.py          Markdown + 静态站生成
   cli.py             命令行入口
-tests/               120 个 pytest 用例
+tests/               201 个 pytest 用例
 deploy/              部署脚本与指南
 tools/               分析/回归/预览辅助脚本
 legacy/              重构前的独立脚本（仅用于回归比对）
@@ -188,6 +189,27 @@ LDR_SITE_FOOTER=...
 
 设置 `LDR_SITE_URL` 后会自动生成 canonical 链接、绝对 sitemap URL，
 并在 `robots.txt` 加 Sitemap 行；未设置则用相对路径。
+
+### 论坛搬运（可选）
+
+还能把优惠帖**自动搬运到自己的 Flarum 论坛**，方便中文用户阅读。
+站点上每行的「查看原帖」会变成「论坛中文版 →」+「原帖 →」（有对应帖时）。
+
+**默认关闭且默认演练**，需显式开启：
+
+```bash
+LDR_FORUM_ENABLED=true LDR_FORUM_DRY_RUN=false \
+LDR_FORUM_API_KEY=xxx python -m letdeals --post-forum
+```
+
+| 安全机制 | 说明 |
+|---|---|
+| 默认关闭 | 不改配置就不会发任何内容 |
+| 默认演练 | 只打印将要发布的内容 |
+| 幂等 | 同一活动永不重复发布 |
+| 限流 | 每次最多 N 条，只发最近 N 天 |
+
+完整说明见 **[deploy/FORUM.md](deploy/FORUM.md)**。
 
 ### 安全网
 
