@@ -104,11 +104,40 @@ def to_markdown(rows: list[dict]) -> str:
     return "\n".join(lines)
 
 
+def _load_forum_links() -> dict:
+    """读取已发布到论坛的记录，返回 {thread_id: 论坛URL}。
+
+    站点建站发生在发帖之前，所以这里读到的是**上一轮**的结果 ——
+    新发的帖要等下一轮建站才出现在站点上（延迟一个周期）。
+
+    文件不存在或损坏时返回空 dict：此时全部回退到原帖链接，
+    不会出现死链。
+    """
+    path = str(config.FORUM_POSTED_LOG)
+    if not os.path.exists(path):
+        return {}
+    try:
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return {}
+    if not isinstance(data, dict):
+        return {}
+    out = {}
+    for tid, info in data.items():
+        if isinstance(info, dict) and info.get("url"):
+            out[str(tid)] = info["url"]
+    return out
+
+
 def enrich(records: list[dict]) -> list[dict]:
     """为展示补充派生字段。"""
+    forum_links = _load_forum_links()
     for r in records:
         r["score"] = deal_score(r)
         r["annual_eur"] = annual_eur(r)
+        # 论坛对应帖子的链接；没有则为 None（渲染时回退到原帖）
+        r["forum_url"] = forum_links.get(str(r.get("thread_id")))
     return records
 
 
@@ -233,6 +262,15 @@ a.pv-link:hover{color:var(--accent);border-bottom-color:var(--accent)}
 .tag{display:inline-block;background:var(--chip);border-radius:5px;
   padding:1px 6px;font-size:11.5px;margin-right:4px;
   font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+/* 详情底部的链接区：主链接（论坛中文版）实心、次链接（原帖）描边，
+   视觉上引导用户先看论坛，同时保留核对原帖的入口。 */
+.links{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lk{display:inline-block;padding:5px 12px;border-radius:6px;
+  font-size:12.5px;text-decoration:none;white-space:nowrap}
+.lk-main{background:var(--accent);color:#fff;font-weight:600}
+.lk-main:hover{filter:brightness(1.08);text-decoration:none}
+.lk-sub{color:var(--accent);border:1px solid var(--line-strong)}
+.lk-sub:hover{border-color:var(--accent);text-decoration:none}
 .empty{text-align:center;color:var(--muted);padding:48px 0}
 footer{margin-top:28px;color:var(--muted);font-size:12px;line-height:1.9}
 .note{background:var(--chip);border-left:3px solid var(--warn);
@@ -489,8 +527,20 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;line-height:1.9}
         h+='</div>';
       }
     }
-    h+='<div style="margin-top:12px"><a href="'+esc(r.url)+
-       '" target="_blank" rel="noopener">查看原帖 &rarr;</a></div>';
+    // 链接区：优先引导到论坛中文版，同时保留原帖供核对。
+    // 站点建站早于发帖，所以 forum_url 来自上一轮结果；没有对应
+    // 帖子时只显示原帖链接，不会出现死链。
+    h+='<div class="links">';
+    if(r.forum_url){
+      h+='<a class="lk lk-main" href="'+esc(r.forum_url)+
+         '" target="_blank" rel="noopener">论坛中文版 &rarr;</a>';
+      h+='<a class="lk lk-sub" href="'+esc(r.url)+
+         '" target="_blank" rel="noopener">原帖 &rarr;</a>';
+    } else {
+      h+='<a class="lk lk-sub" href="'+esc(r.url)+
+         '" target="_blank" rel="noopener">查看原帖 &rarr;</a>';
+    }
+    h+='</div>';
     return h+'</div>';
   }
   function render(){

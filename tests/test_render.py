@@ -243,6 +243,64 @@ def test_source_info_available_without_badge(tmp_path):
     assert 'class="src"' not in html, "来源徽章应已移除"
 
 
+def test_forum_url_injected_when_posted(tmp_path):
+    """已发布到论坛的记录应带上 forum_url，供渲染主链接。"""
+    payload = _sample_payload()
+    tid = str(payload["records"][0]["thread_id"])
+    log = tmp_path / "posted.json"
+    log.write_text(json.dumps({
+        tid: {"discussion_id": "123", "url": "https://forum.test/d/123",
+              "title": "x", "posted_at": "2026-01-01T00:00:00Z"}
+    }), encoding="utf-8")
+
+    monkeypatch = __import__("pytest").MonkeyPatch()
+    monkeypatch.setattr(render.config, "FORUM_POSTED_LOG", log)
+    try:
+        render.enrich(payload["records"])
+    finally:
+        monkeypatch.undo()
+
+    assert payload["records"][0]["forum_url"] == "https://forum.test/d/123"
+    # 未发布的记录应保持 None，渲染时回退到原帖
+    assert payload["records"][1]["forum_url"] is None
+
+
+def test_forum_links_missing_file_is_safe():
+    """记录文件不存在时返回空 dict，不能抛异常。"""
+    import pytest as _pytest
+    mp = _pytest.MonkeyPatch()
+    mp.setattr(render.config, "FORUM_POSTED_LOG", "/nonexistent/x.json")
+    try:
+        assert render._load_forum_links() == {}
+    finally:
+        mp.undo()
+
+
+def test_forum_links_corrupt_file_is_safe(tmp_path):
+    """记录文件损坏时返回空 dict，全部回退原帖而不是死链。"""
+    import pytest as _pytest
+    bad = tmp_path / "bad.json"
+    bad.write_text("{ not json", encoding="utf-8")
+    mp = _pytest.MonkeyPatch()
+    mp.setattr(render.config, "FORUM_POSTED_LOG", bad)
+    try:
+        assert render._load_forum_links() == {}
+    finally:
+        mp.undo()
+
+
+def test_link_rendering_both_cases(tmp_path):
+    """链接区两种形态：有论坛帖=主+次两个；无=只有原帖。"""
+    render.build_site(_sample_payload(), str(tmp_path), verbose=False)
+    html = open(os.path.join(tmp_path, "index.html"), encoding="utf-8").read()
+    # 主链接（论坛）与次链接（原帖）的样式必须存在
+    assert ".lk-main" in html and ".lk-sub" in html
+    assert "论坛中文版" in html
+    assert "查看原帖" in html
+    # 渲染时按 forum_url 分支
+    assert "if(r.forum_url)" in html
+
+
 def test_vendor_signal_status_is_translated(tmp_path):
     """回帖证据里的状态码要翻成中文。
 
