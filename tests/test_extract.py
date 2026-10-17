@@ -320,8 +320,14 @@ def test_vendor_url_when_provider_is_domain():
 
 
 def test_vendor_url_matches_provider_name_in_body():
+    """正文里与厂商名匹配的链接优先，且尽量取具体活动页。
+
+    行为变更（2026-10）：以前只返回域名首页，现在优先返回
+    活动/购买页 —— 实测原帖正文常直接给出 warehouse-deals 这类路径。
+    """
     body = '<a href="https://dartnode.com/warehouse-deals">deals</a>'
-    assert extract_vendor_url("DartNode", body) == "https://dartnode.com"
+    assert extract_vendor_url("DartNode", body) == \
+        "https://dartnode.com/warehouse-deals"
 
 
 def test_vendor_url_picks_matching_link_not_first():
@@ -390,6 +396,68 @@ def test_build_record_includes_vendor_url():
     }
     r = build_record(item)
     assert r["vendor_url"] == "https://dartnode.com"
+
+
+def test_vendor_url_prefers_offer_page_over_homepage():
+    """应优先取活动/购买页，而不是厂商首页。
+
+    实测：原帖正文常直接给活动页，如 linceris.com/deals。
+    只给首页会让用户还要自己找活动。
+    """
+    body = ('<a href="https://linceris.com">官网</a>'
+            '<a href="https://linceris.com/deals">Deals</a>')
+    out = extract_vendor_url("Linceris.com", body)
+    assert out == "https://linceris.com/deals"
+
+
+def test_vendor_url_picks_store_or_cart_page():
+    """商店/购物车页也是有效购买入口。"""
+    body = '<a href="https://deluxhost.net/en/cart?add=storage-1&cycle=monthly">买</a>'
+    out = extract_vendor_url("DeluxHost.net", body)
+    assert "cart" in out
+
+
+def test_vendor_url_skips_docs_and_terms():
+    """文档页、服务条款不是购买入口。
+
+    实测踩到：ravnix.gg/terms、servury.com/docs/...
+    """
+    body = ('<a href="https://ravnix.gg/terms">ToS</a>'
+            '<a href="https://ravnix.gg/vps">VPS</a>')
+    out = extract_vendor_url("ravnix.gg", body)
+    assert "/terms" not in out
+    assert "/vps" in out
+
+
+def test_vendor_url_skips_speedtest_and_binary():
+    """测速子域与二进制文件不是购买入口。
+
+    实测踩到：mtl-lg.servury.com/100MB.bin
+    """
+    body = ('<a href="https://mtl-lg.servury.com/100MB.bin">测速</a>'
+            '<a href="https://servury.com/pricing">价格</a>')
+    out = extract_vendor_url("servury.com", body)
+    assert ".bin" not in out
+    assert "pricing" in out
+
+
+def test_vendor_url_falls_back_to_homepage():
+    """只有首页链接时，退回首页（好过没有）。"""
+    body = '<a href="https://example.com">官网</a>'
+    out = extract_vendor_url("example.com", body)
+    assert out == "https://example.com"
+
+
+def test_deep_link_filter_rules():
+    """_is_usable_deep_link 的边界。"""
+    from letdeals.extract import _is_usable_deep_link as ok
+    assert ok("https://x.com/deals")
+    assert ok("https://x.com/blackfriday/")
+    assert not ok("https://x.com/terms")
+    assert not ok("https://x.com/docs/a/b")
+    assert not ok("https://x.com/file.bin")
+    assert not ok("https://lg-x.com/path")
+    assert not ok("https://status.x.com/path")
 
 
 def test_build_record_vendor_url_none_when_unknown():

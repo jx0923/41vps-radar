@@ -340,45 +340,149 @@ def _plausible_domain(dom: str) -> bool:
 
 
 def extract_vendor_url(provider: str, body: str) -> str | None:
-    """尽力推断厂商官网，不确定时返回 None。
+    """尽力推断厂商的**活动/购买页**，不确定时退回首页。
 
-    只采用**可信**的两条路径：
-      1) 厂商名本身就是域名           -> https://<provider>
-      2) 正文里的域名与厂商名相匹配   -> 如 DartNode => dartnode.com
+    优先级（从具体到笼统）：
+      1) 正文里与厂商域名匹配、且路径像「活动/购买页」的链接
+      2) 正文里与厂商域名匹配的任意深层链接
+      3) 厂商名本身就是域名           -> https://<provider>
+      4) 正文域名与厂商名匹配         -> https://<domain>
 
-    刻意**不做**「取正文第一个域名」这种兜底猜测：实测会把
-    Geekbench 跑分链接、CDN、跳转站当成厂商官网，错链比没有链接更糟。
-    返回 None 时界面只显示文字，不做外链。
+    为什么优先深链接：原帖正文常直接给活动页或购买页，
+    例如 linceris.com/deals、deluxhost.net/en/cart?add=...。
+    只给首页会让用户还要自己找活动，体验差。
+
+    但**必须挑准**：正文里也夹杂 lg-xxx（测速）、status-xxx（状态页）、
+    twitch.tv（直播）等非购买链接，取第一个会错。
     """
     p = (provider or "").strip()
     if not p:
         return None
 
-    # 1) 厂商名本身就是域名
-    if RE_IS_DOMAIN.match(p) and _plausible_domain(p.lower()):
-        dom = _registrable(p)
-        if _plausible_domain(dom) and dom not in VENDOR_SKIP:
-            return "https://" + dom
-
-    # 2) 正文域名与厂商名相匹配
-    pk = _key(p)
-    if len(pk) < 4:
-        return None
-
     body = body or ""
-    for m in re.finditer(
-            r"https?://(?:www\.)?([a-z0-9][a-z0-9\-\.]*\.[a-z]{2,24})",
-            body, re.I):
-        dom = _registrable(m.group(1))
+    pk = _key(p)
+
+    # 收集正文外链，按「是否匹配厂商域名」筛选
+    cands: list[tuple[str, str]] = []      # (完整 URL, 域名)
+    for m in re.finditer(r'href=["\'](https?://[^"\']+)["\']', body, re.I):
+        url = m.group(1).replace("&amp;", "&").strip()
+        dm = re.match(r"https?://(?:www\.)?([a-z0-9][a-z0-9\-\.]*\.[a-z]{2,24})",
+                      url, re.I)
+        if not dm:
+            continue
+        dom = _registrable(dm.group(1))
         if not _plausible_domain(dom) or dom in VENDOR_SKIP:
             continue
         if dom.endswith((".lowendtalk.com", ".lowendbox.com")):
             continue
-        dk = _key(dom.rsplit(".", 1)[0])
-        if len(dk) >= 4 and (dk == pk or dk in pk or pk in dk):
+        cands.append((url, dom))
+
+    # 与厂商名匹配的候选
+    matched: list[str] = []
+    if len(pk) >= 4:
+        for url, dom in cands:
+            dk = _key(dom.rsplit(".", 1)[0])
+            if len(dk) >= 4 and (dk == pk or dk in pk or pk in dk):
+                if url not in matched:
+                    matched.append(url)
+
+    # 1) 优先「像活动/购买页」的深链接
+    for url in matched:
+        if _looks_like_offer_page(url):
+            return url
+    # 2) 次选：深层链接，但必须排除辅助页与技术页
+    #    （第 2 档比第 1 档宽松，容易被 /docs/、/terms、测速文件混进来，
+    #      实测遇到 ravnix.gg/terms、servury.com/docs/...、mtl-lg.servury.com/100MB.bin）
+    for url in matched:
+        if _path_depth(url) > 0 and _is_usable_deep_link(url):
+            return url
+    # 3) 厂商名本身就是域名 -> 首页
+    if RE_IS_DOMAIN.match(p) and _plausible_domain(p.lower()):
+        dom = _registrable(p)
+        if _plausible_domain(dom) and dom not in VENDOR_SKIP:
             return "https://" + dom
+    # 4) 匹配到的首页（仅根路径）
+    for url in matched:
+        if _path_depth(url) == 0:
+            return url
 
     return None
+
+
+# 路径里出现这些词，说明是活动/购买/套餐页，而不是首页或关于页
+OFFER_HINTS = (
+    "deal", "deals", "sale", "sales", "promo", "offer", "offers",
+    "special", "discount", "pricing", "price", "plans", "plan",
+    "order", "cart", "store", "buy", "checkout", "shop",
+    "vps", "kvm", "server", "servers", "hosting", "cloud",
+)
+
+# 这些路径段说明是辅助页面，不是购买入口
+NON_OFFER_HINTS = (
+    "legal", "tos", "privacy", "sla", "about", "contact", "blog",
+    "status", "support", "help", "docs", "wiki", "faq", "terms",
+    "policy", "career", "careers", "login", "signin", "register",
+    "signup", "logout", "account", "profile",
+)
+
+
+def _path_depth(url: str) -> int:
+    """URL 的路径深度：首页返回 0，/deals 返回 1。"""
+    m = re.match(r"https?://[^/]+(/[^?#]*)?", url)
+    if not m:
+        return 0
+    return len([x for x in (m.group(1) or "").strip("/").split("/") if x])
+
+
+def _looks_like_offer_page(url: str) -> bool:
+    """判断 URL 是否指向活动/购买/套餐页。
+
+    要求：有路径，且路径中含 offer 类关键词，且不含 legal/status 等
+    辅助页关键词。宁可退回首页，也不要把「隐私政策」当购买入口。
+    """
+    if _path_depth(url) == 0:
+        return False
+    low = url.lower()
+    if any(h in low for h in NON_OFFER_HINTS):
+        return False
+    return any(h in low for h in OFFER_HINTS)
+
+
+# 明显不是页面入口的：二进制文件、测速文件
+JUNK_EXT = (".bin", ".zip", ".gz", ".tar", ".iso", ".img", ".txt",
+            ".exe", ".dmg", ".deb", ".rpm", ".test", ".dat")
+
+# 技术/辅助子域：测速、状态、文档、CDN
+JUNK_SUBDOMAIN = ("lg-", "lg.", "speedtest", "test.", "status", "status.",
+                  "docs", "docs.", "wiki", "wiki.", "cdn", "cdn.",
+                  "static", "static.", "mirror", "mirror.")
+
+
+def _is_usable_deep_link(url: str) -> bool:
+    """深链接是否可用作「购买/活动」入口。
+
+    排除三类实测踩到的干扰项：
+      1) 二进制/测速文件   —— mtl-lg.servury.com/100MB.bin
+      2) 技术子域         —— lg-fra.servitro.com、status.servitro.com
+      3) 辅助页关键词     —— /terms、/docs/、/legal
+    """
+    low = url.lower()
+
+    # 路径是二进制文件
+    path = re.sub(r"^https?://[^/]+", "", low).split("?")[0]
+    if path.endswith(JUNK_EXT):
+        return False
+
+    # 技术子域
+    host = re.sub(r"^https?://", "", low).split("/")[0]
+    if any(host.startswith(s) or ("." + s) in host for s in JUNK_SUBDOMAIN):
+        return False
+
+    # 辅助页关键词
+    if any(h in low for h in NON_OFFER_HINTS):
+        return False
+
+    return True
 
 
 
