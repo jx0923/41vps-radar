@@ -349,6 +349,12 @@ def build_post(rec: dict) -> tuple[str, str]:
     if age is not None:
         lines.append("**原帖发布**：%s" % ("今天" if age == 0 else "%d 天前" % age))
 
+    # 站点入口：让读帖的人能回到汇总页看全部活动。
+    # 复用 LDR_SITE_URL（与站点 canonical/sitemap 同源），不另设配置。
+    if config.SITE_URL:
+        lines.append("")
+        lines.append("**更多优惠汇总**：%s/" % config.SITE_URL)
+
     lines.append("")
     lines.append("> 本帖由机器人自动搬运并整理，便于中文用户阅读；"
                  "**价格与库存以商家页面为准**，下单前请自行核实。")

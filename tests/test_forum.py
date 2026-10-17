@@ -428,6 +428,34 @@ def test_number_formatting_drops_trailing_zero():
                          "cycle": "year"}) == "€129/年"
 
 
+def test_build_post_includes_site_link():
+    """帖子要带站点入口，把论坛读者导回汇总页。"""
+    import pytest as _pytest
+    mp = _pytest.MonkeyPatch()
+    mp.setattr(config, "SITE_URL", "https://vps.example.com")
+    try:
+        _, body = forum.build_post(_rec())
+    finally:
+        mp.undo()
+    assert "更多优惠汇总" in body
+    assert "https://vps.example.com/" in body
+    # 位置应在出处之后、免责声明之前
+    assert body.index("更多优惠汇总") > body.index("原帖地址")
+    assert body.index("更多优惠汇总") < body.index("机器人自动搬运")
+
+
+def test_build_post_omits_site_link_when_unset():
+    """未配置站点地址时不输出半截链接。"""
+    import pytest as _pytest
+    mp = _pytest.MonkeyPatch()
+    mp.setattr(config, "SITE_URL", "")
+    try:
+        _, body = forum.build_post(_rec())
+    finally:
+        mp.undo()
+    assert "更多优惠汇总" not in body
+
+
 def test_build_post_includes_plan_table():
     rec = _rec(plans=[{"name": "Starter", "vcpu": 2, "ram_gb": 4.0,
                        "storage_gb": 40.0, "bandwidth_tb": 2.0,
