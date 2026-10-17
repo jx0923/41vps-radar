@@ -1,6 +1,6 @@
 {
   "source": "LowEndTalk Offers + LowEndBox",
-  "generated_at": "2026-10-17T15:29:57+00:00",
+  "generated_at": "2026-10-17T15:33:58+00:00",
   "count": 81,
   "by_source": {
     "let": 74,
@@ -284,7 +284,7 @@
       "provider": "ravnix.gg",
       "title": "RAVNIX is Back! New Atlanta Location, Upgraded Network & VPS Offers Starting at $14/Year!",
       "url": "https://lowendtalk.com/discussion/221937/ravnix-is-back-new-atlanta-location-upgraded-network-vps-offers-starting-at-14-year",
-      "vendor_url": "https://ravnix.gg/aup",
+      "vendor_url": "https://ravnix.gg",
       "author": "RAVNIX",
       "posted": "Sat, 10 Oct 2026 18:35:28 +0000",
       "age_days": 6,
@@ -702,7 +702,7 @@
       "confidence": 0.83,
       "score": 43,
       "annual_eur": 47.88,
-      "forum_url": "https://lowseek.ai/d/1323"
+      "forum_url": null
     },
     {
       "thread_id": "222168",
@@ -774,7 +774,7 @@
       "confidence": 0.67,
       "score": 47,
       "annual_eur": 15.63,
-      "forum_url": "https://lowseek.ai/d/1375"
+      "forum_url": "https://lowseek.ai/d/1379"
     },
     {
       "thread_id": "222186",
@@ -5284,7 +5284,7 @@
       "vendor_url": null,
       "author": "CaliberNode",
       "posted": "Sat, 12 Sep 2026 15:30:56 +0000",
-      "age_days": 34,
+      "age_days": 35,
       "age_status": "STALE",
       "availability": "UNVERIFIED_STALE",
       "replies": null,
