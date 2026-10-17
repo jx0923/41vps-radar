@@ -2,29 +2,43 @@
 
 用途
 ----
-把厂商域名映射到**你自己的推广链接**。用户通过该链接下单，你拿佣金。
+在不牺牲「直达具体套餐页」的前提下带上推广参数，用户下单你拿佣金。
 
-设计原则
---------
-1. **默认空表**：不配置就完全不影响现有行为（用原始链接）。
-2. **域名级映射**：按厂商域名匹配，与帖子内容无关，规则简单可预测。
-3. **不猜参数**：每家的 AFF 参数格式不同，必须显式给出完整链接，
-   不做 `?aff=` 这类拼接猜测 —— 拼错会导致佣金丢失且难以发现。
-4. **可灰度**：填一家生效一家，其余继续走原链接。
+两种模式（按厂商配置自动选择）
+------------------------------
+**A. 参数追加（推荐）** —— 保留原帖的具体套餐/加购页，把推广参数拼上去：
+
+    https://deluxhost.net/en/cart?add=storage-1&cycle=monthly
+      -> https://deluxhost.net/en/cart?add=storage-1&cycle=monthly&ref=M7U4WHX5
+
+  好处：用户一步到套餐页，转化率最高；佣金凭参数归属。
+
+**B. 全量替换（兜底）** —— 厂商只支持专属入口时，只能跳到该入口：
+
+    https://racknerd.com/ctrl-control-panel
+      -> https://my.racknerd.com/aff.php?aff=21559
+
+  代价：用户落在首页，要自己找套餐。
 
 配置方式
 --------
-环境变量 ``LDR_AFFILIATES`` 用 JSON 给出，或直接改下方 ``DEFAULTS``：
+环境变量 ``LDR_AFFILIATES``（JSON），值是：
 
-    LDR_AFFILIATES='{"racknerd.com": "https://my.racknerd.com/aff.php?aff=123"}'
+- **字符串**：完整推广链接 -> 走 B（全量替换）
+- **对象**：``{"param": "ref", "value": "M7U4WHX5"}`` -> 走 A（追加参数）
+  可选 ``"landing"`` 指定该厂商的专属落地页
 
-键是**域名**（可带或不带 www），值是**完整的推广链接**。
+例：
 
-合规提醒
+    LDR_AFFILIATES='{
+      "deluxhost.net": {"param": "ref", "value": "M7U4WHX5"},
+      "racknerd.com": "https://my.racknerd.com/aff.php?aff=21559"
+    }'
+
+安全默认
 --------
-多数厂商禁止：自己下单赚自己佣金、用脚本批量注册、投竞品品牌词广告。
-启用前请确认各家条款。另外建议在站点上**明示**「部分链接含推广佣金」——
-佣金由商家从利润中出，不影响用户支付价格。
+不配置就**完全不影响现有行为**（用原始链接）。
+JSON 写错时静默回退空表 —— 最坏只是没有推广链接，不会中断抓取。
 """
 
 from __future__ import annotations
@@ -32,17 +46,31 @@ from __future__ import annotations
 import json
 import os
 import re
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
-# 域名 -> 完整推广链接。
-# 例：'racknerd.com': 'https://my.racknerd.com/aff.php?aff=123'
-DEFAULTS: dict[str, str] = {}
+# 域名 -> 配置。字符串 = 完整链接（整体替换）；dict = 追加参数。
+#
+# 模式选择依据：**看厂商给的链接是什么形式**
+#   - 独立入口（如 my.racknerd.com/aff.php?aff=）-> 只能整体替换，
+#     因为原站路径不接受该参数。
+#   - 原站 + 查询参数（如 deluxhost.net/?ref=）-> 可追加参数，
+#     从而保留「具体套餐页」这一层，转化率更高。
+DEFAULTS: dict[str, object] = {
+    # RackNerd：推广入口在独立子域 my.racknerd.com，只能整体替换
+    "racknerd.com": "https://my.racknerd.com/aff.php?aff=21559",
+    # CloudCone：ref 参数作用于原站
+    "cloudcone.com": {"param": "ref", "value": "14691"},
+    # GreenCloud：billing 路径下的 aff 参数
+    "greencloudvps.com": {"param": "aff", "value": "10361"},
+    # DeluxHost：ref 参数作用于原站
+    "deluxhost.net": {"param": "ref", "value": "M7U4WHX5"},
+}
 
 
-def _load() -> dict[str, str]:
+def _load() -> dict[str, object]:
     """读取映射：环境变量优先，其次模块内 DEFAULTS。
 
-    环境变量解析失败时**静默回退到 DEFAULTS** —— 配置写错不应导致
-    抓取流程失败，最坏情况只是没有推广链接。
+    解析失败时静默回退 —— 配置写错不应导致抓取流程失败。
     """
     raw = os.getenv("LDR_AFFILIATES", "").strip()
     if not raw:
@@ -53,27 +81,62 @@ def _load() -> dict[str, str]:
         return dict(DEFAULTS)
     if not isinstance(data, dict):
         return dict(DEFAULTS)
+
     out = dict(DEFAULTS)
     for k, v in data.items():
-        if isinstance(k, str) and isinstance(v, str) and v.startswith("http"):
-            out[k.strip().lower()] = v.strip()
+        if not isinstance(k, str) or not k.strip():
+            continue
+        key = k.strip().lower()
+        if isinstance(v, str) and v.startswith("http"):
+            out[key] = v.strip()
+        elif isinstance(v, dict) and v.get("param") and v.get("value"):
+            item = {"param": str(v["param"]).strip(),
+                    "value": str(v["value"]).strip()}
+            landing = v.get("landing")
+            if isinstance(landing, str) and landing.startswith("http"):
+                item["landing"] = landing.strip()
+            out[key] = item
     return out
 
 
 def _domain_of(url: str) -> str:
-    """从 URL 取可注册域（www. 视为同一家）。"""
-    m = re.match(r"https?://(?:www\.)?([a-z0-9][a-z0-9\-\.]*)", url or "",
-                 re.I)
+    m = re.match(r"https?://(?:www\.)?([a-z0-9][a-z0-9\-\.]*)", url or "", re.I)
     return m.group(1).lower().rstrip(".") if m else ""
 
 
-def rewrite(vendor_url: str | None,
-            mapping: dict[str, str] | None = None) -> str | None:
-    """如果该厂商配置了推广链接，替换之；否则原样返回。
+def _match(url: str, table: dict[str, object]):
+    """按 精确域名 -> 去子域 的顺序找配置，返回 (配置, 命中的域名)。"""
+    dom = _domain_of(url)
+    if not dom:
+        return None, None
+    if dom in table:
+        return table[dom], dom
+    parts = dom.split(".")
+    for i in range(1, len(parts) - 1):
+        cand = ".".join(parts[i:])
+        if cand in table:
+            return table[cand], cand
+    return None, None
 
-    匹配顺序：
-      1) 完整域名精确匹配（a.b.com）
-      2) 去掉子域后匹配（b.com）—— 兼容 my.xxx.com、billing.xxx.com
+
+def append_param(url: str, param: str, value: str) -> str:
+    """在 URL 上追加查询参数（保留原有参数与路径）。
+
+    若该参数已存在，**替换其值**而不是重复追加 —— 避免出现
+    ``?ref=old&ref=new`` 这类让厂商解析歧义的链接。
+    """
+    parts = urlsplit(url)
+    q = dict(parse_qsl(parts.query, keep_blank_values=True))
+    q[param] = value
+    return urlunsplit((parts.scheme, parts.netloc, parts.path,
+                       urlencode(q), parts.fragment))
+
+
+def rewrite(vendor_url: str | None,
+            mapping: dict[str, object] | None = None) -> str | None:
+    """把厂商链接改写为带推广参数的版本；未配置则原样返回。
+
+    优先「保留具体页面 + 追加参数」，厂商只提供专属入口时才整体替换。
     """
     if not vendor_url:
         return vendor_url
@@ -81,28 +144,25 @@ def rewrite(vendor_url: str | None,
     if not table:
         return vendor_url
 
-    dom = _domain_of(vendor_url)
-    if not dom:
+    cfg, _hit = _match(vendor_url, table)
+    if cfg is None:
         return vendor_url
 
-    # 精确匹配
-    if dom in table:
-        return table[dom]
+    # 完整链接模式：整体替换
+    if isinstance(cfg, str):
+        return cfg
 
-    # 去掉子域：a.b.com -> b.com
-    parts = dom.split(".")
-    for i in range(1, len(parts) - 1):
-        cand = ".".join(parts[i:])
-        if cand in table:
-            return table[cand]
-
-    return vendor_url
+    # 参数追加模式：保留路径，仅加参数
+    return append_param(vendor_url, cfg["param"], cfg["value"])
 
 
-def summary(mapping: dict[str, str] | None = None) -> str:
-    """返回一行人类可读的配置摘要，便于启动日志确认。"""
+def summary(mapping: dict[str, object] | None = None) -> str:
+    """一行人类可读摘要，便于启动日志确认。"""
     table = _load() if mapping is None else mapping
     if not table:
         return "未配置推广链接（使用原始链接）"
-    return "已配置 %d 家厂商的推广链接：%s" % (
-        len(table), "、".join(sorted(table)))
+    parts = []
+    for k in sorted(table):
+        parts.append("%s(%s)" % (
+            k, "追加参数" if isinstance(table[k], dict) else "整体替换"))
+    return "已配置 %d 家：%s" % (len(table), "、".join(parts))
