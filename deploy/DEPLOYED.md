@@ -68,6 +68,12 @@ sudo docker run -d \
 `/opt/vps-deals/conf/default.conf`：
 
 ```nginx
+# .webmanifest 的正确 MIME 类型（nginx 内置 mime.types 未映射此扩展）。
+# 不影响功能，但浏览器/PWA 校验更规范。
+types {
+    application/manifest+json  webmanifest;
+}
+
 server {
     listen 80;
     server_name _;
