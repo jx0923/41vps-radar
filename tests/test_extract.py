@@ -460,6 +460,25 @@ def test_deep_link_filter_rules():
     assert not ok("https://status.x.com/path")
 
 
+def test_vendor_url_skips_compliance_pages():
+    """合规页不是购买入口。
+
+    实测踩到：ravnix.gg/aup（可接受使用政策）。
+    """
+    body = ('<a href="https://ravnix.gg/aup">AUP</a>'
+            '<a href="https://ravnix.gg/kvm-vps">KVM</a>')
+    out = extract_vendor_url("ravnix.gg", body)
+    assert "/aup" not in out
+    assert "kvm" in out
+
+
+def test_vendor_url_keeps_my_subdomain_purchase_page():
+    """my./billing./portal. 这类子域常是购买页，不能误伤。"""
+    body = '<a href="https://my.example.com/store/vps">买</a>'
+    out = extract_vendor_url("example.com", body)
+    assert "my.example.com" in out
+
+
 def test_build_record_vendor_url_none_when_unknown():
     item = {
         "thread_id": "2", "source": "let",

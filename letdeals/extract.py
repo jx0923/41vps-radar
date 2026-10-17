@@ -423,6 +423,9 @@ NON_OFFER_HINTS = (
     "status", "support", "help", "docs", "wiki", "faq", "terms",
     "policy", "career", "careers", "login", "signin", "register",
     "signup", "logout", "account", "profile",
+    # 合规/条款类（实测踩到 ravnix.gg/aup）
+    "aup", "acceptable-use", "refund", "dmca", "abuse", "gdpr",
+    "cookie", "disclaimer", "imprint",
 )
 
 
