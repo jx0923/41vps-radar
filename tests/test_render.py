@@ -295,7 +295,7 @@ def test_link_rendering_both_cases(tmp_path):
     html = open(os.path.join(tmp_path, "index.html"), encoding="utf-8").read()
     # 主链接（论坛）与次链接（原帖）的样式必须存在
     assert ".lk-main" in html and ".lk-sub" in html
-    assert "论坛中文版" in html
+    assert "中文详情" in html
     assert "查看原帖" in html
     # 渲染时按 forum_url 分支
     assert "if(r.forum_url)" in html

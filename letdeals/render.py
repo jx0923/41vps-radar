@@ -262,7 +262,7 @@ a.pv-link:hover{color:var(--accent);border-bottom-color:var(--accent)}
 .tag{display:inline-block;background:var(--chip);border-radius:5px;
   padding:1px 6px;font-size:11.5px;margin-right:4px;
   font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-/* 详情底部的链接区：主链接（论坛中文版）实心、次链接（原帖）描边，
+/* 详情底部的链接区：主链接（中文详情）实心、次链接（原帖）描边，
    视觉上引导用户先看论坛，同时保留核对原帖的入口。 */
 .links{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .lk{display:inline-block;padding:5px 12px;border-radius:6px;
@@ -527,13 +527,13 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;line-height:1.9}
         h+='</div>';
       }
     }
-    // 链接区：优先引导到论坛中文版，同时保留原帖供核对。
+    // 链接区：优先引导到论坛的中文详情，同时保留原帖供核对。
     // 站点建站早于发帖，所以 forum_url 来自上一轮结果；没有对应
     // 帖子时只显示原帖链接，不会出现死链。
     h+='<div class="links">';
     if(r.forum_url){
       h+='<a class="lk lk-main" href="'+esc(r.forum_url)+
-         '" target="_blank" rel="noopener">论坛中文版 &rarr;</a>';
+         '" target="_blank" rel="noopener">中文详情 &rarr;</a>';
       h+='<a class="lk lk-sub" href="'+esc(r.url)+
          '" target="_blank" rel="noopener">原帖 &rarr;</a>';
     } else {
