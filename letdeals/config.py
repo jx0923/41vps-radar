@@ -63,6 +63,32 @@ SITE_DESC = _env(
 SITE_URL = _env("LDR_SITE_URL", "").rstrip("/")
 SITE_FOOTER = _env("LDR_SITE_FOOTER", "")
 
+# 页头的附加链接，格式 "名称|地址"，多项用逗号分隔。
+# 例：LDR_HEADER_LINKS="GitHub|https://github.com/x/y, Telegram|https://t.me/z"
+# 留空则不显示 —— 不影响现有布局。
+HEADER_LINKS_RAW = _env(
+    "LDR_HEADER_LINKS",
+    "GitHub|https://github.com/lowseekai/let-deals-radar,"
+    " Telegram 频道|https://t.me/LowSeekNews",
+)
+
+
+def _parse_header_links(raw: str) -> list[tuple[str, str]]:
+    """把 "名称|地址,..." 解析成 [(名称, 地址)]，非法项跳过。"""
+    out: list[tuple[str, str]] = []
+    for chunk in (raw or "").split(","):
+        chunk = chunk.strip()
+        if not chunk or "|" not in chunk:
+            continue
+        name, url = chunk.split("|", 1)
+        name, url = name.strip(), url.strip()
+        if name and url.startswith(("http://", "https://")):
+            out.append((name, url))
+    return out
+
+
+HEADER_LINKS = _parse_header_links(HEADER_LINKS_RAW)
+
 
 # --------------------------------------------------------------------------
 # 数据源

@@ -153,6 +153,19 @@ def _json_for_script(obj) -> str:
             .replace("&", "\\u0026"))
 
 
+def _header_links_html() -> str:
+    """渲染页头附加链接。未配置时返回空串（不影响布局）。"""
+    links = getattr(config, "HEADER_LINKS", None) or []
+    if not links:
+        return ""
+    parts = []
+    for name, url in links:
+        parts.append('<span><a href="%s" target="_blank" rel="noopener">%s</a>'
+                     '</span>' % (html.escape(url, quote=True),
+                                  html.escape(name)))
+    return "\n    ".join(parts)
+
+
 SITE_TEMPLATE = r"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -301,6 +314,7 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;line-height:1.9}
     <span>共 <b id="m-total">@@COUNT@@</b> 条</span>
     <span>生成于 <b>@@GENERATED@@</b></span>
     <span><a href="data/deals.json">原始 JSON</a></span>
+    @@HEADER_LINKS@@
   </div>
 </header>
 
@@ -668,6 +682,7 @@ def build_site(payload: dict, out_dir=None, verbose: bool = True) -> str:
                 .replace("@@EVENT_CN@@", json.dumps(EVENT_CN, ensure_ascii=False))
                 .replace("@@AVAIL_CN@@", json.dumps(AVAIL_CN, ensure_ascii=False))
                 .replace("@@FXNOTE@@", html.escape(config.FX_NOTE))
+                .replace("@@HEADER_LINKS@@", _header_links_html())
                 .replace("@@FOOTER@@",
                          html.escape(config.SITE_FOOTER) if config.SITE_FOOTER
                          else ""))

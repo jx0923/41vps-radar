@@ -289,6 +289,48 @@ def test_forum_links_corrupt_file_is_safe(tmp_path):
         mp.undo()
 
 
+def test_header_links_rendered(tmp_path):
+    """页头应渲染配置的附加链接（GitHub / Telegram）。"""
+    render.build_site(_sample_payload(), str(tmp_path), verbose=False)
+    html = open(os.path.join(tmp_path, "index.html"), encoding="utf-8").read()
+
+    links = render.config.HEADER_LINKS
+    assert links, "默认应配置页头链接"
+    for name, url in links:
+        assert name in html, "缺少链接名：%s" % name
+        assert url in html, "缺少链接地址：%s" % url
+    assert 'rel="noopener"' in html
+
+
+def test_header_links_empty_is_safe(tmp_path):
+    """未配置页头链接时不报错、不留占位符。"""
+    import pytest as _pytest
+    mp = _pytest.MonkeyPatch()
+    mp.setattr(render.config, "HEADER_LINKS", [])
+    try:
+        render.build_site(_sample_payload(), str(tmp_path), verbose=False)
+    finally:
+        mp.undo()
+    html = open(os.path.join(tmp_path, "index.html"), encoding="utf-8").read()
+    assert "@@HEADER_LINKS@@" not in html
+
+
+def test_parse_header_links():
+    """解析 "名称|地址,..."，非法项跳过。"""
+    from letdeals.config import _parse_header_links
+    got = _parse_header_links(
+        "GitHub|https://github.com/x, Bad|not-a-url, ,"
+        " TG|https://t.me/y")
+    assert got == [("GitHub", "https://github.com/x"),
+                   ("TG", "https://t.me/y")]
+
+
+def test_parse_header_links_empty():
+    from letdeals.config import _parse_header_links
+    assert _parse_header_links("") == []
+    assert _parse_header_links("没有分隔符") == []
+
+
 def test_link_rendering_both_cases(tmp_path):
     """链接区两种形态：有论坛帖=主+次两个；无=只有原帖。"""
     render.build_site(_sample_payload(), str(tmp_path), verbose=False)
