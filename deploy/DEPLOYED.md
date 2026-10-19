@@ -3,6 +3,14 @@
 本文档记录**实际在线运行**的部署方式。与 `DEPLOY.md` 里的通用方案不同，
 这里是这台机器的**具体实现**，用于故障恢复与后续维护。
 
+> **关于敏感信息**
+> 本文档**不包含**服务器 IP、SSH 端口、账号等连接信息 —— 这是一个公开
+> 仓库。真实的连接值统一放在 GitHub 仓库的 Variables / Secrets 里
+> （见下方「GitHub 配置」），那里才是唯一可信来源。
+>
+> 本文用占位符表示：`<HOST>` `<PORT>` `<USER>`。需要实际连接时，
+> 去 GitHub 的 Variables 页面查看对应值。
+
 ---
 
 ## 架构
@@ -11,7 +19,7 @@
 GitHub Actions（云 IP，避开 Cloudflare 拦截）
     │  每 6 小时：抓取 → 抽取 → 生成静态站
     │  再提交回仓库 git
-    ↓  rsync over SSH（端口 28475）
+    ↓  rsync over SSH（端口 <PORT>，见 GitHub Variables）
 宿主机 /opt/vps-deals/site/          ← 纯静态文件，可被 Actions 直接更新
     ↓  只读 bind mount
 容器 vps-deals-web (nginx:alpine)    ← 监听 127.0.0.1:18310，无状态
@@ -28,9 +36,9 @@ https://vps.lowseek.ai               ← Cloudflare 代理 + Let's Encrypt 证�
 
 | 项目 | 值 |
 |---|---|
-| 服务器 | `15.204.92.196`（scrapify-vps） |
-| SSH 端口 | `28475`（非标准） |
-| 部署用户 | `debian` |
+| 服务器 | `<HOST>`（见 GitHub Variables `LDR_DEPLOY_HOST`） |
+| SSH 端口 | `<PORT>`（见 `LDR_DEPLOY_PORT`，非标准端口） |
+| 部署用户 | `<USER>`（见 `LDR_DEPLOY_USER`） |
 | 静态目录 | `/opt/vps-deals/site/` |
 | 容器名 | `vps-deals-web` |
 | 容器端口 | `127.0.0.1:18310` → 容器内 `80` |
@@ -38,6 +46,9 @@ https://vps.lowseek.ai               ← Cloudflare 代理 + Let's Encrypt 证�
 | 配置文件 | `/opt/vps-deals/conf/default.conf` |
 | 1Panel 站点 | `vps.lowseek.ai`（反向代理类型） |
 | 域名 | `https://vps.lowseek.ai`（Cloudflare 代理） |
+
+> 上表中带 `<...>` 的三项是**连接凭据的一部分**，只存在于 GitHub
+> Variables。本文档只描述「怎么部署」，不记录「连哪台机器」。
 
 ---
 
@@ -114,12 +125,15 @@ server {
 |---|---|
 | `LDR_SITE_TITLE` | `LowSeek 优惠雷达` |
 | `LDR_SITE_URL` | `https://vps.lowseek.ai` |
-| `LDR_SITE_DESC` | `自动汇总 LowEndTalk / LowEndBox 的 VPS 优惠活动，标注折扣力度与库存状态。` |
+| `LDR_SITE_DESC` | `自动汇总公开渠道的 VPS 优惠活动，标注折扣力度与库存状态。` |
 | `LDR_SITE_FOOTER` | `LowSeek 低价资源源头社区` |
-| `LDR_DEPLOY_HOST` | `15.204.92.196` |
-| `LDR_DEPLOY_USER` | `debian` |
+| `LDR_DEPLOY_HOST` | **服务器地址**（不记录在文档里） |
+| `LDR_DEPLOY_USER` | **部署账号** |
 | `LDR_DEPLOY_PATH` | `/opt/vps-deals/site/` |
-| `LDR_DEPLOY_PORT` | `28475` |
+| `LDR_DEPLOY_PORT` | **SSH 端口**（非标准） |
+
+> 加粗三项的具体值**只在 GitHub Variables 里**。本文档不记录，
+> 因为在公开仓库里写死服务器地址 + 端口等于公开攻击面。
 
 **Secrets**：
 
@@ -130,8 +144,8 @@ server {
 **部署专用密钥**（与个人密钥分离，可单独吊销）：
 
 - 公钥注释：`github-actions-vps-deals`
-- 已追加到服务器 `/home/debian/.ssh/authorized_keys`
-- 原个人密钥注释 `scrapify-vps` **保持不动**
+- 已追加到服务器部署用户的 `~/.ssh/authorized_keys`
+- 原个人密钥**保持不动**（不要动它，否则你自己也登不进去）
 
 ---
 
@@ -141,7 +155,7 @@ server {
    - 主域名：`vps.lowseek.ai`
    - 代理地址：`http://127.0.0.1:18310`
 2. 站点配置 → **HTTPS** → 申请 Let's Encrypt 证书
-3. Cloudflare：`vps` A 记录 → `15.204.92.196`，代理状态**开启**
+3. Cloudflare：`vps` A 记录 → **本服务器的公网地址**，代理状态**开启**
 4. **Cloudflare SSL/TLS 模式必须为 `Full (strict)`**，否则无限重定向
 
 ---
