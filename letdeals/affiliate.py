@@ -9,14 +9,14 @@
 **A. 参数追加（推荐）** —— 保留原帖的具体套餐/加购页，把推广参数拼上去：
 
     https://deluxhost.net/en/cart?add=storage-1&cycle=monthly
-      -> https://deluxhost.net/en/cart?add=storage-1&cycle=monthly&ref=M7U4WHX5
+      -> https://deluxhost.net/en/cart?add=storage-1&cycle=monthly&ref=ABC123
 
   好处：用户一步到套餐页，转化率最高；佣金凭参数归属。
 
 **B. 全量替换（兜底）** —— 厂商只支持专属入口时，只能跳到该入口：
 
     https://racknerd.com/ctrl-control-panel
-      -> https://my.racknerd.com/aff.php?aff=21559
+      -> https://my.racknerd.com/aff.php?aff=123
 
   代价：用户落在首页，要自己找套餐。
 
@@ -25,14 +25,14 @@
 环境变量 ``LDR_AFFILIATES``（JSON），值是：
 
 - **字符串**：完整推广链接 -> 走 B（全量替换）
-- **对象**：``{"param": "ref", "value": "M7U4WHX5"}`` -> 走 A（追加参数）
+- **对象**：``{"param": "ref", "value": "ABC123"}`` -> 走 A（追加参数）
   可选 ``"landing"`` 指定该厂商的专属落地页
 
 例：
 
     LDR_AFFILIATES='{
-      "deluxhost.net": {"param": "ref", "value": "M7U4WHX5"},
-      "racknerd.com": "https://my.racknerd.com/aff.php?aff=21559"
+      "deluxhost.net": {"param": "ref", "value": "ABC123"},
+      "racknerd.com": "https://my.racknerd.com/aff.php?aff=123"
     }'
 
 安全默认
@@ -56,14 +56,9 @@ from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 #   - 原站 + 查询参数（如 deluxhost.net/?ref=）-> 可追加参数，
 #     从而保留「具体套餐页」这一层，转化率更高。
 DEFAULTS: dict[str, object] = {
-    # RackNerd：推广入口在独立子域 my.racknerd.com，只能整体替换
-    "racknerd.com": "https://my.racknerd.com/aff.php?aff=21559",
-    # CloudCone：ref 参数作用于原站
-    "cloudcone.com": {"param": "ref", "value": "14691"},
-    # GreenCloud：billing 路径下的 aff 参数
-    "greencloudvps.com": {"param": "aff", "value": "10361"},
-    # DeluxHost：ref 参数作用于原站
-    "deluxhost.net": {"param": "ref", "value": "M7U4WHX5"},
+    # 例：
+    # "racknerd.com": "https://my.racknerd.com/aff.php?aff=123",
+    # "deluxhost.net": {"param": "ref", "value": "ABC123"},
 }
 
 

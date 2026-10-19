@@ -20,7 +20,7 @@ from letdeals import affiliate
 def _clean_env(monkeypatch):
     """清空环境变量，并清空模块内 DEFAULTS。
 
-    项目里 DEFAULTS 已填入真实推广链接（线上在用），
+    部署者可能在 DEFAULTS 里填入真实推广链接，
     但测试需要从「未配置」这个基线开始，因此这里显式清空。
     """
     monkeypatch.delenv("LDR_AFFILIATES", raising=False)

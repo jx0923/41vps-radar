@@ -66,11 +66,7 @@ SITE_FOOTER = _env("LDR_SITE_FOOTER", "")
 # 页头的附加链接，格式 "名称|地址"，多项用逗号分隔。
 # 例：LDR_HEADER_LINKS="GitHub|https://github.com/x/y, Telegram|https://t.me/z"
 # 留空则不显示 —— 不影响现有布局。
-HEADER_LINKS_RAW = _env(
-    "LDR_HEADER_LINKS",
-    "GitHub|https://github.com/lowseekai/let-deals-radar,"
-    " Telegram 频道|https://t.me/LowSeekNews",
-)
+HEADER_LINKS_RAW = _env("LDR_HEADER_LINKS", "")
 
 
 def _parse_header_links(raw: str) -> list[tuple[str, str]]:
