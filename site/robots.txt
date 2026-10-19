@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vps.lowseek.ai/sitemap.xml
+Sitemap: https://41vps.com/sitemap.xml
