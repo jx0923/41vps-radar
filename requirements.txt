@@ -1,0 +1,9 @@
+# 运行时依赖：无
+#
+# 本项目**只使用 Python 标准库**，可直接运行：
+#
+#     python -m letdeals
+#
+# 要求 Python >= 3.10（代码使用了 `str | None` 等新语法）。
+#
+# 开发/测试依赖见 requirements-dev.txt

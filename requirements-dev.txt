@@ -1,0 +1,12 @@
+# 核心运行时：零第三方依赖，仅需 Python 3.10+
+# （3.10 是最低版本，因为代码用了 `X | None` 这类新语法）
+
+# 以下是**可选**的开发/工具依赖，不装也能跑主程序。
+
+# 测试
+pytest>=7.0
+
+# 仅 tools/ 下的辅助脚本需要：
+#   tools/render_preview.py  生成 preview.png 预览图
+#   tools/make_icons.py      从源图生成多尺寸站点图标
+Pillow>=10.0
