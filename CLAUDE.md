@@ -56,4 +56,4 @@ sources.fetch_source  →  replies.fetch_thread_replies (仅 LET)  →  extract.
 - **测试夹具**：`tests/fixtures/*.xml` 是精简的稳定样本。黄金样本是 BERO 十周年帖（`#221713`），表格重建必须还原其套餐（Anniversary XXL = `8C/32G/300G/25TB/€129`，期望值在 `tests/conftest.py`）。
 - **`legacy/` 只读**：仅供 `tools/regress.py` 回归比对，不参与运行和测试；修 bug 改 `letdeals/`。
 - `.gitattributes` 强制 LF（尤其 `*.sh`，CRLF 会让 CI 报 bad interpreter）。
-- 部署方案（Actions 抓取 + rsync 到自有服务器，或服务器 cron）见 `deploy/DEPLOY.md`；推荐 Actions 是因为 Cloudflare 易拦截固定云 IP。
+- 部署方案（Actions 抓取 + rsync 到自有服务器 / Cloudflare Pages Direct Upload，或服务器 cron）见 `deploy/DEPLOY.md`；推荐 Actions 是因为 Cloudflare 易拦截固定云 IP。新增 `LDR_*` 配置项若要在 CI 生效，必须同时加到 `update.yml` 抓取步骤的 `env`。

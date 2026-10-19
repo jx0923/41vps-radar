@@ -138,11 +138,18 @@ RECENT_DAYS: ${{ github.event.inputs.recent_days || '90' }}
 | `LDR_SITE_URL` | `https://deals.example.com` |
 | `LDR_SITE_DESC` | `自动汇总 VPS 优惠活动` |
 | `LDR_SITE_FOOTER` | `联系我：@yourname` |
+| `LDR_HEADER_LINKS` | `GitHub\|https://github.com/x/y, Telegram\|https://t.me/z` |
+| `LDR_AFFILIATES` | `{"racknerd.com":"https://my.racknerd.com/aff.php?aff=123"}` |
 
 > 设置 `LDR_SITE_URL` 后会生成 canonical 链接、绝对 sitemap URL，
 > 并在 `robots.txt` 加 Sitemap 行。
+>
+> `LDR_HEADER_LINKS` 留空时页头不显示附加链接；
+> `LDR_AFFILIATES` 的格式见 [docs/AFFILIATE.md](../docs/AFFILIATE.md)。
 
 ### 6.2 设置部署目标
+
+二选一（也可同时配置）：**自有服务器**（下面）或 **Cloudflare Pages**（见 6.3）。
 
 同页继续加（先在服务器上建好目录和 SSH 密钥）：
 
@@ -163,6 +170,25 @@ RECENT_DAYS: ${{ github.event.inputs.recent_days || '90' }}
 `已推送到 deploy@1.2.3.4:/var/www/deals/`。
 
 > 服务器端的 Nginx 配置与目录准备见 [DEPLOY.md](DEPLOY.md)。
+
+### 6.3 改用 Cloudflare Pages 托管（无需服务器）
+
+**Secrets** 标签页加两个：
+
+| 名称 | 内容 |
+|---|---|
+| `CLOUDFLARE_API_TOKEN` | 权限为 **Account → Cloudflare Pages → Edit** 的 API Token |
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare 账户 ID |
+
+**Variables** 标签页加一个：
+
+| 名称 | 示例值 |
+|---|---|
+| `LDR_CF_PAGES_PROJECT` | `41vps`（项目不存在时首次运行会自动创建） |
+
+**验证点**：下次运行后，`Deploy to Cloudflare Pages` 步骤变绿，
+`https://<项目名>.pages.dev` 可以打开。然后在 Pages 项目的 **Custom domains**
+里绑定自有域名。详见 [DEPLOY.md](DEPLOY.md) 的方案 C。
 
 ---
 

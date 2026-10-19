@@ -1,6 +1,6 @@
 name: Update deals
 
-# 定时抓取 → 生成站点 → 提交回仓库 →（可选）推送到自有服务器
+# 定时抓取 → 生成站点 → 提交回仓库 →（可选）发布到 Cloudflare Pages / 推送到自有服务器
 #
 # 为什么用 GitHub Actions 抓取而不是自有服务器：
 #   Actions 每次运行都是**不同的云 IP**，可避开 Cloudflare 对固定 IP 的拦截；
@@ -56,6 +56,9 @@ jobs:
           LDR_SITE_URL: ${{ vars.LDR_SITE_URL }}
           LDR_SITE_DESC: ${{ vars.LDR_SITE_DESC }}
           LDR_SITE_FOOTER: ${{ vars.LDR_SITE_FOOTER }}
+          # 页头链接（"名称|地址,..."）与推广链接映射（JSON）；留空用代码默认值
+          LDR_HEADER_LINKS: ${{ vars.LDR_HEADER_LINKS }}
+          LDR_AFFILIATES: ${{ vars.LDR_AFFILIATES }}
           # 抓取参数：手动触发时用输入值，定时触发时用默认值
           WITH_REPLIES: ${{ github.event.inputs.with_replies || '1' }}
           RECENT_DAYS: ${{ github.event.inputs.recent_days || '90' }}
@@ -135,6 +138,35 @@ jobs:
             git commit -m "chore: refresh deals [skip ci]"
           fi
           git push
+
+      # 可选：发布到 Cloudflare Pages（配置 LDR_CF_PAGES_PROJECT 后自动启用）
+      #
+      # 用 Direct Upload 主动上传，而不是让 Pages 连接仓库自动构建：
+      # 发布时机由本工作流决定（只在测试通过、记录数非 0 后才上传），
+      # 不依赖 Pages Git 集成对 [skip ci] 等提交标记的处理。
+      - name: Deploy to Cloudflare Pages
+        if: ${{ vars.LDR_CF_PAGES_PROJECT != '' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PROJECT: ${{ vars.LDR_CF_PAGES_PROJECT }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "::warning::未配置 CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID，跳过部署"
+            exit 0
+          fi
+          WRANGLER="npx --yes wrangler@4"
+          # 首次运行时项目不存在：自动创建，生产分支设为 main，
+          # 与下面 --branch=main 对应，部署即为生产环境
+          # 先取完整输出再匹配：Actions 的 bash 开了 pipefail，
+          # 直接 `list | grep -q` 时 grep 提前退出会让上游收到 SIGPIPE 而误判
+          PROJECTS=$($WRANGLER pages project list)
+          if ! grep -qw -- "$PROJECT" <<<"$PROJECTS"; then
+            echo "Pages 项目 $PROJECT 不存在，创建中 ..."
+            $WRANGLER pages project create "$PROJECT" --production-branch=main
+          fi
+          $WRANGLER pages deploy site --project-name="$PROJECT" --branch=main
+          echo "已发布到 Cloudflare Pages 项目 $PROJECT"
 
       # 可选：推送到自有服务器（配置 LDR_DEPLOY_HOST 后自动启用）
       - name: Deploy to own server

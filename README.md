@@ -167,12 +167,13 @@ LEB 是编辑博客，会混入大量非优惠内容（如「微软砍存储」�
 
 完整指南见 **[deploy/DEPLOY.md](deploy/DEPLOY.md)**。
 
-两种方案：
+三种方案：
 
 | 方案 | 抓取方 | 网站 |
 |---|---|---|
 | **A（推荐）** | GitHub Actions（云 IP，不被封） | 你的服务器 + 你的域名 |
 | B | 你的服务器（固定 IP） | 你的服务器 |
+| C | GitHub Actions | Cloudflare Pages + 你的域名（无需服务器） |
 
 > **为什么推荐 A**：论坛前面板有 Cloudflare，云主机固定 IP 被拦概率较高
 > （开发中已实测遇到 403）。Actions 每次运行都是不同云 IP，天然规避；
