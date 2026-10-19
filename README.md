@@ -48,7 +48,7 @@ letdeals/            主包
   forum.py           搬运到自己的 Flarum 论坛（旁路功能）
   render.py          Markdown + 静态站生成
   cli.py             命令行入口
-tests/               201 个 pytest 用例
+tests/               235 个 pytest 用例
 deploy/              部署脚本与指南
 tools/               分析/回归/预览辅助脚本
 legacy/              重构前的独立脚本（仅用于回归比对）
@@ -224,7 +224,7 @@ LDR_FORUM_API_KEY=xxx python -m letdeals --post-forum
 ## 开发
 
 ```bash
-python -m pytest tests -q                    # 120 个用例
+python -m pytest tests -q                    # 235 个用例
 python tools/regress.py                      # 重构回归比对（19 字段零差异）
 python tools/render_preview.py               # 生成 preview.png
 python tools/analyze_leb.py                  # 分析 LEB 真优惠 vs 新闻特征

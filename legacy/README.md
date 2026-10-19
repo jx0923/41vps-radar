@@ -39,5 +39,5 @@ python tools/regress.py
 - 这些脚本只依赖 Python 标准库，仍可独立运行
 - 它们读取的是**实时抓取缓存** `data/feed_*.xml`（已 gitignore），
   需先跑一次 `python -m letdeals` 生成
-- 行为已被 `tests/` 中 124 个用例更精确地锁定；
+- 行为已被 `tests/` 中 235 个用例更精确地锁定；
   `legacy/` 仅作历史参照，**修 bug 请改 `letdeals/`，不要改这里**

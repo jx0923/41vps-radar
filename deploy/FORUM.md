@@ -238,7 +238,7 @@ Member(3)     tag21.viewForum                          ← 只能看
 
 ## 测试
 
-`tests/test_forum.py`（22 个用例）覆盖：
+`tests/test_forum.py`（48 个用例）覆盖：
 
 - 总开关关闭时零调用
 - 缺 API Key 时中止（**即使注入了测试 client 也要拦住**）

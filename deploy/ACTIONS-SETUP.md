@@ -7,7 +7,7 @@
 ## 第 0 步：本地确认（已完成 ✅）
 
 ```bash
-python -m pytest tests -q          # 应显示 124 passed
+python -m pytest tests -q          # 应显示 235 passed
 bash deploy/run_pipeline.sh        # 应生成 site/ 与 data/deals.json
 ```
 
@@ -64,7 +64,7 @@ Actions → 左侧 **Update deals** → 右侧 **Run workflow** 按钮：
 ✅ Checkout
 ✅ Setup Python
 ✅ Install test dependency
-✅ Run tests              ← 124 passed
+✅ Run tests              ← 235 passed
 ✅ Fetch, extract and build site
 ✅ Verify output is non-empty   ← 记录数: N
 ✅ Upload site artifact
